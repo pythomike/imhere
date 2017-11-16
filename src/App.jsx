@@ -8,10 +8,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Sup Mothafuckaaaaaaaz</h1>
+          <h1 className="App-title">Hi</h1>
         </header>
         <p className="App-intro">
-          This too way too fucking long to get set up
+          World
         </p>
       </div>
     );
