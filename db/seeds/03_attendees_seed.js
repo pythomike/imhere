@@ -1,0 +1,60 @@
+
+exports.seed = function(knex, Promise) {
+  // Deletes ALL existing entries
+  return knex('attendees').del()
+    .then(function () {
+      // Inserts seed entries
+      return knex('attendees').insert([
+        {id:1,event_id:10,user_id:15},
+        {id:2,event_id:33,user_id:43},
+        {id:3,event_id:39,user_id:15},
+        {id:4,event_id:8,user_id:32},
+        {id:5,event_id:37,user_id:15},
+        {id:6,event_id:3,user_id:50},
+        {id:7,event_id:26,user_id:31},
+        {id:8,event_id:13,user_id:23},
+        {id:9,event_id:34,user_id:6},
+        {id:10,event_id:22,user_id:30},
+        {id:11,event_id:4,user_id:30},
+        {id:12,event_id:26,user_id:3},
+        {id:13,event_id:20,user_id:14},
+        {id:14,event_id:28,user_id:29},
+        {id:15,event_id:33,user_id:29},
+        {id:16,event_id:17,user_id:44},
+        {id:17,event_id:33,user_id:9},
+        {id:18,event_id:45,user_id:22},
+        {id:19,event_id:34,user_id:28},
+        {id:20,event_id:25,user_id:28},
+        {id:21,event_id:31,user_id:47},
+        {id:22,event_id:34,user_id:16},
+        {id:23,event_id:49,user_id:19},
+        {id:24,event_id:39,user_id:27},
+        {id:25,event_id:29,user_id:16},
+        {id:26,event_id:2,user_id:6},
+        {id:27,event_id:41,user_id:32},
+        {id:28,event_id:3,user_id:14},
+        {id:29,event_id:35,user_id:41},
+        {id:30,event_id:31,user_id:6},
+        {id:31,event_id:11,user_id:28},
+        {id:32,event_id:32,user_id:40},
+        {id:33,event_id:43,user_id:5},
+        {id:34,event_id:32,user_id:12},
+        {id:35,event_id:40,user_id:19},
+        {id:36,event_id:6,user_id:41},
+        {id:37,event_id:37,user_id:29},
+        {id:38,event_id:47,user_id:29},
+        {id:39,event_id:5,user_id:50},
+        {id:40,event_id:15,user_id:40},
+        {id:41,event_id:49,user_id:42},
+        {id:42,event_id:20,user_id:23},
+        {id:43,event_id:22,user_id:46},
+        {id:44,event_id:10,user_id:30},
+        {id:45,event_id:33,user_id:42},
+        {id:46,event_id:48,user_id:30},
+        {id:47,event_id:32,user_id:18},
+        {id:48,event_id:4,user_id:6},
+        {id:49,event_id:9,user_id:11},
+        {id:50,event_id:27,user_id:4}
+      ]);
+    });
+};
