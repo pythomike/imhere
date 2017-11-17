@@ -1,0 +1,60 @@
+
+exports.seed = function(knex, Promise) {
+  // Deletes ALL existing entries
+  return knex('users').del()
+    .then(function () {
+      // Inserts seed entries
+      return knex('users').insert([
+        {id:1,email:"jpowland0@smugmug.com",password:"",first_name:"Janessa",last_name:"Powland",phone_number:"349-691-7379",verified:true},
+        {id:2,email:"gbolzen1@blogtalkradio.com",password:"",first_name:"Gaylor",last_name:"Bolzen",phone_number:"230-730-2720",verified:true},
+        {id:3,email:"alarkcum2@cbc.ca",password:"",first_name:"Annnora",last_name:"Larkcum",phone_number:"401-610-8441",verified:true},
+        {id:4,email:"dlittrik3@engadget.com",password:"",first_name:"Delmer",last_name:"Littrik",phone_number:"295-862-6782",verified:false},
+        {id:5,email:"douldcott4@multiply.com",password:"",first_name:"Dagny",last_name:"Ouldcott",phone_number:"178-972-3257",verified:true},
+        {id:6,email:"afarrant5@blogtalkradio.com",password:"",first_name:"Anny",last_name:"Farrant",phone_number:"806-969-0876",verified:false},
+        {id:7,email:"bkerbler6@bloglines.com",password:"",first_name:"Brent",last_name:"Kerbler",phone_number:"654-583-1410",verified:true},
+        {id:8,email:"gyushkov7@dyndns.org",password:"",first_name:"Gayelord",last_name:"Yushkov",phone_number:"727-174-6528",verified:false},
+        {id:9,email:"eboik8@craigslist.org",password:"",first_name:"Evelyn",last_name:"Boik",phone_number:"311-485-3050",verified:true},
+        {id:10,email:"lflorez9@blinklist.com",password:"",first_name:"Lory",last_name:"Florez",phone_number:"153-226-3870",verified:false},
+        {id:11,email:"cburretta@columbia.edu",password:"",first_name:"Corry",last_name:"Burrett",phone_number:"944-915-1511",verified:false},
+        {id:12,email:"mwollardb@is.gd",password:"",first_name:"Melony",last_name:"Wollard",phone_number:"721-297-6088",verified:true},
+        {id:13,email:"sbestallc@bing.com",password:"",first_name:"Sully",last_name:"Bestall",phone_number:"549-588-3523",verified:true},
+        {id:14,email:"fprosked@thetimes.co.uk",password:"",first_name:"Farlie",last_name:"Proske",phone_number:"206-662-3123",verified:false},
+        {id:15,email:"hcoghline@blogs.com",password:"",first_name:"Hervey",last_name:"Coghlin",phone_number:"664-190-1682",verified:true},
+        {id:16,email:"rlusgdinf@tinyurl.com",password:"",first_name:"Robinetta",last_name:"Lusgdin",phone_number:"652-721-1849",verified:true},
+        {id:17,email:"rdiddamsg@msu.edu",password:"",first_name:"Rebeka",last_name:"Diddams",phone_number:"949-312-7682",verified:false},
+        {id:18,email:"tgorickeh@flavors.me",password:"",first_name:"Thia",last_name:"Goricke",phone_number:"149-822-1949",verified:true},
+        {id:19,email:"wgraundissoni@exblog.jp",password:"",first_name:"Welby",last_name:"Graundisson",phone_number:"122-331-8121",verified:true},
+        {id:20,email:"vpetrij@t-online.de",password:"",first_name:"Vonnie",last_name:"Petri",phone_number:"301-599-6126",verified:false},
+        {id:21,email:"dwellank@opensource.org",password:"",first_name:"Dewitt",last_name:"Wellan",phone_number:"580-426-9226",verified:true},
+        {id:22,email:"eschwerinl@icq.com",password:"",first_name:"Euell",last_name:"Schwerin",phone_number:"942-314-1933",verified:false},
+        {id:23,email:"blindleym@slideshare.net",password:"",first_name:"Blinnie",last_name:"Lindley",phone_number:"322-959-7201",verified:false},
+        {id:24,email:"dfautlyn@ihg.com",password:"",first_name:"Dugald",last_name:"Fautly",phone_number:"207-853-6869",verified:true},
+        {id:25,email:"ibridgelando@behance.net",password:"",first_name:"Iggy",last_name:"Bridgeland",phone_number:"202-273-5667",verified:false},
+        {id:26,email:"jscottrellp@addthis.com",password:"",first_name:"Jesus",last_name:"Scottrell",phone_number:"241-628-0029",verified:true},
+        {id:27,email:"lburvillq@amazon.co.jp",password:"",first_name:"Lulu",last_name:"Burvill",phone_number:"187-841-7514",verified:true},
+        {id:28,email:"taureliusr@pbs.org",password:"",first_name:"Tymothy",last_name:"Aurelius",phone_number:"326-991-8196",verified:false},
+        {id:29,email:"gantonognolis@mysql.com",password:"",first_name:"Giff",last_name:"Antonognoli",phone_number:"587-614-0255",verified:true},
+        {id:30,email:"jboddicet@vistaprint.com",password:"",first_name:"Jeralee",last_name:"Boddice",phone_number:"419-664-3214",verified:true},
+        {id:31,email:"lposselu@fastcompany.com",password:"",first_name:"Leighton",last_name:"Possel",phone_number:"331-477-9028",verified:true},
+        {id:32,email:"dswindlev@scribd.com",password:"",first_name:"Dori",last_name:"Swindle",phone_number:"413-984-1388",verified:false},
+        {id:33,email:"ekingsburyw@ihg.com",password:"",first_name:"Ephraim",last_name:"Kingsbury",phone_number:"136-319-5945",verified:true},
+        {id:34,email:"rbeszantx@ovh.net",password:"",first_name:"Rickert",last_name:"Beszant",phone_number:"541-232-9433",verified:false},
+        {id:35,email:"fabelsy@angelfire.com",password:"",first_name:"Fletcher",last_name:"Abels",phone_number:"577-890-2815",verified:false},
+        {id:36,email:"esonnerz@xrea.com",password:"",first_name:"Ebonee",last_name:"Sonner",phone_number:"567-140-9669",verified:false},
+        {id:37,email:"dcamock10@msu.edu",password:"",first_name:"Dianne",last_name:"Camock",phone_number:"349-764-9457",verified:true},
+        {id:38,email:"afitzackerley11@com.com",password:"",first_name:"Aubine",last_name:"Fitzackerley",phone_number:"452-338-2252",verified:false},
+        {id:39,email:"kmacknight12@deviantart.com",password:"",first_name:"Karlen",last_name:"MacKnight",phone_number:"214-590-8047",verified:true},
+        {id:40,email:"kpoltun13@youku.com",password:"",first_name:"Kilian",last_name:"Poltun",phone_number:"380-697-5966",verified:true},
+        {id:41,email:"ewyldbore14@telegraph.co.uk",password:"",first_name:"Ermin",last_name:"Wyldbore",phone_number:"177-641-7375",verified:true},
+        {id:42,email:"sbyrch15@europa.eu",password:"",first_name:"Sonnnie",last_name:"Byrch",phone_number:"619-354-9559",verified:true},
+        {id:43,email:"kmarkwelley16@histats.com",password:"",first_name:"Kathy",last_name:"Markwelley",phone_number:"504-292-3810",verified:false},
+        {id:44,email:"mbalasini17@dion.ne.jp",password:"",first_name:"Matilde",last_name:"Balasini",phone_number:"460-388-6429",verified:false},
+        {id:45,email:"cdudderidge18@constantcontact.com",password:"",first_name:"Chilton",last_name:"Dudderidge",phone_number:"442-898-7179",verified:false},
+        {id:46,email:"abortolozzi19@smh.com.au",password:"",first_name:"Alic",last_name:"Bortolozzi",phone_number:"650-859-2020",verified:true},
+        {id:47,email:"mwoodrow1a@typepad.com",password:"",first_name:"Marguerite",last_name:"Woodrow",phone_number:"470-258-2776",verified:false},
+        {id:48,email:"mfarlambe1b@4shared.com",password:"",first_name:"Maury",last_name:"Farlambe",phone_number:"574-615-6100",verified:false},
+        {id:49,email:"sofogarty1c@dedecms.com",password:"",first_name:"Serene",last_name:"O'Fogarty",phone_number:"434-623-3994",verified:true},
+        {id:50,email:"fcoast1d@ted.com",password:"",first_name:"Falito",last_name:"Coast",phone_number:"568-200-6083",verified:true}
+      ]);
+    });
+};

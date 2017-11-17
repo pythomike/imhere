@@ -1,0 +1,60 @@
+
+exports.seed = function(knex, Promise) {
+  // Deletes ALL existing entries
+  return knex('events').del()
+    .then(function () {
+      // Inserts seed entries
+      return knex('events').insert([
+        {id:1,user_id:45,location:"Mufushan",description:"Open-source non-volatile hub",total_going:33,private:true},
+        {id:2,user_id:33,location:"Brumado",description:"Stand-alone value-added support",total_going:68,private:false},
+        {id:3,user_id:61,location:"Winong",description:"Object-based dedicated monitoring",total_going:31,private:false},
+        {id:4,user_id:93,location:"Baytā al Fawqā",description:"Implemented uniform focus group",total_going:56,private:false},
+        {id:5,user_id:65,location:"Krajan",description:"Total responsive collaboration",total_going:71,private:false},
+        {id:6,user_id:46,location:"Arco de Baúlhe",description:"Total 24 hour architecture",total_going:4,private:false},
+        {id:7,user_id:33,location:"Sasar",description:"Visionary bandwidth-monitored service-desk",total_going:26,private:false},
+        {id:8,user_id:14,location:"Xiangang",description:"User-friendly composite emulation",total_going:60,private:true},
+        {id:9,user_id:70,location:"El Galpón",description:"Organic directional workforce",total_going:44,private:false},
+        {id:10,user_id:57,location:"Kromasan",description:"Public-key encompassing workforce",total_going:77,private:false},
+        {id:11,user_id:75,location:"Bandung",description:"Decentralized didactic installation",total_going:2,private:true},
+        {id:12,user_id:9,location:"Naḥf",description:"Triple-buffered zero defect standardization",total_going:59,private:true},
+        {id:13,user_id:49,location:"Makabe",description:"Grass-roots fault-tolerant knowledge base",total_going:76,private:false},
+        {id:14,user_id:80,location:"Werasari",description:"Multi-tiered static encoding",total_going:12,private:true},
+        {id:15,user_id:7,location:"Manouba",description:"Re-engineered leading edge paradigm",total_going:32,private:false},
+        {id:16,user_id:76,location:"Gogaran",description:"Reduced 5th generation customer loyalty",total_going:100,private:false},
+        {id:17,user_id:13,location:"Karanggedang",description:"Multi-channelled attitude-oriented internet solution",total_going:21,private:true},
+        {id:18,user_id:37,location:"Narva",description:"Virtual upward-trending standardization",total_going:67,private:true},
+        {id:19,user_id:55,location:"Avallon",description:"Managed bifurcated info-mediaries",total_going:92,private:false},
+        {id:20,user_id:62,location:"Tamel",description:"Enterprise-wide bi-directional service-desk",total_going:38,private:false},
+        {id:21,user_id:95,location:"Tianxingchang",description:"Mandatory clear-thinking application",total_going:84,private:false},
+        {id:22,user_id:29,location:"San Carlos de Bariloche",description:"Total composite success",total_going:92,private:false},
+        {id:23,user_id:83,location:"Spas’ke",description:"Inverse leading edge focus group",total_going:44,private:false},
+        {id:24,user_id:44,location:"Al Ain",description:"Decentralized uniform process improvement",total_going:32,private:true},
+        {id:25,user_id:75,location:"Mina Clavero",description:"Fundamental maximized architecture",total_going:16,private:false},
+        {id:26,user_id:28,location:"Den Haag",description:"Enterprise-wide contextually-based help-desk",total_going:64,private:false},
+        {id:27,user_id:47,location:"Jianshe",description:"Public-key coherent focus group",total_going:65,private:true},
+        {id:28,user_id:3,location:"Domsjö",description:"Ergonomic dedicated Graphical User Interface",total_going:90,private:false},
+        {id:29,user_id:79,location:"Vavuniya",description:"Pre-emptive real-time core",total_going:47,private:false},
+        {id:30,user_id:72,location:"Kimje",description:"Persevering motivating challenge",total_going:25,private:true},
+        {id:31,user_id:47,location:"Tayabamba",description:"Universal value-added protocol",total_going:52,private:false},
+        {id:32,user_id:89,location:"Tianjiazhai",description:"Synergistic even-keeled flexibility",total_going:58,private:false},
+        {id:33,user_id:47,location:"Zlatar",description:"Automated global knowledge user",total_going:98,private:false},
+        {id:34,user_id:83,location:"Gajrug",description:"Inverse methodical neural-net",total_going:90,private:true},
+        {id:35,user_id:15,location:"Pulangbato",description:"Compatible coherent moderator",total_going:56,private:true},
+        {id:36,user_id:89,location:"Digne-les-Bains",description:"Versatile holistic installation",total_going:38,private:false},
+        {id:37,user_id:36,location:"Mundri",description:"Down-sized bandwidth-monitored process improvement",total_going:93,private:true},
+        {id:38,user_id:72,location:"Leiyang",description:"Future-proofed reciprocal installation",total_going:93,private:false},
+        {id:39,user_id:48,location:"Sebegen",description:"Customer-focused optimizing utilisation",total_going:80,private:false},
+        {id:40,user_id:53,location:"San Jose",description:"Visionary neutral leverage",total_going:39,private:true},
+        {id:41,user_id:45,location:"Concepción",description:"Centralized 5th generation matrices",total_going:25,private:false},
+        {id:42,user_id:8,location:"Sanxi",description:"Switchable dedicated project",total_going:72,private:true},
+        {id:43,user_id:96,location:"Altanbulag",description:"Persevering discrete synergy",total_going:79,private:true},
+        {id:44,user_id:46,location:"Skórzec",description:"Distributed bifurcated utilisation",total_going:68,private:false},
+        {id:45,user_id:7,location:"Mabalacat",description:"Innovative full-range help-desk",total_going:9,private:true},
+        {id:46,user_id:62,location:"Khōst",description:"Networked didactic standardization",total_going:24,private:true},
+        {id:47,user_id:47,location:"Estrada",description:"Extended bi-directional contingency",total_going:85,private:false},
+        {id:48,user_id:74,location:"Volgorechensk",description:"Optional composite framework",total_going:92,private:false},
+        {id:49,user_id:50,location:"Cosquín",description:"Implemented interactive algorithm",total_going:34,private:false},
+        {id:50,user_id:27,location:"Ponikiew",description:"Advanced upward-trending implementation",total_going:43,private:false}
+      ]);
+    });
+};
