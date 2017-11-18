@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class logout extends Component {
+class Logout extends Component {
   render() {
     return (
       <main>
@@ -9,6 +9,6 @@ class logout extends Component {
     );
   }
 }
-export default logout;
+export default Logout;
 
 
