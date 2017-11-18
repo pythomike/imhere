@@ -5,6 +5,7 @@ import './App.css';
 // import login from './login.jsx';
 import Logout from './logout.jsx';
 
+
 class App extends Component {
   render() {
     return (
@@ -25,7 +26,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" render={() => <h3> trying this thing out with dif page </h3>}/>
               <Route path="/login" render={() => <h3>stuff?!?! </h3>}/>
-              <Route path="/logout" Component={Logout}/>
+              <Route path="/logout" component={Logout}/>
             </Switch>
           </div>
         </div>
