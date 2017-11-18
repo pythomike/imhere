@@ -2,25 +2,19 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
-
 // import login from './login.jsx';
-// import logout from './logout.jsx';
+import logout from './logout.jsx';
 
-// function LoginPage(props){
-//   return <div>
-//       <p>
-//         MADE IT
-//       </p>
+const logoutPage = () => (
+  <main>
+    <logout/>
+  </main>
+)
+// const diffPage = () => (
+//     <div>
+//       <h3> trying this thing out with dif page </h3>
 //     </div>
-// }
-
-function logout(){
-  return <div>
-      <p>
-        MADE IT
-      </p>
-    </div>
-}
+// )
 
 class App extends Component {
   render() {
@@ -40,9 +34,10 @@ class App extends Component {
               <p>logout</p>
             </Link>
             <Switch>
-              <Route path="/login" render={() => <h3>maybe this though?!?! </h3>}/>
-              {/*<Route path="/login" Component={LoginPage}/>*/}
-              <Route path="/logout" Component={logout}/>
+              <Route exact path="/" render={() => <h3> trying this thing out with dif page </h3>
+                }/>
+              <Route path="/login" render={() => <h3>stuff?!?! </h3>}/>
+              <Route path="/logout" Component={logoutPage}/>
             </Switch>
           </div>
         </div>
