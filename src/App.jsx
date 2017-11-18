@@ -5,7 +5,6 @@ import './App.css';
 // import login from './login.jsx';
 import Logout from './logout.jsx';
 
-
 class App extends Component {
   render() {
     return (
@@ -15,7 +14,6 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Im Here NOW!</h1>
           </header>
-
           <div>
             <Link to={'/login'}>
               <p>login</p>
