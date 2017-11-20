@@ -5,7 +5,7 @@ import './App.css';
 import Login from './facebookLogin.jsx';
 import Google from './googleLogin.jsx';
 import Logout from './logout.jsx';
-
+import CreateEvent from './CreateEvent.jsx';
 
 class App extends Component {
 
@@ -13,16 +13,18 @@ class App extends Component {
     console.log(response);
   }
 
-
   render() {
     return (
       <Router>
+
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Im Here NOW!</h1>
           </header>
           <div>
+            <CreateEvent />
+
             <Link to={'/login'}>
               <p>login</p>
             </Link>
