@@ -6,7 +6,7 @@ import Logout from './logout.jsx';
 import CreateEvent from './CreateEvent.jsx';
 
 class App extends Component {
-
+  
   render() {
     return (
       <Router>      
