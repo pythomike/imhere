@@ -2,10 +2,18 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
-// import login from './login.jsx';
+import Login from './facebookLogin.jsx';
+import Google from './googleLogin.jsx';
 import Logout from './logout.jsx';
 
+
 class App extends Component {
+
+  loginResponse(response) {
+    console.log(response);
+  }
+
+
   render() {
     return (
       <Router>
@@ -18,13 +26,17 @@ class App extends Component {
             <Link to={'/login'}>
               <p>login</p>
             </Link>
+            <Link to={'/google'}>
+              <p>google login stuff</p>
+            </Link>
             <Link to={'/logout'}>
               <p>logout</p>
             </Link>
             <Switch>
-              <Route exact path="/" render={() => <h3> trying this thing out with dif page </h3>}/>
-              <Route path="/login" render={() => <h3>stuff?!?! </h3>}/>
-              <Route path="/logout" component={Logout}/>
+              <Route exact path="/" render={() => <h3>Home page</h3> }/>
+              <Route path="/login" render={() => <Login loginInfo={this.loginResponse}/> }/>
+              <Route path="/logout" render={() => <Logout/> }/>
+              <Route path="/google" render={() => <Google/> }/>
             </Switch>
           </div>
         </div>
