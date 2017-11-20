@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
-// import login from './login.jsx';
 import Logout from './logout.jsx';
-
+import CreateEvent from './CreateEvent.jsx';
 
 class App extends Component {
+
   render() {
     return (
-      <Router>
+      <Router>      
+
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
@@ -17,6 +18,8 @@ class App extends Component {
           </header>
 
           <div>
+            <CreateEvent />
+
             <Link to={'/login'}>
               <p>login</p>
             </Link>
