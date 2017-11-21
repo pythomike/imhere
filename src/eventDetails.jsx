@@ -47,7 +47,7 @@ class eventDetails extends Component {
         </header>
 
         <div className="event-detail-main">
-          <img src="" className="big-event-image" alt="Event" />
+          <img src="" className="big-event-image" alt="Event-img" />
           <div className="event-detail-location">
             <h4>{data.location}</h4>
           </div>
@@ -66,7 +66,7 @@ class eventDetails extends Component {
             </div>
             <div className="googlemaps-button">
               <a target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${data.latitude},${data.longitude}`}>
-                <img src="" className="googleMaps-icon" alt="maps"></img>
+                <img src="" className="googleMaps-icon" alt="map-icon"></img>
               </a>
             </div>
           </span>
