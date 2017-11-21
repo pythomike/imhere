@@ -7,16 +7,18 @@ exports.up = function(knex, Promise) {
       table.string('first_name');
       table.string('last_name');
       table.string('phone_number');
-      table.boolean('verified');
   }).createTable('events', function(table) {
       table.increments('id').primary();
       table.integer('user_id').references('id').inTable('users').notNull().onDelete('CASCADE');
       table.string('location'); 
       table.string('description');
-      table.dateTime('start_time');
-      table.dateTime('end_time');
+      table.integer('max_attendees');
+      table.timestamp('start_time');
+      table.timestamp('end_time');
       table.integer('total_going');
       table.boolean('private');
+      table.float('latitude');
+      table.float('longitude')
   }).createTable('attendees', function(table) {
       table.increments('id').primary();
       table.integer('event_id').references('id').inTable('events').notNull().onDelete('CASCADE');
