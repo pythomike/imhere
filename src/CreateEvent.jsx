@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './CreateEvent.css';
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
+import Geosuggest from 'react-geosuggest';
 const Dtime = require('react-datetime');
 
 class CreateEvent extends Component {
@@ -33,20 +33,12 @@ class CreateEvent extends Component {
   handleFormSubmit = (formSubmitEvent) => {
     formSubmitEvent.preventDefault();
 
-    geocodeByAddress(this.state.address)
-      .then(results => getLatLng(results[0]))
-      .then(latLng => console.log('Success', latLng))
-      .catch(error => console.error('Error', error))
 
     console.log('You have selected name:', this.state.selectedOptionName)
     console.log('You have selected event options:', this.state.selectedOptionEvent)
   }
 
   render() {
-    const inputProps = {
-      value: this.state.address,
-      onChange: this.onChange
-    }
     return (
       <div>
         <h4>creating event bs</h4>
@@ -76,15 +68,10 @@ class CreateEvent extends Component {
             </label>
           </div>
 
-
-
-
           <label>
             Location:
-             <PlacesAutocomplete inputProps={inputProps} />
+             <Geosuggest />
           </label> <br />
-
-
 
           <label>
             Description:
