@@ -24,7 +24,7 @@ class App extends Component {
             <h1 className="App-title">Im Here NOW!</h1>
           </header>
           <div>
-            {/*<CreateEvent />*/}
+             <CreateEvent />
             <Switch>
               <Route exact path="/" render={() => <h3>Home page</h3> }/>
               <Route path="/login" render={() => <Login loginInfo={this.loginResponse}/> }/>
