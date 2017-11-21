@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 
-class Logout extends Component {
-  
+class logout extends Component {
   render() {
     return (
-      <main>
-        <h3> LOGOUT </h3>
+      <main className="messages">
+        <p className="App-intro">
+          Logout
+        </p>
       </main>
     );
   }
 }
-export default Logout;
+export default logout;

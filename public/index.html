@@ -4,12 +4,45 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
+    <meta name="google-signin-client_id" content="203543889826-3ben71eaei904q9hgt869ebqiq046fae.apps.googleusercontent.com">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <title>Bored AF</title>
   </head>
   <body>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '128785804474750',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.11'
+    });
+
+    FB.AppEvents.logPageView();
+
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<script src="https://apis.google.com/js/platform.js" async defer>
+</script>
+
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
     <div id="root"></div>
     <p>I'm in Index.html</p>
   </body>
