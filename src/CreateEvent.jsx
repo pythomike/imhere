@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './CreateEvent.css';
+import Geosuggest from 'react-geosuggest';
 import PicUpload from './PicUpload.jsx';
 const Dtime = require('react-datetime');
 
@@ -15,7 +16,7 @@ class CreateEvent extends Component {
       selectedOptionName: 'firstName',
       selectedOptionEvent: 'public',
       maxPeople: '',
-    };    
+    };
     this.handleOptionNameChange = this.handleOptionNameChange.bind(this);
     this.handlePublicPrivate = this.handlePublicPrivate.bind(this);
     this.handleMaxPeople = this.handleMaxPeople.bind(this);
@@ -46,6 +47,8 @@ class CreateEvent extends Component {
 
   handleFormSubmit = (formSubmitEvent) => {
     formSubmitEvent.preventDefault();
+
+
     console.log('You have selected name:', this.state.selectedOptionName)
     console.log('You have selected event options:', this.state.selectedOptionEvent)
   }
@@ -53,7 +56,7 @@ class CreateEvent extends Component {
   render() {
     return (
       <div>
-        <h4>creating event bs</h4>                                                                                                          
+        <h4>creating event bs</h4>
         <form onSubmit = {this.handleFormSubmit}>
           <label>
             Event title:
@@ -62,9 +65,9 @@ class CreateEvent extends Component {
 
           <label>
             Max number of people:
-            <input type     = "text" 
+            <input type     = "text"
                   placeholder = "500"
-                  value     = {this.state.maxPeople} 
+                  value     = {this.state.maxPeople}
                 onChange    = {this.handleMaxPeople}
             />
           </label> <br />
@@ -72,20 +75,25 @@ class CreateEvent extends Component {
           <div className="radioName">
             Creator:
             <label>
-              <input type     = "radio" 
-                     value    = "firstName" 
-                     checked  = {this.state.selectedOptionName === 'firstName'} 
-                     onChange = {this.handleOptionNameChange} 
+              <input type     = "radio"
+                     value    = "firstName"
+                     checked  = {this.state.selectedOptionName === 'firstName'}
+                     onChange = {this.handleOptionNameChange}
               /> firstName
             </label>
             <label>
-              <input type     = "radio" 
-                     value    = "anonymous" 
-                     checked  = {this.state.selectedOptionName === 'anonymous'} 
-                     onChange = {this.handleOptionNameChange}   
+              <input type     = "radio"
+                     value    = "anonymous"
+                     checked  = {this.state.selectedOptionName === 'anonymous'}
+                     onChange = {this.handleOptionNameChange}
               /> Anonymous
             </label>
           </div>
+
+          <label>
+            Location:
+             <Geosuggest />
+          </label> <br />
 
           <label>
             Description:
@@ -97,29 +105,28 @@ class CreateEvent extends Component {
           </label>
 
           <div className="radioEvent">
-            Public or Private event? 
+            Public or Private event?
             <label>
-              <input type     = "radio" 
-                     value    = "public" 
-                     checked  = {this.state.selectedOptionEvent === 'public'} 
-                     onChange = {this.handlePublicPrivate} 
+              <input type     = "radio"
+                     value    = "public"
+                     checked  = {this.state.selectedOptionEvent === 'public'}
+                     onChange = {this.handlePublicPrivate}
               /> Public
             </label>
             <label>
-              <input type     = "radio" 
-                     value    = "private" 
-                     checked  = {this.state.selectedOptionEvent === 'private'} 
-                     onChange = {this.handlePublicPrivate}   
+              <input type     = "radio"
+                     value    = "private"
+                     checked  = {this.state.selectedOptionEvent === 'private'}
+                     onChange = {this.handlePublicPrivate}
               /> Private
             </label>
           </div>
           <PicUpload />
 
           <input type="submit" value="submit" />
-        </form> 
+        </form>
       </div>
 
-      
     );
   }
 }
