@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './eventDetails.css';
+import moment from 'moment'
 
 
 // -Calendar should not be able to be picked on days that have passed
@@ -37,16 +38,16 @@ class eventDetails extends Component {
           </span>
           <span className="date-time-container">
             <div className="event-time">
-              <p>7:00 pm</p>
+              <p>Time: {moment(data.start_time).format("h:mmA").toString()}</p>
             </div>
             <div className="event-date">
-              <p>Wednesday, December 17th</p>
+              <p>Date: {moment(data.start_time).format("ddd MMM DD, YYYY").toString()}</p>
             </div>
           </span>
         </header>
 
         <div className="event-detail-main">
-          <img src="" className="big-event-image" alt="Event" />
+          <img src="" className="big-event-image" alt="Event-img" />
           <div className="event-detail-location">
             <h4>{data.location}</h4>
           </div>
@@ -65,7 +66,7 @@ class eventDetails extends Component {
             </div>
             <div className="googlemaps-button">
               <a target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${data.latitude},${data.longitude}`}>
-                <img src="" className="googleMaps-icon" alt="maps"></img>
+                <img src="" className="googleMaps-icon" alt="map-icon"></img>
               </a>
             </div>
           </span>
