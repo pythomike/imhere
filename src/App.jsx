@@ -4,8 +4,9 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './facebookLogin.jsx';
 import Google from './googleLogin.jsx';
-import Logout from './logout.jsx';
+// import Logout from './logout.jsx';
 import CreateEvent from './CreateEvent.jsx';
+import EventCard from './eventCard.jsx';
 
 class App extends Component {
 
@@ -19,11 +20,17 @@ class App extends Component {
 
         <div className="App">
           <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
+            {/*<img src={logo} className="App-logo" alt="logo" />*/}
             <h1 className="App-title">Im Here NOW!</h1>
           </header>
           <div>
-            <CreateEvent />
+            {/*<CreateEvent />*/}
+            <Switch>
+              <Route exact path="/" render={() => <h3>Home page</h3> }/>
+              <Route path="/login" render={() => <Login loginInfo={this.loginResponse}/> }/>
+              <Route path="/logout" render={() => <EventCard/> }/>
+              <Route path="/google" render={() => <Google/> }/>
+            </Switch>
 
             <Link to={'/login'}>
               <p>login</p>
@@ -34,12 +41,6 @@ class App extends Component {
             <Link to={'/logout'}>
               <p>logout</p>
             </Link>
-            <Switch>
-              <Route exact path="/" render={() => <h3>Home page</h3> }/>
-              <Route path="/login" render={() => <Login loginInfo={this.loginResponse}/> }/>
-              <Route path="/logout" render={() => <Logout/> }/>
-              <Route path="/google" render={() => <Google/> }/>
-            </Switch>
           </div>
         </div>
       </Router>
@@ -47,3 +48,6 @@ class App extends Component {
   }
 }
 export default App;
+
+// fragment
+// push state

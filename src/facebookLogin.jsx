@@ -1,11 +1,16 @@
 import React from 'react';
-import FacebookLogin from 'react-facebook-login'
+import FacebookLogin from 'react-facebook-login';
+
+
 
 class Login extends React.Component{
 
-  // constructor (props, context) {
-  //   super(props, context);
-  // }
+  constructor (props, context) {
+    super(props, context);
+    console.log(props);
+    console.log(context);
+  }
+
 
   responseFacebook (response) {
     console.log(response);
@@ -13,6 +18,8 @@ class Login extends React.Component{
     this.props.loginInfo(response);
     //anything else you want to do(save to localStorage)...
   }
+
+
 
   render () {
     return (
