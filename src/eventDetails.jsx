@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './eventDetails.css';
+import moment from 'moment'
 
 
 // -Calendar should not be able to be picked on days that have passed
@@ -37,10 +38,10 @@ class eventDetails extends Component {
           </span>
           <span className="date-time-container">
             <div className="event-time">
-              <p>7:00 pm</p>
+              <p>Time: {moment(data.start_time).format("h:mmA").toString()}</p>
             </div>
             <div className="event-date">
-              <p>Wednesday, December 17th</p>
+              <p>Date: {moment(data.start_time).format("ddd MMM DD, YYYY").toString()}</p>
             </div>
           </span>
         </header>
