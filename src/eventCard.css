@@ -1,0 +1,13 @@
+.card-inverse {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  text-align: -webkit-center;
+}
+.card-img-overlay {
+  position: absolute;
+    top: 125px;
+    bottom: 0px;
+    left: 228px;
+    right: 227px;
+}

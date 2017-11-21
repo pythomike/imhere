@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 // import Button from 'react-bootstrap/lib/Button';
 import Image from 'react-bootstrap/lib/Image';
+import './eventCard.css';
 
 import './App.css';
 

@@ -8,6 +8,7 @@ import Logout from './logout.jsx';
 import CreateEvent from './CreateEvent.jsx';
 import EventCard from './eventCard.jsx';
 import EventDetails from './eventDetails.jsx';
+import UserPage from './userPage.jsx';
 
 class App extends Component {
 
@@ -31,15 +32,22 @@ class App extends Component {
             <Link to={'/logout'}>
               <p>logout</p>
             </Link>
-            <Link to={'/event/:id'}>
+            <Link to={'/events/new'}>
+              <p>Create an event</p>
+            </Link>
+            <Link to={'/events/:id'}>
               <p>event details</p>
             </Link>
-             {/*<CreateEvent />*/}
+            <Link to={'/users/:id'}>
+              <p>MY PAGE</p>
+            </Link>
             <Switch>
               <Route exact path="/" render={() => <EventCard/> }/>
               <Route path="/login" render={() => <Google/> }/>
               <Route path="/logout" render={() => <Logout/> }/>
-              <Route path="/event/:id" render={() => <EventDetails/> }/>
+              <Route path="/events/new" render={() => <CreateEvent /> }/>
+              <Route path="/events/:id" render={() => <EventDetails/> }/>
+              <Route path="/users/:id" render={() => <UserPage/> }/>
             </Switch>
 
           </div>
