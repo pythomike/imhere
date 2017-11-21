@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './CreateEvent.css';
+import PicUpload from './PicUpload.jsx';
 const Dtime = require('react-datetime');
 
 class CreateEvent extends Component {
@@ -7,10 +8,12 @@ class CreateEvent extends Component {
     super(props);
     this.state = {
       selectedOptionName: 'firstName',
-      selectedOptionEvent: 'public'
+      selectedOptionEvent: 'public',
+      maxPeople: '',
     };    
     this.handleOptionNameChange = this.handleOptionNameChange.bind(this);
     this.handlePublicPrivate = this.handlePublicPrivate.bind(this);
+    this.handleMaxPeople = this.handleMaxPeople.bind(this);
   }
 
   handleOptionNameChange(changeEventName) {
@@ -25,6 +28,15 @@ class CreateEvent extends Component {
     this.setState({
       selectedOptionEvent: changePP.target.value,
     })
+  }
+
+  handleMaxPeople(changeMaxPpl) {
+    const maxNr = /^[0-9\b]*$/;
+    if (changeMaxPpl === '' || maxNr.test(changeMaxPpl.target.value)) {
+      this.setState({
+        maxPeople: changeMaxPpl.target.value
+      })
+    }
   }
 
   handleFormSubmit = (formSubmitEvent) => {
@@ -43,8 +55,17 @@ class CreateEvent extends Component {
             <input type = "text" name="eventTitle" placeholder = "Wonder Woman pew pew pew" />
           </label> <br />
 
+          <label>
+            Max number of people:
+            <input type     = "text" 
+                  placeholder = "500"
+                  value     = {this.state.maxPeople} 
+                onChange    = {this.handleMaxPeople}
+            />
+          </label> <br />
 
           <div className="radioName">
+            Creator:
             <label>
               <input type     = "radio" 
                      value    = "firstName" 
@@ -52,8 +73,6 @@ class CreateEvent extends Component {
                      onChange = {this.handleOptionNameChange} 
               /> firstName
             </label>
-          </div>
-          <div className="radioName">
             <label>
               <input type     = "radio" 
                      value    = "anonymous" 
@@ -65,7 +84,7 @@ class CreateEvent extends Component {
 
           <label>
             Description:
-            <input type = "text" name="description" placeholder = "wonderwoman party" />
+            <input type = "text" name="description" placeholder = "Wonder Woman party" />
           </label> <br />
           <label>
             Pick a day and time:
@@ -73,6 +92,7 @@ class CreateEvent extends Component {
           </label>
 
           <div className="radioEvent">
+            Public or Private event? 
             <label>
               <input type     = "radio" 
                      value    = "public" 
@@ -80,8 +100,6 @@ class CreateEvent extends Component {
                      onChange = {this.handlePublicPrivate} 
               /> Public
             </label>
-          </div>
-          <div className="radioEvent">
             <label>
               <input type     = "radio" 
                      value    = "private" 
@@ -90,6 +108,7 @@ class CreateEvent extends Component {
               /> Private
             </label>
           </div>
+          <PicUpload />
 
           <input type="submit" value="submit" />
         </form> 
