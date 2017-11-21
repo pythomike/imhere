@@ -3,6 +3,11 @@ import './CreateEvent.css';
 import PicUpload from './PicUpload.jsx';
 const Dtime = require('react-datetime');
 
+// -Calendar should not be able to be picked on days that have passed
+// -pictures should be rendered according to key words if picture not uploaded
+//   -pic should be required if we don't do the above
+// -make every field required
+
 class CreateEvent extends Component {
   constructor(props) {
     super(props);
