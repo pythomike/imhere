@@ -4,7 +4,7 @@ import CreateEvent from './CreateEvent.jsx';
 
 class Navbar extends Component {
   render () {
-    <div className="nav-bar">
+    <div className = "nav-bar">
       
     </div>
   }
