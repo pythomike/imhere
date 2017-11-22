@@ -20,7 +20,9 @@ class App extends Component {
 
         <div className="App">
           <header className="App-header">
-            <h1 className="App-title">Im Here NOW!</h1>
+            <Link to={'/'}>
+              <h1 className="App-title">Im Here NOW!</h1>
+            </Link>
           </header>
           <div>
             <Link to={'/login'}>
