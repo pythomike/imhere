@@ -23,11 +23,10 @@ function clutch(table, field, value) {
         res.send(event)
       })
     })
-    
+
   // SELECT ALL EVENTS FROM ONE USER
     app.get('/events/:id', function(req, res) {
       console.log(req.params)
-      console.log("FUCKING FUCK!")
       var eventID = req.params.id
       knex.select().from('events').where({id:eventID}).then(function(event) {
         console.log(event)
@@ -102,7 +101,7 @@ let user = {
 
 
 
-// SERVER JAZZ    
+// SERVER JAZZ
 app.listen(PORT, function() {
   console.log('Creepin\' on port: ', PORT)
 })

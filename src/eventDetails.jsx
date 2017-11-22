@@ -25,13 +25,11 @@ const data = {
 class eventDetails extends Component {
   constructor(props) {
     super(props);
-    this.setState = {
-      pictures: []
-    }
-  }
+    // this.setState = {
+    //   info: {}
+    // }
 
-  componentDidMount() {
-    fetch('/events/12',{
+    fetch('/events/50',{
       method: 'GET',
       mode: 'cors',
       redirect: '/',
@@ -40,24 +38,41 @@ class eventDetails extends Component {
         }
     })
     .then(function(response) {
-      console.log(response)
-     // return response.json();
+     return response.json();
+    })
+    .then(data => {
+      this.setState({data: data[0]});
+      console.log(this.state.data)
     }).catch(function(err){
       console.log(err)
     })
-    // .then(data => {
-      // let pictures = data.results.map((pic) => {
-      //   return(
-      //     <div key={pic.results}>
-      //       <img src={pic.picture.medium} />
-      //       </div>
-      //     )
-      // })
-      // this.setState({pictures: pictures});
-      // console.log("state", this.state.pictures);
-      // console.log(data)
-    // })
+
+
+
+
+
+
   }
+
+  // componentDidMount() {
+  //   fetch('/events/12',{
+  //     method: 'GET',
+  //     mode: 'cors',
+  //     redirect: '/',
+  //     headers: {
+  //           "Content-Type": "text/plain"
+  //       }
+  //   })
+  //   .then(function(response) {
+  //    return response.json();
+  //   })
+  //   .then(data => {
+  //     console.log(data[0])
+  //     this.setState({info: data[0]});
+  //   }).catch(function(err){
+  //     console.log(err)
+  //   })
+  // }
 
   render() {
     return (
@@ -65,7 +80,7 @@ class eventDetails extends Component {
 
         <header className="event-detail-head">
           <span className="title">
-            <h2>{data.title}</h2>
+            <h2>{data.title}{console.log(this.state)}</h2>
           </span>
           <span className="date-time-container">
             <div className="event-time">
