@@ -23,10 +23,41 @@ const data = {
   }
 
 class eventDetails extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.setState = {
+      pictures: []
+    }
+  }
 
+  componentDidMount() {
+    fetch('/events/12',{
+      method: 'GET',
+      mode: 'cors',
+      redirect: '/',
+      headers: {
+            "Content-Type": "text/plain"
+        }
+    })
+    .then(function(response) {
+      console.log(response)
+     // return response.json();
+    }).catch(function(err){
+      console.log(err)
+    })
+    // .then(data => {
+      // let pictures = data.results.map((pic) => {
+      //   return(
+      //     <div key={pic.results}>
+      //       <img src={pic.picture.medium} />
+      //       </div>
+      //     )
+      // })
+      // this.setState({pictures: pictures});
+      // console.log("state", this.state.pictures);
+      // console.log(data)
+    // })
+  }
 
   render() {
     return (
