@@ -25,11 +25,14 @@ const data = {
 class eventDetails extends Component {
   constructor(props) {
     super(props);
-    // this.setState = {
-    //   info: {}
-    // }
+    this.state = {
+      data: ''
+    };
 
-    fetch('/events/50',{
+  }
+
+  componentDidMount() {
+    fetch('/events/12',{
       method: 'GET',
       mode: 'cors',
       redirect: '/',
@@ -42,37 +45,10 @@ class eventDetails extends Component {
     })
     .then(data => {
       this.setState({data: data[0]});
-      console.log(this.state.data)
     }).catch(function(err){
       console.log(err)
     })
-
-
-
-
-
-
   }
-
-  // componentDidMount() {
-  //   fetch('/events/12',{
-  //     method: 'GET',
-  //     mode: 'cors',
-  //     redirect: '/',
-  //     headers: {
-  //           "Content-Type": "text/plain"
-  //       }
-  //   })
-  //   .then(function(response) {
-  //    return response.json();
-  //   })
-  //   .then(data => {
-  //     console.log(data[0])
-  //     this.setState({info: data[0]});
-  //   }).catch(function(err){
-  //     console.log(err)
-  //   })
-  // }
 
   render() {
     return (
@@ -80,14 +56,14 @@ class eventDetails extends Component {
 
         <header className="event-detail-head">
           <span className="title">
-            <h2>{data.title}{console.log(this.state)}</h2>
+            <h2>{this.state.data.title}{console.log(this.state)}</h2>
           </span>
           <span className="date-time-container">
             <div className="event-time">
-              <p>Time: {moment(data.start_time).format("h:mmA").toString()}</p>
+              <p>Time: {moment(this.state.data.start_time).format("h:mmA").toString()}</p>
             </div>
             <div className="event-date">
-              <p>Date: {moment(data.start_time).format("ddd MMM DD, YYYY").toString()}</p>
+              <p>Date: {moment(this.state.data.start_time).format("ddd MMM DD, YYYY").toString()}</p>
             </div>
           </span>
         </header>
@@ -95,13 +71,13 @@ class eventDetails extends Component {
         <div className="event-detail-main">
           <img src="" className="big-event-image" alt="Event-img" />
           <div className="event-detail-location">
-            <h4>{data.location}</h4>
+            <h4>{this.state.data.location}</h4>
           </div>
         </div>
 
         <footer className="event-detail-foot">
           <span className="event-description">
-            <p>{data.description}</p>
+            <p>{this.state.data.description}</p>
           </span>
           <span className="event-extra-info">
             <div className="going-button">
@@ -111,7 +87,7 @@ class eventDetails extends Component {
               <button>Nah</button>
             </div>
             <div className="googlemaps-button">
-              <a target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${data.latitude},${data.longitude}`}>
+              <a target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${this.state.data.latitude},${this.state.data.longitude}`}>
                 <img src="" className="googleMaps-icon" alt="map-icon"></img>
               </a>
             </div>
