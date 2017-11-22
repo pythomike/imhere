@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
-import logo from './logo.svg';
 import './App.css';
 // import Login from './facebookLogin.jsx';
 import Google from './googleLogin.jsx';
@@ -21,7 +20,6 @@ class App extends Component {
 
         <div className="App">
           <header className="App-header">
-            {/*<img src={logo} className="App-logo" alt="logo" />*/}
             <h1 className="App-title">Im Here NOW!</h1>
           </header>
           <div>
@@ -35,14 +33,17 @@ class App extends Component {
               <p>Create an event</p>
             </Link>
             <Link to={'/events/12'}>
-              <p>event details</p>
+              <p>event details 12</p>
+            </Link>
+            <Link to={'/events/25'}>
+              <p>event details 25</p>
             </Link>
             <Switch>
               <Route exact path="/" render={() => <EventCard/> }/>
               <Route path="/login" render={() => <Google/> }/>
               <Route path="/logout" render={() => <Logout/> }/>
               <Route path="/events/new" render={() => <CreateEvent /> }/>
-              <Route path="/events/12" render={() => <EventDetails/> }/>
+              <Route path="/events/:id" component={EventDetails}/>
             </Switch>
 
           </div>

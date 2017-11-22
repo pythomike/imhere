@@ -8,20 +8,6 @@ import moment from 'moment'
 //   -pic should be required if we don't do the above
 // -make every field required
 
-const data = {
-    user_id: 46,
-    title: "Mike",
-    location: "Grouse Mountain",
-    description: "House paaaaarrty",
-    max_attendees:9002,
-    start_time:"2017-12-28 08:32:36+00",
-    end_time:"2017-12-28 08:32:36+00",
-    total_going:9001,
-    private:true,
-    latitude: 49.283319,
-    longitude:-123.115940
-  }
-
 class eventDetails extends Component {
   constructor(props) {
     super(props);
@@ -32,7 +18,7 @@ class eventDetails extends Component {
   }
 
   componentDidMount() {
-    fetch('/events/12',{
+    fetch(`/events/${this.props.match.params.id}`,{
       method: 'GET',
       mode: 'cors',
       redirect: '/',
@@ -56,7 +42,7 @@ class eventDetails extends Component {
 
         <header className="event-detail-head">
           <span className="title">
-            <h2>{this.state.data.title}{console.log(this.state)}</h2>
+            <h2>{this.state.data.title}</h2>
           </span>
           <span className="date-time-container">
             <div className="event-time">
