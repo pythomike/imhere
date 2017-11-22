@@ -122,7 +122,6 @@ class CreateEvent extends Component {
             </label>
           </div>
           <PicUpload />
-
           <input type="submit" value="submit" />
         </form>
       </div>

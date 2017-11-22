@@ -4,9 +4,10 @@ import logo from './logo.svg';
 import './App.css';
 // import Login from './facebookLogin.jsx';
 import Google from './googleLogin.jsx';
-// import Logout from './logout.jsx';
+import Logout from './logout.jsx';
 import CreateEvent from './CreateEvent.jsx';
 import EventCard from './eventCard.jsx';
+import EventDetails from './eventDetails.jsx';
 
 class App extends Component {
 
@@ -24,19 +25,26 @@ class App extends Component {
             <h1 className="App-title">Im Here NOW!</h1>
           </header>
           <div>
-             <CreateEvent />
-            <Switch>
-              <Route exact path="/" render={() => <h3>Home page</h3> }/>
-              <Route path="/login" render={() => <Google/> }/>
-              <Route path="/logout" render={() => <EventCard/> }/>
-            </Switch>
-
             <Link to={'/login'}>
               <p>login</p>
             </Link>
             <Link to={'/logout'}>
               <p>logout</p>
             </Link>
+            <Link to={'/events/new'}>
+              <p>Create an event</p>
+            </Link>
+            <Link to={'/events/12'}>
+              <p>event details</p>
+            </Link>
+            <Switch>
+              <Route exact path="/" render={() => <EventCard/> }/>
+              <Route path="/login" render={() => <Google/> }/>
+              <Route path="/logout" render={() => <Logout/> }/>
+              <Route path="/events/new" render={() => <CreateEvent /> }/>
+              <Route path="/events/12" render={() => <EventDetails/> }/>
+            </Switch>
+
           </div>
         </div>
       </Router>
