@@ -6,10 +6,10 @@ const app         = express();
 const knexConfig  = require("./knexfile");
 const knex        = require("knex")(knexConfig[ENV]);
 const knexLogger  = require('knex-logger');
-const cors        = require('cors')
+
 
 app.use(bodyParser.urlencoded({ extended:false }))
-//app.use(cors)()
+
 
 function clutch(table, field, value) {
   knex.select().from(table).where({field:value}).then(function(data) {
@@ -30,6 +30,7 @@ function clutch(table, field, value) {
       console.log("FUCKING FUCK!")
       var eventID = req.params.id
       knex.select().from('events').where({id:eventID}).then(function(event) {
+        console.log(event)
         res.send(event)
       })
     })

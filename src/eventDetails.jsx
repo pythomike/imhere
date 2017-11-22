@@ -33,13 +33,17 @@ class eventDetails extends Component {
   componentDidMount() {
     fetch('http://localhost:3001/events/12',{
       method: 'GET',
+      mode: 'cors',
+      redirect: '/',
       headers: {
             "Content-Type": "text/plain"
         }
     })
-    .then(response => {
+    .then(function(response) {
       console.log(response)
-      return response.json();
+     // return response.json();
+    }).catch(function(err){
+      console.log(err)
     })
     // .then(data => {
       // let pictures = data.results.map((pic) => {
