@@ -31,7 +31,7 @@ class eventDetails extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/events/12',{
+    fetch('/events/12',{
       method: 'GET',
       mode: 'cors',
       redirect: '/',
