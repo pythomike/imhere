@@ -7,6 +7,7 @@ import Logout from './logout.jsx';
 import CreateEvent from './CreateEvent.jsx';
 import EventCard from './eventCard.jsx';
 import EventDetails from './eventDetails.jsx';
+import Carousel from './carousel.jsx';
 
 class App extends Component {
 
@@ -34,6 +35,9 @@ class App extends Component {
             <Link to={'/events/new'}>
               <p>Create an event</p>
             </Link>
+
+            <Carousel />
+
             <Link to={'/events/12'}>
               <p>event details 12</p>
             </Link>
