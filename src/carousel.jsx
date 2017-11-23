@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import EventCard from './eventCard.jsx';
+import { BrowserRouter as Link } from 'react-router-dom'
 
 
 class Carousel extends Component {
@@ -33,15 +34,17 @@ class Carousel extends Component {
 
 
   render() {
-    {console.log(this.state)}
     const eventCards = this.state.cards.map(card => {
       return <EventCard
-      key           ={card.id}
-      testing       ={444}
+        key             ={card.id}
+        title           ={card.title}
+        description     ={card.description}
       />
+
     });
     return (
-      <main className="messages">
+      <main className="carousel-cards">
+
         { eventCards }
         {/*<EventCard />*/}
       </main>

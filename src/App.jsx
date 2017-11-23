@@ -35,17 +35,11 @@ class App extends Component {
             <Link to={'/events/new'}>
               <p>Create an event</p>
             </Link>
-
-            <Carousel />
-
-            <Link to={'/events/12'}>
-              <p>event details 12</p>
-            </Link>
             <Link to={'/events/25'}>
               <p>event details 25</p>
             </Link>
             <Switch>
-              <Route exact path="/" render={() => <EventCard/> }/>
+              <Route exact path="/" render={() => <Carousel /> }/>
               <Route path="/login" render={() => <Google/> }/>
               <Route path="/logout" render={() => <Logout/> }/>
               <Route path="/events/new" render={() => <CreateEvent /> }/>

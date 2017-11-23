@@ -18,7 +18,6 @@ class eventDetails extends Component {
   }
 
   componentDidMount() {
-        console.log(this.props)
     fetch(`/events/${this.props.match.params.id}`,{
       method: 'GET',
       mode: 'cors',
@@ -38,7 +37,6 @@ class eventDetails extends Component {
   }
 
   render() {
-
     return (
       <div>
 
