@@ -34,7 +34,7 @@ class CreateEvent extends Component {
       })
     }
   }
-// TODO error handling if not selected things
+
   handleLocationChange = (e) => {
     if (e) {
       this.setState({
@@ -66,23 +66,23 @@ class CreateEvent extends Component {
     }
 
   }
-// TODO SET UP AJAX
+
   handleFormSubmit = (e) => {
     e.preventDefault();
 
     console.log(this.state)
-
-    fetch(`/daysevents`,{
+    // JSON.stringify(this.state)
+    fetch(`/events`,{
       method: 'POST',
       mode: 'cors',
       redirect: '/',
+      body: JSON.stringify(this.state),
       headers: {
-        "Content-Type": "text/plain"
-      },
-      body: JSON.stringify({
-
-      })
-    })
+        'Content-Type': 'application/json'
+      }
+    }).then(res => {
+      return res;
+    }).catch(err => err);
   }
 
   render() {
@@ -90,7 +90,7 @@ class CreateEvent extends Component {
     const valid = function( current ){
         return current.isAfter( yesterday );
     };
-    const { title, maxPeople, location, description, date } = this.state;
+    const { title, maxPeople, description } = this.state;
     return (
       <div>
         <h4>creating event bs</h4>
@@ -98,7 +98,7 @@ class CreateEvent extends Component {
           <label>
             Event title:
             <input type        = "text"
-                   name        ="title"
+                   name        = "title"
                    value       = {title}
                    onChange    = {this.onChange}
                    placeholder = "Wonder Woman pew pew pew" />

@@ -8,6 +8,7 @@ const knex        = require("knex")(knexConfig[ENV]);
 const knexLogger  = require('knex-logger');
 
 app.use(bodyParser.urlencoded({ extended:false }))
+app.use(bodyParser.json())
 
 //Universal Selector
   function dbRead(table) {
@@ -83,7 +84,7 @@ app.use(bodyParser.urlencoded({ extended:false }))
   }
 
     app.post('/events', function(req, res) {
-      dbInsert(obj.data, obj.table)
+      // dbInsert(req.body, 'events')
       res.send("naiiiled it")
     })
 
