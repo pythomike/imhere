@@ -8,42 +8,74 @@ import CreateEvent from './CreateEvent.jsx';
 import EventDetails from './eventDetails.jsx';
 import Carousel from './carousel.jsx';
 import Register from './Register.jsx';
-// var Modal = require('react-bootstrap-modal');
-
+// import Modals from "./Modal.jsx";
+import Modal from 'react-modal';
 
 class App extends Component {
-  // constructor(){
-  //   super()
-    
-  //   this.state = {
-  //     isActive:false
-  //   }
-  // }
+  constructor(props) {
+    super(props);
+    this.state={
+      modalIsOpen: false
+    }
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }  
 
-  // componentWillMount(){
-  //   Modal.setAppElement('body')
-  // }
-  // toggleModal = () =>{
-  //   this.setState({
-  //     isActive:!this.state.isActive
-  //   })
-  // }
-
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+ 
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    this.subtitle.style.color = '#f00';
+  }
+ 
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
 
   loginResponse(response) {
     console.log(response);
   }
 
   render() {
+
     return (
       <Router>
-
         <div className="App">
+
+          
           <header className="App-header">
             <Link to={'/'}>
               <h1 className="App-title">Im Here NOW!</h1>
             </Link>
           </header>
+
+          <div>
+        <button onClick={this.openModal}>Open Modal</button>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          // style={customStyles}
+          contentLabel="Example Modal"
+        >
+ 
+          <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
+          <button onClick={this.closeModal}>close</button>
+          <div>I am a modal</div>
+          <form>
+            <input />
+            <button>tab navigation</button>
+            <button>stays</button>
+            <button>inside</button>
+            <button>the modal</button>
+          </form>
+        </Modal>
+      </div>
+      
+      
           <div>
             <Register />
             <Link to={'/login'}>

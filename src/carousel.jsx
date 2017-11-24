@@ -32,9 +32,9 @@ class Carousel extends Component {
   render() {
     const eventCards = this.state.cards.map(card => {
       return <EventCard
-        key             ={card.id}
-        title           ={card.title}
-        description     ={card.description}
+        key             = {card.id}
+        title           = {card.title}
+        description     = {card.description}
       />
 
     });
