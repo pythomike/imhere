@@ -5,10 +5,30 @@ import './App.css';
 import Google from './googleLogin.jsx';
 import Logout from './logout.jsx';
 import CreateEvent from './CreateEvent.jsx';
-import EventCard from './eventCard.jsx';
 import EventDetails from './eventDetails.jsx';
+import Carousel from './carousel.jsx';
+import Register from './Register.jsx';
+// var Modal = require('react-bootstrap-modal');
+
 
 class App extends Component {
+  // constructor(){
+  //   super()
+    
+  //   this.state = {
+  //     isActive:false
+  //   }
+  // }
+
+  // componentWillMount(){
+  //   Modal.setAppElement('body')
+  // }
+  // toggleModal = () =>{
+  //   this.setState({
+  //     isActive:!this.state.isActive
+  //   })
+  // }
+
 
   loginResponse(response) {
     console.log(response);
@@ -20,9 +40,12 @@ class App extends Component {
 
         <div className="App">
           <header className="App-header">
-            <h1 className="App-title">Im Here NOW!</h1>
+            <Link to={'/'}>
+              <h1 className="App-title">Im Here NOW!</h1>
+            </Link>
           </header>
           <div>
+            <Register />
             <Link to={'/login'}>
               <p>login</p>
             </Link>
@@ -32,14 +55,11 @@ class App extends Component {
             <Link to={'/events/new'}>
               <p>Create an event</p>
             </Link>
-            <Link to={'/events/12'}>
-              <p>event details 12</p>
-            </Link>
             <Link to={'/events/25'}>
               <p>event details 25</p>
             </Link>
             <Switch>
-              <Route exact path="/" render={() => <EventCard/> }/>
+              <Route exact path="/" render={() => <Carousel /> }/>
               <Route path="/login" render={() => <Google/> }/>
               <Route path="/logout" render={() => <Logout/> }/>
               <Route path="/events/new" render={() => <CreateEvent /> }/>
