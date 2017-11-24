@@ -61,7 +61,9 @@ app.use(bodyParser.json())
   function dbInsert(data, table) {
     knex.insert(data).into(table).returning('id')
     .then(function(){
-      })
+      res.status(201)
+    })
+    .catch(err => console.log('error caught'))
   }
 
 // Add EVENT
@@ -89,19 +91,26 @@ app.use(bodyParser.json())
     })
 
 // ADD USER
-  let user = {
-    email: "mike@mike.mike",
-    password: "cheese",
-    first_name: "Mike",
-    last_name: "Moike",
-    phone_number: 6048675309
-  }
+  // let user = {
+  //   email: "mike@mike.mike",
+  //   password: "cheese",
+  //   first_name: "Mike",
+  //   last_name: "Moike",
+  //   phone_number: 6048675309
+  // }
     app.post('/newuser', function(req, res){
-      dbInsert(user, 'users')
-      knex.select().from('users').where({email:user.email}).then(function(newuser) {
-        res.send(newuser)
+      knex.select().from('users').where({email:req.body.email})
+        .first()
+        .then ((found) => {
+          if (found) {
+            res.status(409).send("User already exists");
+          } else {
+            console.log(`User ${req.body.first_name} ${req.body.last_name} has been created`)
+            dbInsert(req.body, 'users')
+          }
+        })
+        .catch(err => console.log('error caught', err))
     })
-  })
 
 // ADD ATTENDEE
   let attendee = {

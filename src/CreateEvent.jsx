@@ -52,7 +52,6 @@ class CreateEvent extends Component {
   }
 
   onChange = (e) => {
-    // console.log(e)
     if (e.target) {
     const state = this.state
     state[e.target.name] = e.target.value;
@@ -70,7 +69,6 @@ class CreateEvent extends Component {
   handleFormSubmit = (e) => {
     e.preventDefault();
 
-    console.log(this.state)
     // JSON.stringify(this.state)
     fetch(`/events`,{
       method: 'POST',

@@ -12,22 +12,36 @@ class Login extends React.Component{
     console.log("hi")
   }
 
-  responseGoogle (googleUser) {
-    var id_token = googleUser.getAuthResponse().id_token;
-    console.log({accessToken: id_token});
-    console.log(id_token)
-    //anything else you want to do(save to localStorage)...
+  responseGoogle = (response) => {
+    this.setState({
+      first_name: response.profileObj.givenName,
+      last_name: response.profileObj.familyName,
+      email: response.profileObj.email
+    })
+    // console.log(response.tokenObj.id_token);
+
+    fetch(`/newuser`,{
+      method: 'POST',
+      mode: 'cors',
+      redirect: '/',
+      body: JSON.stringify(this.state),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => {
+      return res;
+    }).catch(err => err);
   }
 
   render () {
     return (
       <div>
-        <GoogleLogin socialId="yourClientID"
-                     className="google-login"
-                     scope="profile"
-                     fetchBasicProfile={false}
-                     responseHandler={this.responseGoogle}
-                     buttonText="Login With Google"/>
+        <GoogleLogin
+          clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={this.responseGoogle}
+          onFailure={this.responseGoogle}
+        />
         <GoogleLogout
           buttonText="Logout"
           onLogoutSuccess={this.Logout}
