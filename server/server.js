@@ -78,13 +78,13 @@ app.use(bodyParser.json())
           total_going:9001,
           private:true,
           latitude: 49.283319,
-          longitude:-123.115940
+          longitude: -123.115940
           },
     table : 'events'
   }
 
     app.post('/events', function(req, res) {
-      // dbInsert(req.body, 'events')
+      dbInsert(req.body, 'events')
       res.send("naiiiled it")
     })
 

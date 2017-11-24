@@ -14,12 +14,12 @@ class CreateEvent extends Component {
     super(props);
     this.state = {
       title: '',
-      maxPeople: '',
+      max_attendees: '',
       name: 'firstName',
-      locationLat: '',
-      locationLong: '',
+      latitude: '',
+      longitude: '',
       description: '',
-      date: '',
+      start_time: '',
       publicPrivate: 'public',
     };
     this.onChange = this.onChange.bind(this);
@@ -30,24 +30,24 @@ class CreateEvent extends Component {
     const maxNr = /^[0-9\b]*$/;
     if (changeMaxPpl === '' || maxNr.test(changeMaxPpl.target.value)) {
       this.setState({
-        maxPeople: changeMaxPpl.target.value
+        max_attendees: changeMaxPpl.target.value
       })
     }
   }
 
   handleLocationChange = (e) => {
-    if (e) {
+    if (e && e.location) {
       this.setState({
           location: e.description,
-          locationLat: e.location.lat,
-          locationLong: e.location.lng
+          latitude: e.location.lat,
+          longitude: e.location.lng
         })
     }
   }
 
   handleDateChange = (e) => {
     this.setState({
-        date: e._d
+        start_time: e._d
       })
   }
 
@@ -60,8 +60,8 @@ class CreateEvent extends Component {
     } else {
       this.setState({
         location: e,
-        locationLat: "",
-        locationLong: ""
+        latitude: "",
+        longitude: ""
       })
     }
 
@@ -90,7 +90,7 @@ class CreateEvent extends Component {
     const valid = function( current ){
         return current.isAfter( yesterday );
     };
-    const { title, maxPeople, description } = this.state;
+    const { title, max_attendees, description } = this.state;
     return (
       <div>
         <h4>creating event bs</h4>
@@ -108,8 +108,8 @@ class CreateEvent extends Component {
             Max number of people:
             <input  type        = "text"
                     placeholder = "500"
-                    name        = "maxPeople"
-                    value       = {maxPeople}
+                    name        = "max_attendees"
+                    value       = {max_attendees}
                     onChange    = {this.handleMaxPeople}
             />
           </label> <br />
@@ -156,8 +156,8 @@ class CreateEvent extends Component {
           <label>
             Pick a day and time:
             <Dtime isValidDate = { valid }
-                   name        = "date"
-                   value       = {this.state.date}
+                   name        = "start_time"
+                   value       = {this.state.start_time}
                    onChange    = {this.handleDateChange}
                    />
           </label>
