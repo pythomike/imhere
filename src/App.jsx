@@ -5,7 +5,6 @@ import './App.css';
 import Google from './googleLogin.jsx';
 import Logout from './logout.jsx';
 import CreateEvent from './CreateEvent.jsx';
-import EventCard from './eventCard.jsx';
 import EventDetails from './eventDetails.jsx';
 import Carousel from './carousel.jsx';
 

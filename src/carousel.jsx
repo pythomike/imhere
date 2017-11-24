@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import EventCard from './eventCard.jsx';
-import { BrowserRouter as Link } from 'react-router-dom'
-
 
 class Carousel extends Component {
   constructor(props) {
@@ -13,7 +11,7 @@ class Carousel extends Component {
   }
 
   componentDidMount() {
-    fetch(`/allevents`,{
+    fetch(`/daysevents`,{
       method: 'GET',
       mode: 'cors',
       redirect: '/',
@@ -31,8 +29,6 @@ class Carousel extends Component {
     })
   }
 
-
-
   render() {
     const eventCards = this.state.cards.map(card => {
       return <EventCard
@@ -44,9 +40,7 @@ class Carousel extends Component {
     });
     return (
       <main className="carousel-cards">
-
         { eventCards }
-        {/*<EventCard />*/}
       </main>
     );
   }
