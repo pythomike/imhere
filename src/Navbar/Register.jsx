@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 // if real email not entered, return error?
 // make all fields necessary, except phone call
 // make phone number only 10 digits long
+// password and password_confirmation must match
 
 
 class Register extends Component {
@@ -14,6 +15,8 @@ class Register extends Component {
       last_name: '',
       email: '',
       phone_number: '',
+      password: '',
+      password_confirmation: ''
     };
 
     this.onChange = this.onChange.bind(this);
@@ -44,7 +47,7 @@ class Register extends Component {
 
 
   render() {
-    const {first_name, last_name, email, phone_number} = this.state;
+    const {first_name, last_name, email, phone_number, password, password_confirmation} = this.state;
     return (
       <div>
         <h4>Most exciting REGISTER form</h4>
@@ -83,6 +86,22 @@ class Register extends Component {
                    value       = {phone_number} 
                    placeholder = "6048008135" 
                    onChange    = {this.handlePhoneNum} />
+          </label><br />
+
+          <label>
+            Password
+            <input type        = "password" 
+                   name        = "password" 
+                   value       = {password} 
+                   onChange    = {this.onChange} />
+          </label><br />
+
+          <label>
+            Password Confirmation
+            <input type        = "password" 
+                   name        = "password_confirmation" 
+                   value       = {password_confirmation} 
+                   onChange    = {this.onChange} />
           </label><br />
 
           <input type="submit" value="submit" />
