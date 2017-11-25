@@ -18,7 +18,7 @@ app.use(cookieSession({
   name: 'session',
   keys: ["key1,", "key2"]
 }))
-// app.use(cors())
+
 app.use(bodyParser.urlencoded({ extended:false }))
 app.use(bodyParser.json())
 
@@ -187,10 +187,6 @@ app.use(passport.session());
   app.get('/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/login' }),
     function(req, res) {
-      console.log('hit')
-      res.set({
-        'Access-Control-Allow-Origin': '*'
-      })
       console.log("google login worked")
       // Successful authentication, redirect home.
       res.redirect('/');
