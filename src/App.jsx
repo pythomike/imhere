@@ -1,42 +1,53 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 // import Login from './facebookLogin.jsx';
-import Google from './googleLogin.jsx';
+// import Google from './googleLogin.jsx';
 // import Logout from './logout.jsx';
-import CreateEvent from './CreateEvent.jsx';
-import EventCard from './eventCard.jsx';
+import EventDetails from './eventDetails.jsx';
+import Carousel from './carousel.jsx';
+import Modals from "./Navbar/Modal.jsx";
 
 class App extends Component {
+ 
 
   loginResponse(response) {
     console.log(response);
   }
 
   render() {
+
     return (
       <Router>
-
         <div className="App">
           <header className="App-header">
-            {/*<img src={logo} className="App-logo" alt="logo" />*/}
-            <h1 className="App-title">Im Here NOW!</h1>
+            <Link to={'/'}>
+              <h1 className="App-title">Im Here NOW!</h1>
+            </Link>
           </header>
-          <div>
-             <CreateEvent />
-            <Switch>
-              <Route exact path="/" render={() => <h3>Home page</h3> }/>
-              <Route path="/login" render={() => <Google/> }/>
-              <Route path="/logout" render={() => <EventCard/> }/>
-            </Switch>
 
+          <div>
+            <Modals />
+          </div>
+  
+          <div>
             <Link to={'/login'}>
               <p>login</p>
             </Link>
             <Link to={'/logout'}>
               <p>logout</p>
             </Link>
+            <Link to={'/events/new'}>
+              <p>Create an event</p>
+            </Link>
+            <Link to={'/events/25'}>
+              <p>event details 25</p>
+            </Link>
+            <Switch>
+              <Route exact path="/" render={() => <Carousel /> }/>
+              <Route path="/events/:id" component={EventDetails}/>
+            </Switch>
+
           </div>
         </div>
       </Router>
