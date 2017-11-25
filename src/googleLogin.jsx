@@ -2,13 +2,12 @@ import React from 'react';
 
 class googleLogin extends React.Component{
 
-  // constructor (props) {
-    // super(props);
-    // console.log(props)
-    // this.state = {
-    //   user: ""
-    // };
-  // }
+  constructor (props) {
+    super(props);
+    this.state = {
+      login: false
+    }
+  }
 
   Logout = () => {
     fetch(`/logout`,{
@@ -19,6 +18,21 @@ class googleLogin extends React.Component{
         'Content-Type': 'application/json'
       }
     }).then(res => {
+      return res;
+    }).catch(err => err);
+  }
+
+  loginGoogle = () => {
+    console.log('fetching data');
+    fetch('/auth/google',{
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        "Content-Type": "text/plain"
+      }
+    }).then(res => {
+      console.log('returned response', res);
+      this.setState({ login: true })
       return res;
     }).catch(err => err);
   }
@@ -46,7 +60,7 @@ class googleLogin extends React.Component{
   render () {
     return (
       <div>
-        <a href="/auth/google">login to Google</a>
+        <button onClick={this.loginGoogle} >login to Google</button>
       </div>
     );
   }

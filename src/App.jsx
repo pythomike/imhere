@@ -8,7 +8,12 @@ import EventDetails from './eventDetails.jsx';
 import Carousel from './carousel.jsx';
 
 class App extends Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      login: false
+    };
+ }
 
 
   render() {

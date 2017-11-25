@@ -11,12 +11,14 @@ const passport          = require('passport');
 const FacebookStrategy  = require('passport-facebook').Strategy;
 const GoogleStrategy    = require('passport-google-oauth20').Strategy;
 const Strategy          = require('passport-local').Strategy;
+// const cors              = require('cors')
 const app               = express();
 
 app.use(cookieSession({
   name: 'session',
   keys: ["key1,", "key2"]
 }))
+// app.use(cors())
 app.use(bodyParser.urlencoded({ extended:false }))
 app.use(bodyParser.json())
 
@@ -179,12 +181,18 @@ app.use(passport.session());
     res.send("oh hell yes")
   })
 
+  app.get('/anything', function(){console.log('adfkjadsf')});
+
   app.get('/auth/google',
-    passport.authenticate('google', { scope: ['profile'] }));
+    passport.authenticate('google', { scope: ['profile'] }), function() {console.log('hit1')});
 
   app.get('/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/login' }),
     function(req, res) {
+      console.log('hit')
+      res.set({
+        'Access-Control-Allow-Origin': '*'
+      })
       console.log("google login worked")
       // Successful authentication, redirect home.
       res.redirect('/');
