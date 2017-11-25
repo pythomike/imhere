@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 // import Login from './facebookLogin.jsx';
 // import Google from './googleLogin.jsx';
 // import Logout from './logout.jsx';
+// import $ from 'jquery';
 import EventDetails from './eventDetails.jsx';
-import Carousel from './Carousel.jsx';
+import Carousels from './Carousel.jsx';
 import Modals from "./Navbar/Modal.jsx";
 
 class App extends Component {
@@ -21,6 +22,8 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+           
             <Link to={'/'}>
               <h1 className="App-title">In the header...</h1>
             </Link>
@@ -31,17 +34,18 @@ class App extends Component {
           </div>
   
           <div>
-            <Carousel />
+            <Carousels />
 
             <Link to={'/events/25'}>
               <p>event details 25</p>
             </Link>
             <Switch>
-              <Route exact path="/" render={() => <Carousel /> }/>
+
               <Route path="/events/:id" component={EventDetails}/>
             </Switch>
 
           </div>
+
         </div>
       </Router>
     );
