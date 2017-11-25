@@ -1,8 +1,10 @@
+/*global google*/
 import React, {Component} from 'react';
 import './CreateEvent.css';
 import Geosuggest from 'react-geosuggest';
 import PicUpload from './PicUpload.jsx';
 const Dtime = require('react-datetime');
+const suggest = require('react-geosuggest');
 
 // -Calendar should not be able to be picked on days that have passed
 // -pictures should be rendered according to key words if picture not uploaded
@@ -135,7 +137,8 @@ class CreateEvent extends Component {
 
           <label>
             Location:
-             <Geosuggest
+             <Geosuggest location        = {new google.maps.LatLng(53.977592, -124.643327)}
+                         radius          = "683000"
                          name            = "location"
                          value           = {this.state.location}
                          onChange        = {this.onChange}
