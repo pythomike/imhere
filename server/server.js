@@ -11,7 +11,7 @@ const passport          = require('passport');
 const FacebookStrategy  = require('passport-facebook').Strategy;
 const GoogleStrategy    = require('passport-google-oauth20').Strategy;
 const Strategy          = require('passport-local').Strategy;
-// const cors              = require('cors')
+const moment            = require('moment');
 const app               = express();
 
 app.use(cookieSession({
@@ -92,10 +92,8 @@ app.use(passport.session());
 
 // SELECT ALL EVENTS FROM ONE USER
   app.get('/events/:id', (req, res) => {
-    console.log(req.params)
     var eventID = req.params.id
     knex.select().from('events').where({id:eventID}).then(function(event) {
-      console.log(event)
       res.send(event)
     })
   })
@@ -111,10 +109,10 @@ app.use(passport.session());
 
 // SELECT EVENTS ON A GIVEN DAY
   app.get('/daysevents', (req, res) => {
-    var start = "2017-12-01 21:28:04+00"
+    const lookAtDay = moment().startOf('day')
     knex('events')
     .select('*')
-    .whereBetween('start_time', ['2017-12-01', '2017,12,02'])
+    .whereBetween('start_time', [lookAtDay, lookAtDay.add(1, 'days')])
     .then(function(event) {
       res.send(event)
     })
