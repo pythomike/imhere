@@ -5,6 +5,7 @@ import React, {Component} from 'react';
 // make all fields necessary, except phone call
 // make phone number only 10 digits long
 // password and password_confirmation must match
+// emails = unique
 
 
 class Register extends Component {
@@ -88,7 +89,7 @@ class Register extends Component {
           </label><br />
 
           <label>
-            Password
+            Password:
             <input type        = "password" 
                    name        = "password" 
                    value       = {password} 
@@ -96,7 +97,7 @@ class Register extends Component {
           </label><br />
 
           <label>
-            Password Confirmation
+            Password Confirmation:
             <input type        = "password" 
                    name        = "password_confirmation" 
                    value       = {password_confirmation} 
