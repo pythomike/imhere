@@ -1,49 +1,30 @@
 import React, {Component} from 'react';
-import EventCard from './eventCard.jsx';
+// import EventCard from './eventCard.jsx';
+import 'materialize-css';
+import $ from 'jquery';
 
-class Carousel extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cards: []
-    };
+class Carousels extends Component {
 
-  }
-
-  componentDidMount() {
-    fetch(`/daysevents`,{
-      method: 'GET',
-      mode: 'cors',
-      redirect: '/',
-      headers: {
-            "Content-Type": "text/plain"
-        }
-    })
-    .then(function(response) {
-     return response.json();
-    })
-    .then(data => {
-      this.setState({cards: data});
-    }).catch(function(err){
-      console.log(err)
-    })
-  }
-
-  render() {
-    const eventCards = this.state.cards.map(card => {
-      return <EventCard
-        key             = {card.id}
-        title           = {card.title}
-        description     = {card.description}
-      />
-
-    });
+  render () { 
     return (
-      <main className="carousel-cards">
-        { eventCards }
-      </main>
-    );
+      <div>
+        <div className="carousel">
+          <a className="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1" /></a>
+          <a className="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2" /></a>
+          <a className="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3" /></a>
+          <a className="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4" /></a>
+          <a className="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5" /></a>
+        </div>        
+        <script type = "text/javascript">
+          $(document).ready(function(){
+            $('.carousel').carousel()
+          });
+        </script> 
+      </div>
+
+    )
   }
-}
-export default Carousel;
+};
+
+export default Carousels;
 
