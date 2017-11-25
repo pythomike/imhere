@@ -35,6 +35,8 @@ class Carousel extends Component {
         key             = {card.id}
         title           = {card.title}
         description     = {card.description}
+        longitude       = {card.longitude}
+        latitude        = {card.latitude}
       />
 
     });
