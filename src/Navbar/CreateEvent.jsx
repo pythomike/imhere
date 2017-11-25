@@ -138,7 +138,8 @@ class CreateEvent extends Component {
           <label>
             Location:
              <Geosuggest location        = {new google.maps.LatLng(53.977592, -124.643327)}
-                         radius          = "683000"
+                         radius          = "20"
+                         country         = "ca"
                          name            = "location"
                          value           = {this.state.location}
                          onChange        = {this.onChange}

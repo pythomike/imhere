@@ -9,7 +9,7 @@ import Carousel from './carousel.jsx';
 import Modals from "./Navbar/Modal.jsx";
 
 class App extends Component {
- 
+
 
   loginResponse(response) {
     console.log(response);
@@ -29,16 +29,13 @@ class App extends Component {
           <div>
             <Modals />
           </div>
-  
+
           <div>
             <Link to={'/login'}>
               <p>login</p>
             </Link>
             <Link to={'/logout'}>
               <p>logout</p>
-            </Link>
-            <Link to={'/events/new'}>
-              <p>Create an event</p>
             </Link>
             <Link to={'/events/25'}>
               <p>event details 25</p>
