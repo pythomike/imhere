@@ -74,7 +74,7 @@ class eventDetails extends Component {
             </div>
             <div className="googlemaps-button">
               <a target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${this.state.data.latitude},${this.state.data.longitude}`}>
-                <img src="" className="googleMaps-icon" alt="map-icon"></img>
+                <img src="https://i.imgur.com/0JAMrnL.png" width="35em" className="googleMaps-icon" alt="map-icon"></img>
               </a>
             </div>
           </span>
