@@ -1,14 +1,75 @@
-const PORT        = process.env.PORT || 3001;
-const ENV         = process.env.ENV || "development";
-const express     = require('express');
-const bodyParser  = require('body-parser');
-const app         = express();
-const knexConfig  = require("../knexfile");
-const knex        = require("knex")(knexConfig[ENV]);
-const knexLogger  = require('knex-logger');
+const PORT              = process.env.PORT || 3001;
+const ENV               = process.env.ENV || "development";
+const express           = require('express');
+const bodyParser        = require('body-parser');
+const knexConfig        = require("../knexfile");
+const knex              = require("knex")(knexConfig[ENV]);
+const knexLogger        = require('knex-logger');
+const bcrypt            = require('bcrypt');
+const cookieSession     = require('cookie-session')
+const passport          = require('passport');
+const FacebookStrategy  = require('passport-facebook').Strategy;
+const GoogleStrategy    = require('passport-google-oauth20').Strategy;
+const Strategy          = require('passport-local').Strategy;
+const app               = express();
 
+app.use(cookieSession({
+  name: 'session',
+  keys: ["key1,", "key2"]
+}))
 app.use(bodyParser.urlencoded({ extended:false }))
 app.use(bodyParser.json())
+
+passport.use(new Strategy(
+  function(username, password, cb) {
+    console.log(username)
+    db.users.findByUsername(username, function(err, user) {
+      if (err) { return cb(err); }
+      if (!user) { return cb(null, false); }
+      if (user.password != password) { return cb(null, false); }
+      return cb(null, user);
+    });
+  }));
+
+passport.use(new FacebookStrategy({
+    clientID: "128785804474750",
+    clientSecret: "35f1d7fedd855477c4284dd35f811169",
+    callbackURL: "http://localhost:3000/auth/facebook/callback"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    console.log(profile)
+    db.users.findOrCreate({ facebookId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
+
+passport.use(new GoogleStrategy({
+    clientID: "203543889826-3ben71eaei904q9hgt869ebqiq046fae.apps.googleusercontent.com",
+    clientSecret: "0G2p0nTElMZ2wDJyi_6TlX5U",
+    callbackURL: "http://localhost:3000/auth/google/callback"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    console.log(profile.id)
+    db.users.findOrCreate({ googleId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
+
+passport.serializeUser(function(user, cb) {
+  cb(null, user.id);
+});
+
+passport.deserializeUser(function(id, cb) {
+  db.users.findById(id, function (err, user) {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Universal Selector
   function dbRead(table) {
@@ -17,18 +78,18 @@ app.use(bodyParser.json())
 
 
 // SELECT ALL OF THE THINGS
-  app.get('/things', function(req, res) {
+  app.get('/things', (req, res) => {
     dbRead()
   })
 // SELECT ALL EVENTS - WORKING
-  app.get('/allevents', function(req, res) {
+  app.get('/allevents', (req, res) => {
     knex.select().from('events').then(function(event) {
       res.send(event)
     })
   })
 
 // SELECT ALL EVENTS FROM ONE USER
-  app.get('/events/:id', function(req, res) {
+  app.get('/events/:id', (req, res) => {
     console.log(req.params)
     var eventID = req.params.id
     knex.select().from('events').where({id:eventID}).then(function(event) {
@@ -38,7 +99,7 @@ app.use(bodyParser.json())
   })
 
 // SELECT A USER
-  app.get('/users/:id', function(req, res) {
+  app.get('/users/:id', (req, res) => {
     console.log(req.params)
     var eventID = req.params.id
     knex.select().from('users').where({id:eventID}).then(function(user) {
@@ -47,7 +108,7 @@ app.use(bodyParser.json())
   })
 
 // SELECT EVENTS ON A GIVEN DAY
-  app.get('/daysevents', function(req, res) {
+  app.get('/daysevents', (req, res) => {
     var start = "2017-12-01 21:28:04+00"
     knex('events')
     .select('*')
@@ -68,56 +129,40 @@ app.use(bodyParser.json())
 
 // Add EVENT
 
-  var obj = {
-    data: {
-          user_id: 46,
-          title: "TEST oh damnnnnnnn",
-          location: "Mike's house",
-          description: "House paaaaarrty",
-          max_attendees:9002,
-          start_time:"2017-12-28 08:32:36+00",
-          end_time:"2017-12-28 08:32:36+00",
-          total_going:9001,
-          private:true,
-          latitude: 49.283319,
-          longitude: -123.115940
-          },
-    table : 'events'
-  }
-
-    app.post('/events', function(req, res) {
+    app.post('/events', (req, res) => {
       dbInsert(req.body, 'events')
       res.send("naiiiled it")
     })
 
-// ADD USER
-  // let user = {
-  //   email: "mike@mike.mike",
-  //   password: "cheese",
-  //   first_name: "Mike",
-  //   last_name: "Moike",
-  //   phone_number: 6048675309
-  // }
-    app.post('/newuser', function(req, res){
+    app.post('/newuser', (req, res) => {
+      // console.log("current user id: ", req.session)
       knex.select().from('users').where({email:req.body.email})
         .first()
         .then ((found) => {
           if (found) {
-            res.status(409).send("User already exists");
+
+            req.session.user_id = found.id
+            res.status(201).send("Logging in");
           } else {
-            console.log(`User ${req.body.first_name} ${req.body.last_name} has been created`)
-            dbInsert(req.body, 'users')
+            req.session.user_id = dbInsert(req.body, 'users')
+            res.status(201).send("User created");
           }
         })
         .catch(err => console.log('error caught', err))
     })
+
+  app.get('/logout',
+  function(req, res){
+    req.logout();
+    res.redirect('/');
+  });
 
 // ADD ATTENDEE
   let attendee = {
       user_id: 51,
       event_id: 46
   }
-  app.post('/attendees', function(req, res) {
+  app.post('/attendees', (req, res) => {
     dbInsert(attendee,'attendees')
     res.send("Think we got it")
   })
@@ -129,10 +174,32 @@ app.use(bodyParser.json())
     comment: "In bird-culture, this party would be considered a dick move",
   }
 
-  app.post('/comments', function(req, res) {
+  app.post('/comments', (req, res) => {
     dbInsert(commentObj, 'comments')
     res.send("oh hell yes")
   })
+
+  app.get('/auth/google',
+    passport.authenticate('google', { scope: ['profile'] }));
+
+  app.get('/auth/google/callback',
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    function(req, res) {
+      console.log("google login worked")
+      // Successful authentication, redirect home.
+      res.redirect('/');
+    });
+
+  app.get('/auth/facebook',
+    passport.authenticate('facebook'));
+
+  app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', { failureRedirect: '/login' }),
+    function(req, res) {
+      console.log("facebook login worked")
+      // Successful authentication, redirect home.
+      res.redirect('/');
+    });
 
 // SERVER JAZZ
 app.listen(PORT, function() {
