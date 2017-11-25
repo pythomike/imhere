@@ -33,10 +33,8 @@ class Modals extends Component {
 
   render() {    
     return (
-      <div>
+      <div className="static-modal">
         <Button
-          bsStyle="primary"
-          bsSize="large"
           onClick={this.openRegister}
         > Register button
         </Button>
@@ -55,8 +53,6 @@ class Modals extends Component {
         </Modal>
 
         <Button
-          bsStyle="primary"
-          bsSize="large"
           onClick={this.openEvent}
         > Create Event
         </Button>

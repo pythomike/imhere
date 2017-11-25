@@ -33,7 +33,6 @@ class Register extends Component {
   }
 
   onChange = (e) => {
-    // console.log(e)
     if (e.target) {
     const state = this.state
     state[e.target.name] = e.target.value;
