@@ -1,18 +1,18 @@
 // Static Bootstrap
-.form-control-static {
+#form-control-static {
   min-height: 34px;
   padding-top: 7px;
   padding-bottom: 7px;
   margin-bottom: 0;
 }
 
-.form-control-static.input-lg,
-.form-control-static.input-sm {
+#form-control-static.input-lg,
+#form-control-static.input-sm {
   padding-right: 0;
   padding-left: 0;
 }
 
-.form-group-sm .form-control-static {
+#form-group-sm .form-control-static {
   height: 30px;
   min-height: 32px;
   padding: 6px 10px;
@@ -20,7 +20,7 @@
   line-height: 1.5;
 }
 
-.form-group-lg .form-control-static {
+#form-group-lg .form-control-static {
   height: 46px;
   min-height: 38px;
   padding: 11px 16px;
@@ -28,35 +28,36 @@
   line-height: 1.3333333;
 }
 
-.form-inline .form-control-static {
+#form-inline .form-control-static {
   display: inline-block;
 }
 
-.navbar-fixed-top .navbar-collapse,
-.navbar-static-top .navbar-collapse,
-.navbar-fixed-bottom .navbar-collapse {
+#navbar-fixed-top .navbar-collapse,
+#navbar-static-top.navbar-collapse,
+#navbar-fixed-bottm .navbar-collapse {
   padding-right: 0;
   padding-left: 0;
 }
 
-.navbar-static-top {
+#navbar-static-top {
   z-index: 1000;
   border-width: 0 0 1px;
 }
 
-.navbar-form .form-control-static {
+#navbar-form .form-control-static {
   display: inline-block;
 }
 
 // Modal Bootstrap
-.glyphicon-modal-window:before {
+#glyphicon-modal-window:before {
   content: "\e237";
 }
 
-.modal-open {
+#modal-open {
   overflow: hidden;
 }
-.modal {
+
+#modal {
   position: fixed;
   top: 0;
   right: 0;
@@ -68,7 +69,8 @@
   -webkit-overflow-scrolling: touch;
   outline: 0;
 }
-.modal.fade .modal-dialog {
+
+#modal.fade .modal-dialog {
   -webkit-transition: -webkit-transform .3s ease-out;
        -o-transition:      -o-transform .3s ease-out;
           transition:         transform .3s ease-out;
@@ -77,22 +79,26 @@
        -o-transform: translate(0, -25%);
           transform: translate(0, -25%);
 }
-.modal.in .modal-dialog {
+
+#modal.in .modal-dialog {
   -webkit-transform: translate(0, 0);
       -ms-transform: translate(0, 0);
        -o-transform: translate(0, 0);
           transform: translate(0, 0);
 }
-.modal-open .modal {
+
+#modal-open .modal {
   overflow-x: hidden;
   overflow-y: auto;
 }
-.modal-dialog {
+
+#modal-dialog {
   position: relative;
   width: auto;
   margin: 10px;
 }
-.modal-content {
+
+#modal-content {
   position: relative;
   background-color: #fff;
   -webkit-background-clip: padding-box;
@@ -104,7 +110,8 @@
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
           box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
 }
-.modal-backdrop {
+
+#modal-backdrop {
   position: fixed;
   top: 0;
   right: 0;
@@ -113,45 +120,55 @@
   z-index: 1040;
   background-color: #000;
 }
-.modal-backdrop.fade {
+
+#modal-backdrop.fade {
   filter: alpha(opacity=0);
   opacity: 0;
 }
-.modal-backdrop.in {
+
+#modal-backdrop.in {
   filter: alpha(opacity=50);
   opacity: .5;
 }
-.modal-header {
+
+#modal-header {
   padding: 15px;
   border-bottom: 1px solid #e5e5e5;
 }
-.modal-header .close {
+
+#modal-header .close {
   margin-top: -2px;
 }
-.modal-title {
+
+#modal-title {
   margin: 0;
   line-height: 1.42857143;
 }
-.modal-body {
+
+#modal-body {
   position: relative;
   padding: 15px;
 }
-.modal-footer {
+
+#modal-footer {
   padding: 15px;
   text-align: right;
   border-top: 1px solid #e5e5e5;
 }
-.modal-footer .btn + .btn {
+
+#modal-footer .btn + .btn {
   margin-bottom: 0;
   margin-left: 5px;
 }
-.modal-footer .btn-group .btn + .btn {
+
+#modal-footer .btn-group .btn + .btn {
   margin-left: -1px;
 }
-.modal-footer .btn-block + .btn-block {
+
+#modal-footer .btn-block + .btn-block {
   margin-left: 0;
 }
-.modal-scrollbar-measure {
+#modal-scrollbar-measure {
   position: absolute;
   top: -9999px;
   width: 50px;
@@ -159,15 +176,15 @@
   overflow: scroll;
 }
 
-.modal-header:before,
-.modal-header:after,
-.modal-footer:before,
-.modal-footer:after {
+#modal-header:before,
+#modal-header:after,
+#modal-footer:before,
+#modal-footer:after {
   display: table;
   content: " ";
 }
 
-.modal-header:after,
-.modal-footer:after {
+#modal-header:after,
+#modal-footer:after {
   clear: both;
 }
