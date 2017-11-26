@@ -27,9 +27,7 @@ class googleLogin extends React.Component{
     fetch('/auth/google',{
       method: 'GET',
       mode: 'cors',
-      headers: {
-        "Content-Type": "text/plain"
-      }
+
     }).then(res => {
       console.log('returned response', res);
       this.setState({ login: true })

@@ -1,7 +1,4 @@
 import React from 'react';
-
-
-
 import Google from './googleLogin.jsx';
 import Facebook from './facebookLogin.jsx';
 

@@ -20,7 +20,7 @@ class CreateEvent extends Component {
       longitude: '',
       description: '',
       start_time: '',
-      publicPrivate: 'public',
+      private_event: false,
     };
     this.onChange = this.onChange.bind(this);
     this.handleMaxPeople = this.handleMaxPeople.bind(this);
@@ -51,8 +51,13 @@ class CreateEvent extends Component {
       })
   }
 
+  handlePrivateChange = (e) => {
+    this.setState({private_event: !this.state.private_event});
+  }
+
   onChange = (e) => {
     if (e.target) {
+
     const state = this.state
     state[e.target.name] = e.target.value;
     this.setState(state);
@@ -68,8 +73,6 @@ class CreateEvent extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-
-    // JSON.stringify(this.state)
     fetch(`/events`,{
       method: 'POST',
       mode: 'cors',
@@ -164,18 +167,16 @@ class CreateEvent extends Component {
             Public or Private event?
             <label>
               <input type     = "radio"
-                     name     = "publicPrivate"
-                     value    = "public"
-                     checked  = {this.state.publicPrivate === 'public'}
-                     onChange = {this.onChange}
+                     name     = "private_event"
+                     checked  = {this.state.private_event === false}
+                     onChange = {this.handlePrivateChange}
               /> Public
             </label>
             <label>
               <input type     = "radio"
-                     name     = "publicPrivate"
-                     value    = "private"
-                     checked  = {this.state.publicPrivate === 'private'}
-                     onChange = {this.onChange}
+                     name     = "private_event"
+                     checked  = {this.state.private_event === true}
+                     onChange = {this.handlePrivateChange}
               /> Private
             </label>
           </div>

@@ -40,9 +40,9 @@ passport.use(new FacebookStrategy({
   },
   function(accessToken, refreshToken, profile, cb) {
     console.log(profile)
-    db.users.findOrCreate({ facebookId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
+    // db.users.findOrCreate({ facebookId: profile.id }, function (err, user) {
+    //   return cb(err, user);
+    // });
   }
 ));
 
@@ -53,9 +53,9 @@ passport.use(new GoogleStrategy({
   },
   function(accessToken, refreshToken, profile, cb) {
     console.log(profile.id)
-    db.users.findOrCreate({ googleId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
+    // db.users.findOrCreate({ googleId: profile.id }, function (err, user) {
+    //   return cb(err, user);
+    // });
   }
 ));
 
@@ -179,10 +179,12 @@ app.use(passport.session());
     res.send("oh hell yes")
   })
 
-  app.get('/anything', function(){console.log('adfkjadsf')});
 
   app.get('/auth/google',
-    passport.authenticate('google', { scope: ['profile'] }), function() {console.log('hit1')});
+    passport.authenticate('google', {
+      scope: ['profile']
+    })
+  );
 
   app.get('/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/login' }),
