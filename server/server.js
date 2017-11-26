@@ -83,7 +83,8 @@ app.use(bodyParser.urlencoded({ extended:false }))
   }
 
     app.post('/events', function(req, res) {
-      dbInsert(obj.data, obj.table)
+      //dbInsert(obj.data, obj.table)
+      console.log(req.body)
       res.send("naiiiled it")
     })
 

@@ -72,18 +72,17 @@ class CreateEvent extends Component {
   handleFormSubmit = (e) => {
     e.preventDefault();
 
-    console.log(this.state)
+let testPost = this.state
+console.log(this.state)
 
-    fetch(`/daysevents`,{
+    fetch(`/events`,{
       method: 'POST',
       mode: 'cors',
       redirect: '/',
       headers: {
         "Content-Type": "text/plain"
       },
-      body: JSON.stringify({
-
-      })
+      body: testPost
     })
   }
 
