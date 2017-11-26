@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 // import './App.css';
-// import Login from './facebookLogin.jsx';
-// import Google from './googleLogin.jsx';
 // import Logout from './logout.jsx';
+import './App.css';
+import Login from './login.jsx';
+import Logout from './logout.jsx';
+import CreateEvent from './CreateEvent.jsx';
 import EventDetails from './eventDetails.jsx';
 import Carousel from './carousel.jsx';
 import Modals from "./Navbar/Modal.jsx";
 
 class App extends Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      login: false
+    };
+ }
 
   loginResponse(response) {
     console.log(response);
@@ -42,6 +49,9 @@ class App extends Component {
             </Link>
             <Switch>
               <Route exact path="/" render={() => <Carousel /> }/>
+              <Route path="/login" render={() => <Login/> }/>
+              <Route path="/logout" render={() => <Logout/> }/>
+              <Route path="/events/new" render={() => <CreateEvent /> }/>
               <Route path="/events/:id" component={EventDetails}/>
             </Switch>
 
@@ -52,6 +62,3 @@ class App extends Component {
   }
 }
 export default App;
-
-// fragment
-// push state

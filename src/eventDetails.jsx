@@ -37,19 +37,20 @@ class eventDetails extends Component {
   }
 
   render() {
+    const currentEvent = this.state.data
     return (
       <div>
 
         <header className="event-detail-head">
           <span className="title">
-            <h2>{this.state.data.title}</h2>
+            <h2>{currentEvent.title}</h2>
           </span>
           <span className="date-time-container">
             <div className="event-time">
-              <p>Time: {moment(this.state.data.start_time).format("h:mmA").toString()}</p>
+              <p>Time: {moment(currentEvent.start_time).format("h:mmA").toString()}</p>
             </div>
             <div className="event-date">
-              <p>Date: {moment(this.state.data.start_time).format("ddd MMM DD, YYYY").toString()}</p>
+              <p>Date: {moment(currentEvent.start_time).format("ddd MMM DD, YYYY").toString()}</p>
             </div>
           </span>
         </header>
@@ -57,13 +58,13 @@ class eventDetails extends Component {
         <div className="event-detail-main">
           <img src="" className="big-event-image" alt="Event-img" />
           <div className="event-detail-location">
-            <h4>{this.state.data.location}</h4>
+            <h4>{currentEvent.location}</h4>
           </div>
         </div>
 
         <footer className="event-detail-foot">
           <span className="event-description">
-            <p>{this.state.data.description}</p>
+            <p>{currentEvent.description}</p>
           </span>
           <span className="event-extra-info">
             <div className="going-button">
