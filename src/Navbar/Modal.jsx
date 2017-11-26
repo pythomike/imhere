@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import CreateEvent from './CreateEvent.jsx';
 import Register from './Register.jsx';
 import Login from './Login.jsx';
-
 import { Modal, Button } from "react-bootstrap";
 
 
