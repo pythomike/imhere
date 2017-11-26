@@ -124,7 +124,7 @@ app.use(passport.session());
     .then(function(){
       res.status(201)
     })
-    .catch(err => console.log('error caught'))
+    .catch(err => console.log('error caught', err))
   }
 
 // Add EVENT

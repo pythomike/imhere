@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 // import './App.css';
-// import Logout from './logout.jsx';
 import './App.css';
 import Login from './login.jsx';
-import Logout from './logout.jsx';
-import CreateEvent from './CreateEvent.jsx';
 import EventDetails from './eventDetails.jsx';
 import Carousel from './carousel.jsx';
 import Modals from "./Navbar/Modal.jsx";
@@ -50,8 +47,6 @@ class App extends Component {
             <Switch>
               <Route exact path="/" render={() => <Carousel /> }/>
               <Route path="/login" render={() => <Login/> }/>
-              <Route path="/logout" render={() => <Logout/> }/>
-              <Route path="/events/new" render={() => <CreateEvent /> }/>
               <Route path="/events/:id" component={EventDetails}/>
             </Switch>
 
