@@ -7,7 +7,7 @@ const knexConfig  = require("../knexfile");
 const knex        = require("knex")(knexConfig[ENV]);
 const knexLogger  = require('knex-logger');
 
-app.use(bodyParser.urlencoded({ extended:false }))
+app.use(bodyParser.json())
 
 //Universal Selector
   function dbRead(table) {
@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended:false }))
   })
 // SELECT ALL EVENTS - WORKING
   app.get('/allevents', function(req, res) {
+    console.log(req.body)
     knex.select().from('events').then(function(event) {
       res.send(event)
     })
@@ -47,6 +48,7 @@ app.use(bodyParser.urlencoded({ extended:false }))
 
 // SELECT EVENTS ON A GIVEN DAY
   app.get('/daysevents', function(req, res) {
+    console.log(req)
     var start = "2017-12-01 21:28:04+00"
     knex('events')
     .select('*')
@@ -83,8 +85,9 @@ app.use(bodyParser.urlencoded({ extended:false }))
   }
 
     app.post('/events', function(req, res) {
-      //dbInsert(obj.data, obj.table)
+      dbInsert(req.body, 'events')
       console.log(req.body)
+
       res.send("naiiiled it")
     })
 

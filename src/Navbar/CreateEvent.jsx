@@ -6,33 +6,28 @@ import PicUpload from './PicUpload.jsx';
 const Dtime = require('react-datetime');
 const suggest = require('react-geosuggest');
 
-// -Calendar should not be able to be picked on days that have passed
-// -pictures should be rendered according to key words if picture not uploaded
-//   -pic should be required if we don't do the above
-// -make every field required
-
 class CreateEvent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: '',
-      maxPeople: '',
-      name: 'firstName',
-      locationLat: '',
-      locationLong: '',
+      max_attendees: '',
+      creator_name: 'firstName',
+      latitude: '',
+      longitude: '',
       description: '',
-      date: '',
-      publicPrivate: 'public',
+      start_time: '',
+      private: 'public',
     };
     this.onChange = this.onChange.bind(this);
-    this.handleMaxPeople = this.handleMaxPeople.bind(this);
+    this.handlemax_attendees = this.handlemax_attendees.bind(this);
   }
 
-  handleMaxPeople(changeMaxPpl) {
+  handlemax_attendees(changeMaxPpl) {
     const maxNr = /^[0-9\b]*$/;
     if (changeMaxPpl === '' || maxNr.test(changeMaxPpl.target.value)) {
       this.setState({
-        maxPeople: changeMaxPpl.target.value
+        max_attendees: changeMaxPpl.target.value
       })
     }
   }
@@ -41,15 +36,15 @@ class CreateEvent extends Component {
     if (e) {
       this.setState({
           location: e.description,
-          locationLat: e.location.lat,
-          locationLong: e.location.lng
+          latitude: e.location.lat,
+          longitude: e.location.lng
         })
     }
   }
 
   handleDateChange = (e) => {
     this.setState({
-        date: e._d
+        start_time: e._d
       })
   }
 
@@ -62,8 +57,8 @@ class CreateEvent extends Component {
     } else {
       this.setState({
         location: e,
-        locationLat: "",
-        locationLong: ""
+        latitude: "",
+        longitude: ""
       })
     }
 
@@ -71,19 +66,19 @@ class CreateEvent extends Component {
 // TODO SET UP AJAX
   handleFormSubmit = (e) => {
     e.preventDefault();
+    console.log(this.state)
+    let eventDetails = this.state
 
-let testPost = this.state
-console.log(this.state)
-
-    fetch(`/events`,{
+    fetch('/events',{
       method: 'POST',
       mode: 'cors',
       redirect: '/',
       headers: {
-        "Content-Type": "text/plain"
-      },
-      body: testPost
+             "Content-Type": "application/json"
+        },
+      body: JSON.stringify(eventDetails)
     })
+
   }
 
   render() {
@@ -91,7 +86,7 @@ console.log(this.state)
     const valid = function(current){
         return current.isAfter(yesterday);
     };
-    const { title, maxPeople, location, description, date } = this.state;
+    const { title, max_attendees, location, description, start_time } = this.state;
     return (
       <div>
         <h4>creating event bs</h4>
@@ -109,16 +104,16 @@ console.log(this.state)
             Max number of people:
             <input  type        = "text"
                     placeholder = "500"
-                    name        = "maxPeople"
-                    value       = {maxPeople}
-                    onChange    = {this.handleMaxPeople} />
+                    name        = "max_attendees"
+                    value       = {max_attendees}
+                    onChange    = {this.handlemax_attendees} />
           </label> <br />
 
           <div className="radioName">
             Creator:
             <label>
               <input type     = "radio"
-                     name     = "name"
+                     name     = "creator_name"
                      value    = "firstName"
                      checked  = {this.state.name === 'firstName'}
                      onChange = {this.onChange}
@@ -126,7 +121,7 @@ console.log(this.state)
             </label>
             <label>
               <input type     = "radio"
-                     name     = "name"
+                     name     = "creator_name"
                      value    = "Anonymous"
                      checked  = {this.state.name === 'Anonymous'}
                      onChange = {this.onChange}
@@ -158,8 +153,8 @@ console.log(this.state)
           <label>
             Pick a day and time:
             <Dtime isValidDate = { valid }
-                   name        = "date"
-                   value       = {this.state.date}
+                   name        = "start_time"
+                   value       = {this.state.start_time}
                    onChange    = {this.handleDateChange}
                    />
           </label>
@@ -168,17 +163,17 @@ console.log(this.state)
             Public or Private event?
             <label>
               <input type     = "radio"
-                     name     = "publicPrivate"
+                     name     = "private"
                      value    = "public"
-                     checked  = {this.state.publicPrivate === 'public'}
+                     checked  = {this.state.private === 'public'}
                      onChange = {this.onChange}
               /> Public
             </label>
             <label>
               <input type     = "radio"
-                     name     = "publicPrivate"
+                     name     = "private"
                      value    = "private"
-                     checked  = {this.state.publicPrivate === 'private'}
+                     checked  = {this.state.private === 'private'}
                      onChange = {this.onChange}
               /> Private
             </label>
