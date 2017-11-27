@@ -17,7 +17,7 @@ class CreateEvent extends Component {
     this.state = {
       title: '',
       max_attendees: '',
-      name: 'firstName',
+      creator_name: 'firstName',
       latitude: '',
       longitude: '',
       description: '',
@@ -75,6 +75,7 @@ class CreateEvent extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
+
     fetch(`/events`,{
       method: 'POST',
       mode: 'cors',
@@ -86,6 +87,7 @@ class CreateEvent extends Component {
     }).then(res => {
       return res;
     }).catch(err => err);
+
   }
 
   render() {
@@ -121,17 +123,17 @@ class CreateEvent extends Component {
             Creator:
             <label>
               <input type     = "radio"
-                     name     = "name"
+                     name     = "creator_name"
                      value    = "firstName"
-                     checked  = {this.state.name === 'firstName'}
+                     checked  = {this.state.creator_name === 'firstName'}
                      onChange = {this.onChange}
               /> firstName
             </label>
             <label>
               <input type     = "radio"
-                     name     = "name"
+                     name     = "creator_name"
                      value    = "Anonymous"
-                     checked  = {this.state.name === 'Anonymous'}
+                     checked  = {this.state.creator_name === 'Anonymous'}
                      onChange = {this.onChange}
               /> Anonymous
             </label>
