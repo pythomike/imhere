@@ -103,7 +103,7 @@ class Register extends Component {
                    onChange    = {this.onChange} />
           </label><br />
 
-          <input type="submit" value="submit" />
+          <input className="btnfrm btn waves-effect waves-light btn-flat modal-action" type="submit" value="submit" />
         </form>
       </div>
     );

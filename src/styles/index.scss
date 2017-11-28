@@ -108,12 +108,51 @@ h1 {
 
 //MODALS
 .modsbg {
-  background-color: #f3b816;
+  background-color: #FFB54D;
 }
 
 .modal {
   border-radius: 5px;
   background-color: #FFB54D;
+}
+
+.modal .modal-footer {
+  border-radius: 5px;
+  background-color: #FFB54D;
+}
+
+.modal h4 {
+  margin-bottom: 30px
+}
+
+form {
+  margin-bottom: 2.5rem; }
+
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="text"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="password"],
+  textarea,
+  select {
+    height: 38px;
+    padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+    background-color: #fff;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    box-shadow: none;
+    box-sizing: border-box;
+    margin-bottom: 1rem; }
+
+label {
+  font-size: 1rem;
+  color: black;
+}
+
+.btnfrm {
+  float: right;
 }
 
 
