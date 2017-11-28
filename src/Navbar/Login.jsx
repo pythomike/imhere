@@ -27,10 +27,7 @@ class Login extends Component {
   render() {
     const {email, password} = this.state;
     return (
-      <div>
-        <Modal
-          header='Modal Header'
-          trigger={<Button>LOGIN</Button>}>        
+      <div>     
         <form onSubmit = {this.handleFormSubmit}>        
           <label>
             Email Address: 
@@ -49,8 +46,7 @@ class Login extends Component {
                     onChange    = {this.onChange} />
           </label><br />
           <input type="submit" value="submit" />
-        </form>
-        </Modal>            
+        </form>       
       </div>
     );
   }

@@ -13,13 +13,14 @@ class App extends Component {
       <Router>
         <div className="bgimg">
         <div className="App">
-          <header className="App-header">
+          <header>
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <Modals />
           </header>
   
           <div>
-            <Carousels />
+              <Carousels />
+            </div>
             <Link to={'/events/25'}>
               <p>event details 25</p>
             </Link>
@@ -27,8 +28,6 @@ class App extends Component {
             <Switch>
               <Route path="/events/:id" component={EventDetails}/>
             </Switch>
-
-          </div>
         </div>
         </div>
       </Router>
