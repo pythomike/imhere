@@ -49,8 +49,7 @@ class Register extends Component {
   render() {
     const {first_name, last_name, email, phone_number, password, password_confirmation} = this.state;
     return (
-      <div>
-        <h4>Most exciting REGISTER form</h4>
+      <div className="modsbg">
         <form onSubmit = {this.handleFormSubmit}>
           <label> 
             First Name: 

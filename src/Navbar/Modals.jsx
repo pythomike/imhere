@@ -20,23 +20,23 @@ class Modals extends Component {
           <ul id="nav-mobile" className= "right hide-on-med-and-down">
             <li>
               <Modal
-                header='Modal Header'
+                header= "Register here to create some fun events:"
                 trigger={<Button className="buttons">REGISTER</Button>}>
                 <Register />
               </Modal>
             </li>
 
-          <Modal
-            header='Modal Header'
-            trigger={<Button className="buttons">CREATE EVENT</Button>}>
-            <CreateEvent />
-          </Modal>
+            <Modal
+              header='Modal Header'
+              trigger={<Button className="buttons">CREATE EVENT</Button>}>
+              <CreateEvent />
+            </Modal>
 
-          <Modal
-            header='Modal Header'
-            trigger={<Button className="buttons">LOGIN</Button>}>
-            <Login />
-          </Modal>
+            <Modal
+              header='Modal Header'
+              trigger={<Button className="buttons">LOGIN</Button>}>
+              <Login />
+            </Modal>
           </ul>
         </div>
       </nav>

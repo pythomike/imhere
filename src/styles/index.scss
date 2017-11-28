@@ -1,4 +1,4 @@
-
+//FRONT PAGE
 * {
   margin: 0;
   padding: 0;
@@ -45,18 +45,6 @@ h1 {
   text-align: center;
   margin-top: 50px;
 }
-
-
-
-
-
-
-// .logo {
-//   float:left;
-//   margin-top: 10px;
-// }
-
-
 
 // .carousel .carousel-item img {
 //   width: 80%;
@@ -117,6 +105,17 @@ h1 {
 .buttons:hover {
   background-color: #f3b816;
 }
+
+//MODALS
+.modsbg {
+  background-color: #f3b816;
+}
+
+.modal {
+  border-radius: 5px;
+  background-color: #FFB54D;
+}
+
 
 // img {
 //   border-radius: 4px;
