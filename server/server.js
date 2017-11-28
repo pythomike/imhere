@@ -6,12 +6,14 @@ const knexConfig        = require("../knexfile");
 const knex              = require("knex")(knexConfig[ENV]);
 const knexLogger        = require('knex-logger');
 const bcrypt            = require('bcrypt');
+const LocalStrategy     = require('passport-local').Strategy;
 const cookieSession     = require('cookie-session')
 const passport          = require('passport');
 const FacebookStrategy  = require('passport-facebook').Strategy;
-const GoogleStrategy    = require('passport-google-oauth20').Strategy;
+const GoogleStrategy    = require('passport-google-oauth').OAuth2Strategy;
 const Strategy          = require('passport-local').Strategy;
 const moment            = require('moment');
+// const OAuth2Strategy    = require('passport-oauth').OAuth2Strategy;
 const app               = express();
 
 app.use(cookieSession({
@@ -22,16 +24,21 @@ app.use(cookieSession({
 app.use(bodyParser.urlencoded({ extended:false }))
 app.use(bodyParser.json())
 
-passport.use(new Strategy(
-  function(username, password, cb) {
-    console.log(username)
-    db.users.findByUsername(username, function(err, user) {
-      if (err) { return cb(err); }
-      if (!user) { return cb(null, false); }
-      if (user.password != password) { return cb(null, false); }
-      return cb(null, user);
+passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+  User.findOne({ email: email.toLowerCase() }, (err, user) => {
+    if (err) { return done(err); }
+    if (!user) {
+      return done(null, false, { msg: `Email ${email} not found.` });
+    }
+    user.comparePassword(password, (err, isMatch) => {
+      if (err) { return done(err); }
+      if (isMatch) {
+        return done(null, user);
+      }
+      return done(null, false, { msg: 'Invalid email or password.' });
     });
-  }));
+  });
+}));
 
 passport.use(new FacebookStrategy({
     clientID: "128785804474750",
@@ -121,8 +128,8 @@ app.use(passport.session());
 // FUNCTION - DB INSERT - Takes in a data object, and a table name. The object MUST be formatted based on the table where the object is going.
   function dbInsert(data, table) {
     knex.insert(data).into(table).returning('id')
-    .then(function(){
-      res.status(201)
+    .then(function(stuff){
+      return stuff;
     })
     .catch(err => console.log('error caught', err))
   }
@@ -131,7 +138,7 @@ app.use(passport.session());
 
     app.post('/events', (req, res) => {
       dbInsert(req.body, 'events')
-      res.send("naiiiled it")
+      res.send(201)
     })
 
     app.post('/newuser', (req, res) => {
@@ -140,16 +147,21 @@ app.use(passport.session());
         .first()
         .then ((found) => {
           if (found) {
-
-            req.session.user_id = found.id
-            res.status(201).send("Logging in");
+            console.log("user already exists...", found)
+            const userId = found.id
+            res.redirect(302, `/`);
+            // res.status(302).json(userId);
           } else {
-            req.session.user_id = dbInsert(req.body, 'users')
-            res.status(201).send("User created");
+            console.log("making a new user!", req.body)
+            const userId = dbInsert(req.body, 'users')
+            // res.redirect(201, '/');
+            console.log(userId)
+            // res.status(201).json(userId);
           }
         })
         .catch(err => console.log('error caught', err))
     })
+
 
   app.get('/logout',
   function(req, res){

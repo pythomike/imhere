@@ -15,8 +15,8 @@ class Register extends Component {
       last_name: '',
       email: '',
       phone_number: '',
-      password: '',
-      password_confirmation: ''
+      password: ''
+      // password_confirmation: ''
     };
 
     this.onChange = this.onChange.bind(this);
@@ -42,6 +42,20 @@ class Register extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
+    if (this.state.email.length >= 5) {
+      fetch(`/newuser`,{
+        method: 'POST',
+        mode: 'cors',
+        redirect: '/',
+        body: JSON.stringify(this.state),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(res => {
+        console.log(res)
+        return res;
+      }).catch(err => err);
+    }
   }
 
 
@@ -95,13 +109,13 @@ class Register extends Component {
                    onChange    = {this.onChange} />
           </label><br />
 
-          <label>
+          {/*<label>
             Password Confirmation
             <input type        = "password"
                    name        = "password_confirmation"
                    value       = {password_confirmation}
                    onChange    = {this.onChange} />
-          </label><br />
+          </label><br />*/}
           <Recaptcha
               sitekey="6LfNXToUAAAAAIRKWO5FA5x8IQeuHz_QPDcaPbal"
           />

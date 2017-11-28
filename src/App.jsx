@@ -8,19 +8,24 @@ import Carousel from './carousel.jsx';
 import Modals from "./Navbar/Modal.jsx";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      login: false
-    };
- }
+ //  constructor(props) {
+ //    super(props);
+ //    this.state = {
+ //      login: localStorage.getItem('loggedIn')
+ //    };
+ // }
 
-  loginResponse(response) {
-    console.log(response);
+  componentDidMount() {
+    console.log("mounted")
   }
 
-  render() {
+ logout = () => {
+  localStorage.setItem('loggedIn', false)
+ }
 
+
+  render() {
+    console.log("rendered")
     return (
       <Router>
         <div className="App">
@@ -38,7 +43,7 @@ class App extends Component {
             <Link to={'/login'}>
               <p>login</p>
             </Link>
-            <Link to={'/logout'}>
+            <Link onClick={this.logout}to={'/logout'}>
               <p>logout</p>
             </Link>
             <Link to={'/events/25'}>

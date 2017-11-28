@@ -11,6 +11,7 @@ class Carousel extends Component {
   }
 
   componentDidMount() {
+    console.log("loaded carosuel")
     fetch(`/daysevents`,{
       method: 'GET',
       mode: 'cors',
@@ -30,6 +31,7 @@ class Carousel extends Component {
   }
 
   render() {
+    console.log("rendered carousel")
     const eventCards = this.state.cards.map(card => {
       return <EventCard
         key             = {card.id}
