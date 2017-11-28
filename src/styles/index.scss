@@ -20,12 +20,36 @@ header {
 }
 
 .logo .logoimg {
-  margin-top: 11px;
+  margin-top: 13px;
+  margin-left: 0px;
   // width: 130px;
   // height: auto;
   float: left;
-
 }
+
+body {
+  font-family: monospace;
+}
+
+.hero {
+  // position: absolute;
+  // width: 1200px;
+  margin-left: auto;
+  margin-top: auto;
+}
+
+h1 {
+  color: #f3b816;
+  text-transform: uppercase;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+
+
+
+
 
 // .logo {
 //   float:left;

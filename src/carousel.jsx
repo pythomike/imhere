@@ -8,13 +8,16 @@ class Carousels extends Component {
 
   render () { 
     return (
-      <Carousel images={[
-        'https://lorempixel.com/250/250/nature/1',
-        'https://lorempixel.com/250/250/nature/2',
-        'https://lorempixel.com/250/250/nature/3',
-        'https://lorempixel.com/250/250/nature/4',
-        'https://lorempixel.com/250/250/nature/5'
-      ]} />
+      <div className="container"> 
+        <h1> hey in carousel </h1>
+        <Carousel className="hero" images={[
+          'https://lorempixel.com/250/250/nature/1',
+          'https://lorempixel.com/250/250/nature/2',
+          'https://lorempixel.com/250/250/nature/3',
+          'https://lorempixel.com/250/250/nature/4',
+          'https://lorempixel.com/250/250/nature/5'
+        ]} />
+      </div>
     )
   }
 };

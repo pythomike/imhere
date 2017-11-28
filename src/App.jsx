@@ -12,23 +12,16 @@ class App extends Component {
     return (
       <Router>
         <div className="bgimg">
-        <div className="App">
-          <header>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-            <Modals />
-          </header>
-  
-          <div>
-              <Carousels />
-            </div>
-            <Link to={'/events/25'}>
-              <p>event details 25</p>
-            </Link>
+          <div className="App">
+            <header>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+              <Modals />
 
-            <Switch>
-              <Route path="/events/:id" component={EventDetails}/>
-            </Switch>
-        </div>
+              <div className="hero">
+                <Carousels />
+              </div>
+            </header>
+          </div>
         </div>
       </Router>
     );
