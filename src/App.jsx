@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
-// import './App.css';
-
+import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
-import Login from './login.jsx';
-import EventDetails from './eventDetails.jsx';
+// import Login from './login.jsx';
+// import EventDetails from './eventDetails.jsx';
 import Carousels from './Carousel.jsx';
-import Modals from "./Navbar/Modal.jsx";
+import Modals from "./Navbar/Modals.jsx";
+import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {}
+      cards: []
     };
  }
 
@@ -24,8 +23,8 @@ class App extends Component {
     });
   }
 
-  islogedin = () => {
-    fetch(`/currentUser`,{
+  componentDidMount() {
+    fetch(`/daysevents`,{
       method: 'GET',
       mode: 'cors',
       redirect: '/',
@@ -48,32 +47,17 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
-          <header className="App-header">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <div className="bgimg">
+          <div className="App">
+            <header>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+              <Modals />
 
-            <Link to={'/'}>
-              <h1 className="App-title">In the header...</h1>
-            </Link>
-          </header>
-
-          <div>
-            <Modals />
+              <div className="hero">
+                <Carousels events={this.state.cards}/>
+              </div>
+            </header>
           </div>
-
-          <div>
-
-            <Carousels />
-
-            <Link to={'/events/25'}>
-              <p>event details 25</p>
-            </Link>
-            <Switch>
-              <Route path="/events/:id" component={EventDetails}/>
-            </Switch>
-
-          </div>
-
         </div>
       </Router>
     );

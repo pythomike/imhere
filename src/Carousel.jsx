@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import EventCard from './eventCard.jsx';
 import {Carousel} from 'react-materialize';
-import EventDetails from './eventDetails.jsx';
+import moment from 'moment'
+// import EventDetails from './eventDetails.jsx';
 
 class Carousels extends Component {
   constructor(props) {
@@ -14,9 +15,8 @@ class Carousels extends Component {
   render () {
     let events = []
     if (this.props.events){
-      events = this.props.events.data
+      events = this.props.events
     }
-    console.log(events)
     const Cards = events.map(event => {
       console.log("event: ", event)
       return <EventCard
@@ -27,7 +27,8 @@ class Carousels extends Component {
 
 
     return (
-      <div>
+      <div className="container">
+        <h1>{moment().format("h:mm a")}</h1>
         <Carousel>
           <div className='red'>
             <h2>First Panel</h2>
@@ -45,8 +46,9 @@ class Carousels extends Component {
             <h2>Fourth Panel</h2>
             <p className='white-text'>This is your fourth panel</p>
           </div>
-          {Cards}
-
+          <div>
+            {Cards}
+          </div>
         </Carousel>
       </div>
 

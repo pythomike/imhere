@@ -12,7 +12,7 @@ class eventDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: ''
+      data: '' // of one id-- title, time, date, location, description, map location
     };
 
   }

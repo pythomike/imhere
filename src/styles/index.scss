@@ -1,11 +1,138 @@
-// // bootstrap font bug workaround
-// $icon-font-path: "../../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
+//FRONT PAGE
+* {
+  margin: 0;
+  padding: 0;
+}
 
-// @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+header {
+  background-image: url(./background.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
 
+#nav-mobile {
+  margin-top: 20px;
+}
+.navclass {
+  background-color: transparent;
+  box-shadow: 0 0 0 0;
+}
+
+.logo .logoimg {
+  margin-top: 13px;
+  margin-left: 0px;
+  // width: 130px;
+  // height: auto;
+  float: left;
+}
+
+body {
+  font-family: monospace;
+}
+
+.hero {
+  // position: absolute;
+  // width: 1200px;
+  margin-left: auto;
+  margin-top: auto;
+}
+
+h1 {
+  color: #f3b816;
+  text-transform: uppercase;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+// .carousel .carousel-item img {
+//   width: 80%;
+//   margin-top:150px;
+//   margin-left:10%;
+//   margin-right:10%;
+//   z-index:2;
+// }
+
+// body,
+// html {
+//   min-height:100%;
+// }
 
 // body {
-//   margin: 0;
-//   padding: 0;
-//   font-family: sans-serif;
+//   background-image:url(./background.jpg);
+//   background-repeat:no-repeat;
+//   background-size:cover;
 // }
+
+// header {
+//   height: 80px;
+//   margin: 0;
+//   // margin-top: 5px;
+//   position: absolute;
+//   background: #81B9C3;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   display: flex;
+//   flex-flow: row;
+//   align-items: center;
+//   z-index: 2; }
+
+
+.buttons {
+  // display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  height: 36px;
+  line-height: 36px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box; 
+  margin: 13px;
+}
+
+.buttons:hover {
+  background-color: #f3b816;
+}
+
+//MODALS
+.modsbg {
+  background-color: #f3b816;
+}
+
+.modal {
+  border-radius: 5px;
+  background-color: #FFB54D;
+}
+
+
+// img {
+//   border-radius: 4px;
+//   height: auto;
+// }
+
+// .carousel .carousel-item img {
+//   width: 200%;
+// }
+
+// .caro {
+//   // margin-top: 140px;
+//   height: 700px;
+//   // width: 140%;
+// }
+
+// .shadowz {
+//   border-radius: 8px;
+// }
+

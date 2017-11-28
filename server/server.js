@@ -8,7 +8,6 @@ const knex              = require("knex")(knexConfig[ENV]);
 const knexLogger        = require('knex-logger');
 const bcrypt            = require('bcrypt');
 const LocalStrategy     = require('passport-local').Strategy;
-//const cookieSession     = require('cookie-session')
 const passport          = require('passport');
 const FacebookStrategy  = require('passport-facebook').Strategy;
 const GoogleStrategy    = require('passport-google-oauth').OAuth2Strategy;
@@ -17,10 +16,6 @@ const moment            = require('moment');
 const cookieParser = require('cookie-parser');
 const app               = express();
 
-/*app.use(cookieSession({
-  name: 'session',
-  keys: ["key1,", "key2"]
-}))*/
 app.set('trust proxy', 1)
 app.use(session({
   secret: 'test123',
@@ -255,7 +250,16 @@ app.use(session({
         })
         .catch(err => console.log('error caught', err))
   })
-
+  // SELECT EVENTS ON A GIVEN DAY
+  app.get('/daysevents', function(req, res) {
+    var start = "2017-12-01 21:28:04+00"
+    knex('events')
+    .select('*')
+    .whereBetween('start_time', ['2017-12-01', '2017,12,02'])
+    .then(function(event) {
+      res.send(event)
+    })
+  })
 // SELECT EVENTS ON A GIVEN DAY
   app.get('/', (req, res) => {
     console.log("your session is: ", req.session.id, req.session, req.session.userId, req.cookies)
