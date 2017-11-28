@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 // import './App.css';
+
 import './App.css';
 import Login from './login.jsx';
 import EventDetails from './eventDetails.jsx';
-import Carousel from './Carousel.jsx';
+import Carousels from './Carousel.jsx';
 import Modals from "./Navbar/Modal.jsx";
 
 class App extends Component {
@@ -49,8 +50,10 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
             <Link to={'/'}>
-              <h1 className="App-title">Im Here NOW!</h1>
+              <h1 className="App-title">In the header...</h1>
             </Link>
           </header>
 
@@ -59,22 +62,18 @@ class App extends Component {
           </div>
 
           <div>
-            <Link to={'/login'}>
-              <p>login</p>
-            </Link>
-            <Link onClick={this.logout}to={'/logout'}>
-              <p>logout</p>
-            </Link>
+
+            <Carousels />
+
             <Link to={'/events/25'}>
               <p>event details 25</p>
             </Link>
             <Switch>
-              <Route exact path="/" render={() => <Carousel /> }/>
-              <Route path="/login" render={() => <Login/> }/>
               <Route path="/events/:id" component={EventDetails}/>
             </Switch>
 
           </div>
+
         </div>
       </Router>
     );
