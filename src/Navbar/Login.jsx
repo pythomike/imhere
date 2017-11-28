@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Input, Modal, Button } from "react-materialize";
 
 //email & password match to registered users
 //once logged in, change button to logout
@@ -27,6 +28,9 @@ class Login extends Component {
     const {email, password} = this.state;
     return (
       <div>
+        <Modal
+          header='Modal Header'
+          trigger={<Button>LOGIN</Button>}>        
         <form onSubmit = {this.handleFormSubmit}>        
           <label>
             Email Address: 
@@ -45,7 +49,8 @@ class Login extends Component {
                     onChange    = {this.onChange} />
           </label><br />
           <input type="submit" value="submit" />
-        </form>            
+        </form>
+        </Modal>            
       </div>
     );
   }

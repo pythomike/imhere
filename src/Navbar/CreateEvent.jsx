@@ -4,6 +4,8 @@ import Geosuggest from 'react-geosuggest';
 import PicUpload from './PicUpload.jsx';
 const Dtime = require('react-datetime');
 
+
+
 // -Calendar should not be able to be picked on days that have passed
 // -pictures should be rendered according to key words if picture not uploaded
 //   -pic should be required if we don't do the above
@@ -92,7 +94,7 @@ class CreateEvent extends Component {
     };
     const { title, maxPeople, location, description, date } = this.state;
     return (
-      <div>
+      <div>        
         <h4>creating event bs</h4>
         <form onSubmit = {this.handleFormSubmit}>
           <label>
@@ -184,7 +186,6 @@ class CreateEvent extends Component {
           <input type="submit" value="submit" />
         </form>
       </div>
-
     );
   }
 }

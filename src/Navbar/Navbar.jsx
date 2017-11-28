@@ -1,11 +1,25 @@
 import React, {Component} from 'react';
-import './App.css';
+import '../styles/Navbar.css';
 import CreateEvent from './CreateEvent.jsx';
+import Register from './Register.jsx';
+import Login from './Login.jsx';
+import { Input, Modal, Button } from "react-materialize";
 
 class Navbar extends Component {
-  render () {
-    <div className = "nav-bar">
-      
-    </div>
-  }
+
+  render() {    
+    return (
+      <div>
+        <div className="register">
+          <Register />
+        </div>
+        <CreateEvent />
+        <Login />
+
+      </div>
+    )
+  };
 }
+
+
+export default Navbar;

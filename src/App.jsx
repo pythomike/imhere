@@ -2,31 +2,21 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 import EventDetails from './eventDetails.jsx';
 import Carousels from './Carousel.jsx';
-import Modals from "./Navbar/Modal.jsx";
+import Modals from "./Navbar/Modals.jsx";
+import './App.css';
 
 
 class App extends Component {
- 
-
-  loginResponse(response) {
-    console.log(response);
-  }
 
   render() {
     return (
       <Router>
+        <div className="bgimg">
         <div className="App">
-        
           <header className="App-header">
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-            <Link to={'/'}>
-              <h1 className="App-title">In the header...</h1>
-            </Link>
-          </header>
-
-          <div>
             <Modals />
-          </div>
+          </header>
   
           <div>
             <Carousels />
@@ -39,7 +29,7 @@ class App extends Component {
             </Switch>
 
           </div>
-
+        </div>
         </div>
       </Router>
     );
