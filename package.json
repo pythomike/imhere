@@ -53,6 +53,7 @@
     "react-geolocated": "^2.2.1",
     "react-geosuggest": "^2.6.0",
     "react-google-login": "^3.0.2",
+    "react-materialize": "^1.1.0",
     "react-modal": "^3.1.2",
     "react-recaptcha": "^2.3.5",
     "react-router-dom": "^4.2.2",

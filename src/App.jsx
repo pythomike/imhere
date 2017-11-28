@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 import './App.css';
 import Login from './login.jsx';
 import EventDetails from './eventDetails.jsx';
-import Carousel from './carousel.jsx';
+import Carousel from './Carousel.jsx';
 import Modals from "./Navbar/Modal.jsx";
 
 class App extends Component {
