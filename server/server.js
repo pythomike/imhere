@@ -41,36 +41,128 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 }));
 
 passport.use(new FacebookStrategy({
-    clientID: "128785804474750",
-    clientSecret: "35f1d7fedd855477c4284dd35f811169",
-    callbackURL: "http://localhost:3000/auth/facebook/callback"
-  },
-  function(accessToken, refreshToken, profile, cb) {
-    console.log(profile)
-    // db.users.findOrCreate({ facebookId: profile.id }, function (err, user) {
-    //   return cb(err, user);
-    // });
+  clientID: process.env.FACEBOOK_ID,
+  clientSecret: process.env.FACEBOOK_SECRET,
+  callbackURL: '/auth/facebook/callback',
+  profileFields: ['name', 'email', 'link', 'locale', 'timezone', 'gender'],
+  passReqToCallback: true
+}, (req, accessToken, refreshToken, profile, done) => {
+  if (req.user) {
+    User.findOne({ facebook: profile.id }, (err, existingUser) => {
+      if (err) { return done(err); }
+      if (existingUser) {
+        req.flash('errors', { msg: 'There is already a Facebook account that belongs to you. Sign in with that account or delete it, then link it with your current account.' });
+        done(err);
+      } else {
+        User.findById(req.user.id, (err, user) => {
+          if (err) { return done(err); }
+          user.facebook = profile.id;
+          user.tokens.push({ kind: 'facebook', accessToken });
+          user.profile.name = user.profile.name || `${profile.name.givenName} ${profile.name.familyName}`;
+          user.profile.gender = user.profile.gender || profile._json.gender;
+          user.profile.picture = user.profile.picture || `https://graph.facebook.com/${profile.id}/picture?type=large`;
+          user.save((err) => {
+            req.flash('info', { msg: 'Facebook account has been linked.' });
+            done(err, user);
+          });
+        });
+      }
+    });
+  } else {
+    User.findOne({ facebook: profile.id }, (err, existingUser) => {
+      if (err) { return done(err); }
+      if (existingUser) {
+        return done(null, existingUser);
+      }
+      User.findOne({ email: profile._json.email }, (err, existingEmailUser) => {
+        if (err) { return done(err); }
+        if (existingEmailUser) {
+          req.flash('errors', { msg: 'There is already an account using this email address. Sign in to that account and link it with Facebook manually from Account Settings.' });
+          done(err);
+        } else {
+          const user = new User();
+          user.email = profile._json.email;
+          user.facebook = profile.id;
+          user.tokens.push({ kind: 'facebook', accessToken });
+          user.profile.name = `${profile.name.givenName} ${profile.name.familyName}`;
+          user.profile.gender = profile._json.gender;
+          user.profile.picture = `https://graph.facebook.com/${profile.id}/picture?type=large`;
+          user.profile.location = (profile._json.location) ? profile._json.location.name : '';
+          user.save((err) => {
+            done(err, user);
+          });
+        }
+      });
+    });
   }
-));
+}));
 
 passport.use(new GoogleStrategy({
-    clientID: "203543889826-3ben71eaei904q9hgt869ebqiq046fae.apps.googleusercontent.com",
-    clientSecret: "0G2p0nTElMZ2wDJyi_6TlX5U",
-    callbackURL: "http://localhost:3000/auth/google/callback"
-  },
-  function(accessToken, refreshToken, profile, cb) {
-    console.log(profile.id)
-    // db.users.findOrCreate({ googleId: profile.id }, function (err, user) {
-    //   return cb(err, user);
-    // });
+  clientID: process.env.GOOGLE_ID,
+  clientSecret: process.env.GOOGLE_SECRET,
+  callbackURL: '/auth/google/callback',
+  passReqToCallback: true
+}, (req, accessToken, refreshToken, profile, done) => {
+  if (req.user) {
+    User.findOne({ google: profile.id }, (err, existingUser) => {
+      if (err) { return done(err); }
+      if (existingUser) {
+        req.flash('errors', { msg: 'There is already a Google account that belongs to you. Sign in with that account or delete it, then link it with your current account.' });
+        done(err);
+      } else {
+        User.findById(req.user.id, (err, user) => {
+          if (err) { return done(err); }
+          user.google = profile.id;
+          user.tokens.push({ kind: 'google', accessToken });
+          user.profile.name = user.profile.name || profile.displayName;
+          user.profile.gender = user.profile.gender || profile._json.gender;
+          user.profile.picture = user.profile.picture || profile._json.image.url;
+          user.save((err) => {
+            req.flash('info', { msg: 'Google account has been linked.' });
+            done(err, user);
+          });
+        });
+      }
+    });
+  } else {
+    User.findOne({ google: profile.id }, (err, existingUser) => {
+      if (err) { return done(err); }
+      if (existingUser) {
+        return done(null, existingUser);
+      }
+      User.findOne({ email: profile.emails[0].value }, (err, existingEmailUser) => {
+        if (err) { return done(err); }
+        if (existingEmailUser) {
+          req.flash('errors', { msg: 'There is already an account using this email address. Sign in to that account and link it with Google manually from Account Settings.' });
+          done(err);
+        } else {
+          const user = new User();
+          user.email = profile.emails[0].value;
+          user.google = profile.id;
+          user.tokens.push({ kind: 'google', accessToken });
+          user.profile.name = profile.displayName;
+          user.profile.gender = profile._json.gender;
+          user.profile.picture = profile._json.image.url;
+          user.save((err) => {
+            done(err, user);
+          });
+        }
+      });
+    });
   }
-));
+}));
 
 passport.serializeUser(function(user, cb) {
   cb(null, user.id);
 });
 
 passport.deserializeUser(function(id, cb) {
+
+  knex.select().from('users').then(function(event) {
+
+    })
+
+
   db.users.findById(id, function (err, user) {
     if (err) { return cb(err); }
     cb(null, user);
@@ -216,6 +308,27 @@ app.use(passport.session());
       // Successful authentication, redirect home.
       res.redirect('/');
     });
+
+exports.isAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login');
+};
+
+/**
+ * Authorization Required middleware.
+ */
+exports.isAuthorized = (req, res, next) => {
+  const provider = req.path.split('/').slice(-1)[0];
+  const token = req.user.tokens.find(token => token.kind === provider);
+  if (token) {
+    next();
+  } else {
+    res.redirect(`/auth/${provider}`);
+  }
+};
+
 
 // SERVER JAZZ
 app.listen(PORT, function() {
