@@ -8,24 +8,43 @@ import Carousel from './carousel.jsx';
 import Modals from "./Navbar/Modal.jsx";
 
 class App extends Component {
- //  constructor(props) {
- //    super(props);
- //    this.state = {
- //      login: localStorage.getItem('loggedIn')
- //    };
- // }
-
-  componentDidMount() {
-    console.log("mounted")
-  }
-
- logout = () => {
-  localStorage.setItem('loggedIn', false)
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {}
+    };
  }
 
 
+ onLogout = () => {
+    console.log('onLogout called');
+    this.setState({
+      user: {}
+    });
+  }
+
+  islogedin = () => {
+    fetch(`/currentUser`,{
+      method: 'GET',
+      mode: 'cors',
+      redirect: '/',
+      headers: {
+            "Content-Type": "text/plain"
+        }
+    })
+    .then(function(response) {
+     return response.json();
+    })
+    .then(data => {
+      this.setState({cards: data});
+    }).catch(function(err){
+      console.log(err)
+    })
+
+  }
+
+
   render() {
-    console.log("rendered")
     return (
       <Router>
         <div className="App">

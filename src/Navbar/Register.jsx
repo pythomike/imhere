@@ -43,10 +43,9 @@ class Register extends Component {
   handleFormSubmit = (e) => {
     e.preventDefault();
     if (this.state.email.length >= 5) {
-      fetch(`/newuser`,{
+      fetch(`/signup`,{
         method: 'POST',
         mode: 'cors',
-        redirect: '/',
         body: JSON.stringify(this.state),
         headers: {
           'Content-Type': 'application/json'

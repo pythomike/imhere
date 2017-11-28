@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
 import EventCard from './eventCard.jsx';
 
+const API_HOST = 'http://localhost:3001'
+
 class Carousel extends Component {
   constructor(props) {
     super(props);
     this.state = {
       cards: []
     };
-
   }
 
   componentDidMount() {
-    console.log("loaded carosuel")
-    fetch(`/daysevents`,{
+    fetch(`http://localhost:3001`,{
       method: 'GET',
       mode: 'cors',
       redirect: '/',
@@ -21,6 +21,7 @@ class Carousel extends Component {
         }
     })
     .then(function(response) {
+      console.log("this response is:", response)
      return response.json();
     })
     .then(data => {
@@ -31,7 +32,6 @@ class Carousel extends Component {
   }
 
   render() {
-    console.log("rendered carousel")
     const eventCards = this.state.cards.map(card => {
       return <EventCard
         key             = {card.id}
