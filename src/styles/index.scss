@@ -4,7 +4,7 @@
   padding: 0;
 }
 
-header {
+.allinc {
   background-image: url(./background.jpg);
   height: 100vh;
   background-size: cover;
@@ -46,40 +46,6 @@ h1 {
   margin-top: 50px;
 }
 
-// .carousel .carousel-item img {
-//   width: 80%;
-//   margin-top:150px;
-//   margin-left:10%;
-//   margin-right:10%;
-//   z-index:2;
-// }
-
-// body,
-// html {
-//   min-height:100%;
-// }
-
-// body {
-//   background-image:url(./background.jpg);
-//   background-repeat:no-repeat;
-//   background-size:cover;
-// }
-
-// header {
-//   height: 80px;
-//   margin: 0;
-//   // margin-top: 5px;
-//   position: absolute;
-//   background: #81B9C3;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   display: flex;
-//   flex-flow: row;
-//   align-items: center;
-//   z-index: 2; }
-
-
 .buttons {
   // display: inline-block;
   height: 38px;
@@ -116,8 +82,19 @@ h1 {
   background-color: #FFB54D;
 }
 
+.modal .modal-content {
+  background-color: #FFB54D;
+  box-shadow: none;
+  border: 0px;
+  border-bottom: 0px;
+  padding-bottom: 0px;
+}
+
 .modal .modal-footer {
+  border-top: 0px;
+  padding-top: 0px;
   border-radius: 5px;
+  border: 0px;
   background-color: #FFB54D;
 }
 
@@ -125,10 +102,8 @@ h1 {
   margin-bottom: 30px
 }
 
-
 form {
   margin-bottom: 2.5rem; }
-
   input[type="email"],
   input[type="number"],
   input[type="search"],
@@ -153,11 +128,16 @@ label {
 }
 
 .btnfrm {
-  float: right;
+  margin:auto;
+  display:block;
 }
 
-
-
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]) {
+  border-bottom:#FF884D;
+  box-shadow: 0 1px 0 0 #FF884D;
+}
 
 // img {
 //   border-radius: 4px;
@@ -178,3 +158,6 @@ label {
 //   border-radius: 8px;
 // }
 
+@media screen and (max-width:959px) {
+  
+}
