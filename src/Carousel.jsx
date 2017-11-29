@@ -713,16 +713,17 @@ class Carousels extends Component {
 
             <div className="container">
               <div className="dt">
-                {moment().format("dddd, MMM DD")} - {moment().format("h:mm a")}
+                {moment().format("DD MMM, YYYY 〄 h:mm a")}
               </div>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one} >
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[0].title}</h4>
-                    <p className="card-text">{events[0].description}</p>
+                <div className="card card-inverse col0" onClick={this.one} >
+                  <div className="card-title">{events[0].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[0].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
-                                 latitude  = {events[0].latitude}/>
-                  </div>
+                                latitude  = {events[0].latitude}/>
+                  </footer>
                 </div>
                 <div className="card card-inverse" onClick={this.two} >
                   <div className="card-img-overlay">
