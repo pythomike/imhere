@@ -28,7 +28,7 @@ class gelocation extends React.Component {
         : this.props.coords
           ?
           <div>
-            About {Math.round(getDistance(this.props.latitude,this.props.longitude,this.props.coords.latitude,this.props.coords.longitude))}km away
+            {Math.round(getDistance(this.props.latitude,this.props.longitude,this.props.coords.latitude,this.props.coords.longitude))}km away
           </div>
           : <div>Getting your location data&hellip; </div>
   }
