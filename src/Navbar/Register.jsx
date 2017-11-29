@@ -129,10 +129,12 @@ class Register extends Component {
                    value       = {password_confirmation}
                    onChange    = {this.onChange} />
           </label><br />*/}
-          <Recaptcha 
-              className="recap"
-              sitekey="6LfNXToUAAAAAIRKWO5FA5x8IQeuHz_QPDcaPbal"
-          />
+          <div className="recap">
+            <Recaptcha 
+                className="recap"
+                sitekey="6LfNXToUAAAAAIRKWO5FA5x8IQeuHz_QPDcaPbal"
+            />
+          </div>
           <input className="btnfrm btn waves-effect waves-light btn-flat modal-action" type="submit" value="Submit" />
         </form>
       </div>

@@ -100,17 +100,25 @@ body {
   z-index: -9;
 }
 
+.modal label {
+  font-size: 1.2rem;
+}
+
+.modal h4 {
+  font-family: 'Slabo 27px', serif;
+}
+
 .modsbg {
-  background-color: #FFB54D;
+  background-color: #E08283;
 }
 
 .modal {
   border-radius: 5px;
-  background-color: #FFB54D;
+  background-color: #E08283;
 }
 
 .modal .modal-content {
-  background-color: #FFB54D;
+  background-color: #E08283;
   box-shadow: none;
   border: 0px;
   border-bottom: 0px;
@@ -122,7 +130,7 @@ body {
   padding-top: 0px;
   border-radius: 5px;
   border: 0px;
-  background-color: #FFB54D;
+  background-color: #E08283;
   border: 0px;
 }
 
@@ -156,11 +164,35 @@ label {
 }
 
 .btnfrm {
-  margin: auto;
-  display: block;
+  height: 38px;
+  padding: 0 30px;
+  color: #343434;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  margin: 10px 0 20px 0;
   height: 100%;
   width: 100%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
+
+input.waves-button-input {
+  outline:0;
+}
+
+.waves-input-wrapper 
+.waves-button-input {
+  width: 100%;
+  height: 100%;
+}
+
 
 input[type=text]:focus:not([readonly]),
 input[type=password]:focus:not([readonly]),
@@ -171,8 +203,10 @@ input[type=email]:focus:not([readonly]) {
 
 //Captchas
 .recap {
-  border: 1px solid black;
-  border-radius: 10px;
+  margin: auto;
+  width: 100%;
+  padding-left: 62%;
+
 }
 
 //CAROUSEL
