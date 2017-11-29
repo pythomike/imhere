@@ -743,35 +743,34 @@ class Carousels extends Component {
             <div className="container">
               <div className="dt">
                 {moment().format("DD MMM, YYYY 〄 h:mm a")} 
-                {/* {moment().format("h:mm a")} */}
               </div>
               <Carousel>
-                <div className="card card-inverse">
-                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[0].title}</h4>
-                    <p className="card-text">{events[0].description}</p>
+                <div className="card card-inverse col0">
+                  <div className="card-title">{events[0].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[0].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
-                                 latitude  = {events[0].latitude}/>
-                  </div>
+                                latitude  = {events[0].latitude}/>
+                  </footer>             
                 </div>
-                <div className="card card-inverse">
-                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[1].title}</h4>
-                    <p className="card-text">{events[1].description}</p>
+                <div className="card card-inverse col1">
+                  <div className="card-title">{events[1].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[1].description}</p>
+                  <div className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
-                                 latitude  = {events[1].latitude}/>
-                  </div>
+                                latitude  = {events[1].latitude}/>
+                  </div>             
                 </div>
-                <div className="card card-inverse">
-                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[2].title}</h4>
-                    <p className="card-text">{events[2].description}</p>
+                <div className="card card-inverse col2">
+                  <div className="card-title">{events[2].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[2].description}</p>
+                  <div className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
-                                 latitude  = {events[2].latitude}/>
-                  </div>
+                                latitude  = {events[2].latitude}/>
+                  </div>             
                 </div>
                 <div className="card card-inverse">
                   {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}

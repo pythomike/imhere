@@ -1,11 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
-
-::-webkit-scrollbar {
-  background: transparent;
-  width: 0;
-  z-index: -9;
-}
-
+@import url('https://fonts.googleapis.com/css?family=Arapey');
+@import url('https://fonts.googleapis.com/css?family=Abel');
+@import url('https://fonts.googleapis.com/css?family=News+Cycle');
 
 //FRONT PAGE
 * {
@@ -25,13 +21,6 @@
   background-position: center;
   filter:blur(2px);
 }
-
-// height: 100vh;
-// background-size: cover;
-// background-position: center;
-// position: relative;
-// filter:blur(2px);
-// z-index: -9;
 
 .allinc {
   height: 100vh;
@@ -104,6 +93,13 @@ body {
 }
 
 //MODALS
+
+::-webkit-scrollbar {
+  background: transparent;
+  width: 0;
+  z-index: -9;
+}
+
 .modsbg {
   background-color: #FFB54D;
 }
@@ -173,10 +169,6 @@ input[type=email]:focus:not([readonly]) {
   box-shadow: 0 1px 0 0 #FF884D;
 }
 
-.carousel .carousel-item {
-  border-radius: 3px;
-}
-
 //Captchas
 .recap {
   border: 1px solid black;
@@ -187,6 +179,59 @@ input[type=email]:focus:not([readonly]) {
 .carousel {
   height: 350px;
 }
+
+.card-inverse {
+  // width: 200px;
+  // height: 200px;
+  // display: inline-block;
+  text-align: -webkit-center;
+}
+
+.carousel .carousel-item {
+  border-radius: 3px;
+  width: 300px;
+  height: 200px;
+}
+
+.card .card-title {
+  font-size: 28px;
+  font-weight: 550;
+  font-family: 'Arapey', serif;  
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.171);
+  margin: 8px 8px 0px 8px;
+  border-radius: 4px;
+
+}
+
+.col0 {
+  background-color: #4f9a94;
+}
+
+.col1 {
+  background-color: #FF6B57;
+}
+
+.col2 {
+  background-color:#32526E;
+}
+
+.card-text {
+  color:rgba(255, 255, 255, 0.801);
+  font-size: 20px;
+  font-family: 'Slabo 27px', serif;
+}
+
+.card-geo {
+  float: right;
+  margin-right: 10px;
+  font-size: 13px;
+  font-family: 'News Cycle', sans-serif;
+  // font-weight: 500;
+  color: rgb(235, 235, 235);
+  border: 0px;
+}
+
 
 // .rc-anchor-light {
 //   background: #f9f9f9;
