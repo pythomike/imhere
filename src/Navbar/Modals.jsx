@@ -17,7 +17,7 @@ class Modals extends Component {
           <div className="logo">
             <img className="logoimg" src={Logo} />
           </div>
-          <ul id="nav-mobile" className= "right hide-on-med-and-down">
+          <ul id="nav-mobile" className= "right">
             <li>
               <Modal
                 header= "Register here to create some fun events:"
