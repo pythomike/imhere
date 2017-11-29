@@ -15,7 +15,7 @@ class Login extends Component {
 
   onChange = (e) => {
     if (e.target) {
-    const state = this.state
+    const state = this.state;
     state[e.target.name] = e.target.value;
     this.setState(state);
     }
@@ -23,22 +23,7 @@ class Login extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    if (this.state.email.length >= 3) {
-      fetch(`/login`,{
-        method: 'POST',
-        mode: 'cors',
-        credentials: 'same-origin',
-        body: JSON.stringify(this.state),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }).then(res => {
-        console.log(res)
-        return res;
-      }).catch(err => err);
-    }
-    console.log(this.state)
-
+    this.props.login(this.state);
   }
 
 

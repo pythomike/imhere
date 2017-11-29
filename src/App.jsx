@@ -35,6 +35,23 @@ class App extends Component {
     console.log('onLogout called');
   }
 
+  onLogin = (info) => {
+    console.log("app login called with info: ", info)
+    fetch(`/login`,{
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'same-origin',
+        body: JSON.stringify(info),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(res => {
+        console.log(res)
+        this.setState({loggedIn: true})
+        return res;
+      }).catch(err => err);
+  }
+
   componentDidMount() {
 
     fetch(`/currentUser`,{
@@ -82,7 +99,7 @@ class App extends Component {
     return (
       <Router>
         <div className="allinc">
-          <Modals loggedIn={this.state.loggedIn} logout={this.onLogout}/>
+          <Modals loggedIn={this.state.loggedIn} logout={this.onLogout} login={this.onLogin}/>
           <div className="hero">
             <Carousels events={this.state.cards}/>
           </div>
