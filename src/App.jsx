@@ -46,9 +46,12 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <div>
+        <div className="imgbg"></div>
         <div className="allinc">
           <Modals />
             <Carousels events={this.state.cards}/>
+        </div>
         </div>
       </Router>
     );
