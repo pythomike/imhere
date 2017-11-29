@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import CreateEvent from './CreateEvent.jsx';
 import Register from './Register.jsx';
 import Login from './Login.jsx';
-import Logo from './black.png'
+import Logo from './blacklogo.png'
 import { Input, Modal, Button } from "react-materialize";
-
+import moment from 'moment';
 
 
 class Modals extends Component {
-
-
   render() {    
     return (
       <nav className="navclass">

@@ -17,6 +17,7 @@
 .navclass {
   background-color: transparent;
   box-shadow: 0 0 0 0;
+  padding-bottom: 150px;
 }
 
 .logo .logoimg {
@@ -34,16 +35,22 @@ body {
 .hero {
   // position: absolute;
   // width: 1200px;
-  margin-left: auto;
-  margin-top: auto;
+  // margin-left: auto;
+  // margin-top: auto;
 }
 
-h1 {
+.container {
+  background-color: white;
+  border-radius: 7px;
+}
+
+.dt {
   color: #f3b816;
   text-transform: uppercase;
-  font-size: 50px;
+  font-size: 40px;
   text-align: center;
-  margin-top: 50px;
+  background: transparent;
+  padding-top: 10px;
 }
 
 .buttons {
@@ -129,8 +136,10 @@ label {
 }
 
 .btnfrm {
-  margin:auto;
-  display:block;
+  margin: auto;
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 input[type=text]:focus:not([readonly]),
@@ -139,6 +148,22 @@ input[type=email]:focus:not([readonly]) {
   border-bottom:#FF884D;
   box-shadow: 0 1px 0 0 #FF884D;
 }
+
+//Captchas
+.recap {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+//CAROUSEL
+.carousel {
+  height: 350px;
+}
+
+// .rc-anchor-light {
+//   background: #f9f9f9;
+//   color: #000;
+// }
 
 // img {
 //   border-radius: 4px;
