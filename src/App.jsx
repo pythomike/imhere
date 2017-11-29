@@ -15,7 +15,6 @@ class App extends Component {
     };
  }
 
-
  onLogout = () => {
     console.log('onLogout called');
     this.setState({
@@ -44,18 +43,13 @@ class App extends Component {
 
   }
 
-
   render() {
     return (
       <Router>
-        <div className="bgimg">
-          <div className="App">
-            <div className="allinc">
-              <Modals />
-              <div className="hero">
-                <Carousels events={this.state.cards}/>
-              </div>
-            </div>
+        <div className="allinc">
+          <Modals />
+          <div className="hero">
+            <Carousels events={this.state.cards}/>
           </div>
         </div>
       </Router>
