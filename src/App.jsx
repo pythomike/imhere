@@ -48,9 +48,7 @@ class App extends Component {
       <Router>
         <div className="allinc">
           <Modals />
-          <div className="hero">
             <Carousels events={this.state.cards}/>
-          </div>
         </div>
       </Router>
     );

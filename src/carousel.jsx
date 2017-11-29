@@ -742,7 +742,8 @@ class Carousels extends Component {
 
             <div className="container">
               <div className="dt">
-                {moment().format("dddd, MMM DD")} - {moment().format("h:mm a")}
+                {moment().format("DD MMM, YYYY 〄 h:mm a")} 
+                {/* {moment().format("h:mm a")} */}
               </div>
               <Carousel>
                 <div className="card card-inverse">
