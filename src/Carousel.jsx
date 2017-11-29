@@ -18,11 +18,11 @@ class Carousels extends Component {
       events = this.props.events
     }
     const Cards = events.map(event => {
-      console.log("event: ", event)
-      return <EventCard
-      key  = {event.id}
-      data = {event}
-      />
+      return (
+        <div>
+        <EventCard data={event} />
+      </div>
+      )
     });
 
 
@@ -39,6 +39,11 @@ class Carousels extends Component {
             <h2>Second Panel</h2>
             <p className='white-text'>This is your second panel</p>
           </div>
+          <div className='blue'>
+            <h2>Fourth Panel</h2>
+            <p className='white-text'>This is your fourth panel</p>
+          </div>
+
           <div className='green'>
             <h2>Third Panel</h2>
             <p className='white-text'>This is your third panel</p>
@@ -47,9 +52,7 @@ class Carousels extends Component {
             <h2>Fourth Panel</h2>
             <p className='white-text'>This is your fourth panel</p>
           </div>
-          <div>
-            {Cards}
-          </div>
+          {Cards}
         </Carousel>
       </div>
 
