@@ -58,18 +58,18 @@ class Carousels extends Component {
       events = this.props.events
       return (
         <div className="container">
-          <div className="datetime">
-            <h1>{moment().format("dddd, MMM DD ")}</h1>
-            <h1>{moment().format("h:mm a")}</h1>
+          <div className="dt">
+            {moment().format("DD MMM, YYYY 〄 h:mm a")}
           </div>
           <Carousel>
-            <div className="card card-inverse" onClick={this.one}>
-              <div className="card-img-overlay">
-                <h4 className="card-title">{events[0].title}</h4>
-                <p className="card-text">{events[0].description}</p>
+            <div className="card card-inverse col0" onClick={this.one} >
+              <div className="card-title">{events[0].title}</div>
+              <div>﹀</div>
+              <p className="card-text">{events[0].description}</p>
+              <footer className="card-geo">
                 <GeoLocation longitude = {events[0].longitude}
-                             latitude  = {events[0].latitude}/>
-              </div>
+                            latitude  = {events[0].latitude}/>
+              </footer>
             </div>
           </Carousel>
         </div>
@@ -79,24 +79,27 @@ class Carousels extends Component {
       events = this.props.events
       return (
         <div className="container">
-          <h1>{moment().format("dddd, MMM DD")}</h1>
-          <h1>{moment().format("h:mm a")}</h1>
+          <div className="dt">
+            {moment().format("DD MMM, YYYY 〄 h:mm a")}
+          </div>
           <Carousel>
-            <div className="card card-inverse" onClick={this.one}>
-              <div className="card-img-overlay">
-                <h4 className="card-title">{events[0].title}</h4>
-                <p className="card-text">{events[0].description}</p>
+            <div className="card card-inverse col0" onClick={this.one} >
+              <div className="card-title">{events[0].title}</div>
+              <div>﹀</div>
+              <p className="card-text">{events[0].description}</p>
+              <footer className="card-geo">
                 <GeoLocation longitude = {events[0].longitude}
-                             latitude  = {events[0].latitude}/>
-              </div>
+                            latitude  = {events[0].latitude}/>
+              </footer>
             </div>
-            <div className="card card-inverse" onClick={this.two}>
-              <div className="card-img-overlay">
-                <h4 className="card-title">{events[1].title}</h4>
-                <p className="card-text">{events[1].description}</p>
+            <div className="card card-inverse col1" onClick={this.two} >
+              <div className="card-title">{events[1].title}</div>
+              <div>﹀</div>
+              <p className="card-text">{events[1].description}</p>
+              <footer className="card-geo">
                 <GeoLocation longitude = {events[1].longitude}
-                             latitude  = {events[1].latitude}/>
-              </div>
+                            latitude  = {events[1].latitude}/>
+              </footer>
             </div>
           </Carousel>
         </div>
@@ -106,32 +109,36 @@ class Carousels extends Component {
           events = this.props.events
           return (
             <div className="container">
-              <h1>{moment().format("dddd, MMM DD")}</h1>
-              <h1>{moment().format("h:mm a")}</h1>
+              <div className="dt">
+                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+              </div>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[0].title}</h4>
-                    <p className="card-text">{events[0].description}</p>
+                <div className="card card-inverse col0" onClick={this.one} >
+                  <div className="card-title">{events[0].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[0].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
-                                 latitude  = {events[0].latitude}/>
-                  </div>
+                                latitude  = {events[0].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[1].title}</h4>
-                    <p className="card-text">{events[1].description}</p>
+                <div className="card card-inverse col1" onClick={this.two} >
+                  <div className="card-title">{events[1].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[1].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
-                                 latitude  = {events[1].latitude}/>
-                  </div>
+                                latitude  = {events[1].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[2].title}</h4>
-                    <p className="card-text">{events[2].description}</p>
+                <div className="card card-inverse col2" onClick={this.three} >
+                  <div className="card-title">{events[2].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[2].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
-                                 latitude  = {events[2].latitude}/>
-                  </div>
+                                latitude  = {events[2].latitude}/>
+                  </footer>
                 </div>
               </Carousel>
             </div>
@@ -141,42 +148,46 @@ class Carousels extends Component {
           events = this.props.events
           return (
             <div className="container">
-              <h1>{moment().format("dddd, MMM DD")}</h1>
-              <h1>{moment().format("h:mm a")}</h1>
+              <div className="dt">
+                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+              </div>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[0].title}</h4>
-                    <p className="card-text">{events[0].description}</p>
+                <div className="card card-inverse col0" onClick={this.one} >
+                  <div className="card-title">{events[0].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[0].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
-                                 latitude  = {events[0].latitude}/>
-                  </div>
+                                latitude  = {events[0].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[1].title}</h4>
-                    <p className="card-text">{events[1].description}</p>
+                <div className="card card-inverse col1" onClick={this.two} >
+                  <div className="card-title">{events[1].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[1].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
-                                 latitude  = {events[1].latitude}/>
-                  </div>
+                                latitude  = {events[1].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[2].title}</h4>
-                    <p className="card-text">{events[2].description}</p>
+                <div className="card card-inverse col2" onClick={this.three} >
+                  <div className="card-title">{events[2].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[2].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
-                                 latitude  = {events[2].latitude}/>
-                  </div>
+                                latitude  = {events[2].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[3].title}</h4>
-                    <p className="card-text">{events[3].description}</p>
+                <div className="card card-inverse col3" onClick={this.four} >
+                  <div className="card-title">{events[3].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[3].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
-                                 latitude  = {events[3].latitude}/>
-                  </div>
+                                latitude  = {events[3].latitude}/>
+                  </footer>
                 </div>
-
               </Carousel>
             </div>
 
@@ -185,48 +196,54 @@ class Carousels extends Component {
           events = this.props.events
           return (
             <div className="container">
-              <h1>{moment().format("dddd, MMM DD")}</h1>
-              <h1>{moment().format("h:mm a")}</h1>
+              <div className="dt">
+                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+              </div>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[0].title}</h4>
-                    <p className="card-text">{events[0].description}</p>
+                <div className="card card-inverse col0" onClick={this.one} >
+                  <div className="card-title">{events[0].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[0].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
-                                 latitude  = {events[0].latitude}/>
-                  </div>
+                                latitude  = {events[0].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[1].title}</h4>
-                    <p className="card-text">{events[1].description}</p>
+                <div className="card card-inverse col1" onClick={this.two} >
+                  <div className="card-title">{events[1].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[1].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
-                                 latitude  = {events[1].latitude}/>
-                  </div>
+                                latitude  = {events[1].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[2].title}</h4>
-                    <p className="card-text">{events[2].description}</p>
+                <div className="card card-inverse col2" onClick={this.three} >
+                  <div className="card-title">{events[2].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[2].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
-                                 latitude  = {events[2].latitude}/>
-                  </div>
+                                latitude  = {events[2].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[3].title}</h4>
-                    <p className="card-text">{events[3].description}</p>
+                <div className="card card-inverse col3" onClick={this.four} >
+                  <div className="card-title">{events[3].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[3].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
-                                 latitude  = {events[3].latitude}/>
-                  </div>
+                                latitude  = {events[3].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[4].title}</h4>
-                    <p className="card-text">{events[4].description}</p>
+                <div className="card card-inverse col4" onClick={this.five} >
+                  <div className="card-title">{events[4].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[4].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[4].longitude}
-                                 latitude  = {events[4].latitude}/>
-                  </div>
+                                latitude  = {events[4].latitude}/>
+                  </footer>
                 </div>
               </Carousel>
             </div>
@@ -236,56 +253,63 @@ class Carousels extends Component {
           events = this.props.events
           return (
             <div className="container">
-              <h1>{moment().format("dddd, MMM DD")}</h1>
-              <h1>{moment().format("h:mm a")}</h1>
+              <div className="dt">
+                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+              </div>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[0].title}</h4>
-                    <p className="card-text">{events[0].description}</p>
+                <div className="card card-inverse col0" onClick={this.one} >
+                  <div className="card-title">{events[0].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[0].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
-                                 latitude  = {events[0].latitude}/>
-                  </div>
+                                latitude  = {events[0].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[1].title}</h4>
-                    <p className="card-text">{events[1].description}</p>
+                <div className="card card-inverse col1" onClick={this.two} >
+                  <div className="card-title">{events[1].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[1].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
-                                 latitude  = {events[1].latitude}/>
-                  </div>
+                                latitude  = {events[1].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[2].title}</h4>
-                    <p className="card-text">{events[2].description}</p>
+                <div className="card card-inverse col2" onClick={this.three} >
+                  <div className="card-title">{events[2].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[2].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
-                                 latitude  = {events[2].latitude}/>
-                  </div>
+                                latitude  = {events[2].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[3].title}</h4>
-                    <p className="card-text">{events[3].description}</p>
+                <div className="card card-inverse col3" onClick={this.four} >
+                  <div className="card-title">{events[3].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[3].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
-                                 latitude  = {events[3].latitude}/>
-                  </div>
+                                latitude  = {events[3].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[4].title}</h4>
-                    <p className="card-text">{events[4].description}</p>
+                <div className="card card-inverse col4" onClick={this.five} >
+                  <div className="card-title">{events[4].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[4].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[4].longitude}
-                                 latitude  = {events[4].latitude}/>
-                  </div>
+                                latitude  = {events[4].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[5].title}</h4>
-                    <p className="card-text">{events[5].description}</p>
+                <div className="card card-inverse col5" onClick={this.six} >
+                  <div className="card-title">{events[5].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[5].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[5].longitude}
-                                 latitude  = {events[5].latitude}/>
-                  </div>
+                                latitude  = {events[5].latitude}/>
+                  </footer>
                 </div>
               </Carousel>
             </div>
@@ -295,142 +319,157 @@ class Carousels extends Component {
       events = this.props.events
           return (
             <div className="container">
-              <h1>{moment().format("dddd, MMM DD")}</h1>
-              <h1>{moment().format("h:mm a")}</h1>
+              <div className="dt">
+                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+              </div>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[0].title}</h4>
-                    <p className="card-text">{events[0].description}</p>
+                <div className="card card-inverse col0" onClick={this.one} >
+                  <div className="card-title">{events[0].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[0].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
-                                 latitude  = {events[0].latitude}/>
-                  </div>
+                                latitude  = {events[0].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[1].title}</h4>
-                    <p className="card-text">{events[1].description}</p>
+                <div className="card card-inverse col1" onClick={this.two} >
+                  <div className="card-title">{events[1].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[1].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
-                                 latitude  = {events[1].latitude}/>
-                  </div>
+                                latitude  = {events[1].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[2].title}</h4>
-                    <p className="card-text">{events[2].description}</p>
+                <div className="card card-inverse col2" onClick={this.three} >
+                  <div className="card-title">{events[2].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[2].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
-                                 latitude  = {events[2].latitude}/>
-                  </div>
+                                latitude  = {events[2].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[3].title}</h4>
-                    <p className="card-text">{events[3].description}</p>
+                <div className="card card-inverse col3" onClick={this.four} >
+                  <div className="card-title">{events[3].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[3].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
-                                 latitude  = {events[3].latitude}/>
-                  </div>
+                                latitude  = {events[3].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[4].title}</h4>
-                    <p className="card-text">{events[4].description}</p>
+                <div className="card card-inverse col4" onClick={this.five} >
+                  <div className="card-title">{events[4].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[4].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[4].longitude}
-                                 latitude  = {events[4].latitude}/>
-                  </div>
+                                latitude  = {events[4].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[5].title}</h4>
-                    <p className="card-text">{events[5].description}</p>
+                <div className="card card-inverse col5" onClick={this.six} >
+                  <div className="card-title">{events[5].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[5].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[5].longitude}
-                                 latitude  = {events[5].latitude}/>
-                  </div>
+                                latitude  = {events[5].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[6].title}</h4>
-                    <p className="card-text">{events[6].description}</p>
+                <div className="card card-inverse col6" onClick={this.seven} >
+                  <div className="card-title">{events[6].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[6].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[6].longitude}
-                                 latitude  = {events[6].latitude}/>
-                  </div>
+                                latitude  = {events[6].latitude}/>
+                  </footer>
                 </div>
               </Carousel>
             </div>
-
 
           )
     } else if (this.props.events.length === 8){
       events = this.props.events
           return (
             <div className="container">
-              <h1>{moment().format("dddd, MMM DD")}</h1>
-              <h1>{moment().format("h:mm a")}</h1>
+              <div className="dt">
+                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+              </div>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[0].title}</h4>
-                    <p className="card-text">{events[0].description}</p>
+                <div className="card card-inverse col0" onClick={this.one} >
+                  <div className="card-title">{events[0].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[0].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
-                                 latitude  = {events[0].latitude}/>
-                  </div>
+                                latitude  = {events[0].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[1].title}</h4>
-                    <p className="card-text">{events[1].description}</p>
+                <div className="card card-inverse col1" onClick={this.two} >
+                  <div className="card-title">{events[1].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[1].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
-                                 latitude  = {events[1].latitude}/>
-                  </div>
+                                latitude  = {events[1].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[2].title}</h4>
-                    <p className="card-text">{events[2].description}</p>
+                <div className="card card-inverse col2" onClick={this.three} >
+                  <div className="card-title">{events[2].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[2].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
-                                 latitude  = {events[2].latitude}/>
-                  </div>
+                                latitude  = {events[2].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[3].title}</h4>
-                    <p className="card-text">{events[3].description}</p>
+                <div className="card card-inverse col3" onClick={this.four} >
+                  <div className="card-title">{events[3].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[3].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
-                                 latitude  = {events[3].latitude}/>
-                  </div>
+                                latitude  = {events[3].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[4].title}</h4>
-                    <p className="card-text">{events[4].description}</p>
+                <div className="card card-inverse col4" onClick={this.five} >
+                  <div className="card-title">{events[4].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[4].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[4].longitude}
-                                 latitude  = {events[4].latitude}/>
-                  </div>
+                                latitude  = {events[4].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[5].title}</h4>
-                    <p className="card-text">{events[5].description}</p>
+                <div className="card card-inverse col5" onClick={this.six} >
+                  <div className="card-title">{events[5].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[5].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[5].longitude}
-                                 latitude  = {events[5].latitude}/>
-                  </div>
+                                latitude  = {events[5].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[6].title}</h4>
-                    <p className="card-text">{events[6].description}</p>
+                <div className="card card-inverse col6" onClick={this.seven} >
+                  <div className="card-title">{events[6].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[6].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[6].longitude}
-                                 latitude  = {events[6].latitude}/>
-                  </div>
+                                latitude  = {events[6].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[7].title}</h4>
-                    <p className="card-text">{events[7].description}</p>
+                <div className="card card-inverse col7" onClick={this.eight} >
+                  <div className="card-title">{events[7].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[7].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[7].longitude}
-                                 latitude  = {events[7].latitude}/>
-                  </div>
+                                latitude  = {events[7].latitude}/>
+                  </footer>
                 </div>
-
               </Carousel>
             </div>
 
@@ -439,82 +478,91 @@ class Carousels extends Component {
       events = this.props.events
           return (
             <div className="container">
-              <h1>{moment().format("dddd, MMM DD")}</h1>
-              <h1>{moment().format("h:mm a")}</h1>
+              <div className="dt">
+                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+              </div>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[0].title}</h4>
-                    <p className="card-text">{events[0].description}</p>
+                <div className="card card-inverse col0" onClick={this.one} >
+                  <div className="card-title">{events[0].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[0].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
-                                 latitude  = {events[0].latitude}/>
-                  </div>
+                                latitude  = {events[0].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[1].title}</h4>
-                    <p className="card-text">{events[1].description}</p>
+                <div className="card card-inverse col1" onClick={this.two} >
+                  <div className="card-title">{events[1].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[1].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
-                                 latitude  = {events[1].latitude}/>
-                  </div>
+                                latitude  = {events[1].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[2].title}</h4>
-                    <p className="card-text">{events[2].description}</p>
+                <div className="card card-inverse col2" onClick={this.three} >
+                  <div className="card-title">{events[2].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[2].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
-                                 latitude  = {events[2].latitude}/>
-                  </div>
+                                latitude  = {events[2].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[3].title}</h4>
-                    <p className="card-text">{events[3].description}</p>
+                <div className="card card-inverse col3" onClick={this.four} >
+                  <div className="card-title">{events[3].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[3].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
-                                 latitude  = {events[3].latitude}/>
-                  </div>
+                                latitude  = {events[3].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[4].title}</h4>
-                    <p className="card-text">{events[4].description}</p>
+                <div className="card card-inverse col4" onClick={this.five} >
+                  <div className="card-title">{events[4].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[4].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[4].longitude}
-                                 latitude  = {events[4].latitude}/>
-                  </div>
+                                latitude  = {events[4].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[5].title}</h4>
-                    <p className="card-text">{events[5].description}</p>
+                <div className="card card-inverse col5" onClick={this.six} >
+                  <div className="card-title">{events[5].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[5].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[5].longitude}
-                                 latitude  = {events[5].latitude}/>
-                  </div>
+                                latitude  = {events[5].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[6].title}</h4>
-                    <p className="card-text">{events[6].description}</p>
+                <div className="card card-inverse col6" onClick={this.seven} >
+                  <div className="card-title">{events[6].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[6].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[6].longitude}
-                                 latitude  = {events[6].latitude}/>
-                  </div>
+                                latitude  = {events[6].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[7].title}</h4>
-                    <p className="card-text">{events[7].description}</p>
+                <div className="card card-inverse col7" onClick={this.eight} >
+                  <div className="card-title">{events[7].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[7].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[7].longitude}
-                                 latitude  = {events[7].latitude}/>
-                  </div>
+                                latitude  = {events[7].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[8].title}</h4>
-                    <p className="card-text">{events[8].description}</p>
+                <div className="card card-inverse col8" onClick={this.nine} >
+                  <div className="card-title">{events[8].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[8].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[8].longitude}
-                                 latitude  = {events[8].latitude}/>
-                  </div>
+                                latitude  = {events[8].latitude}/>
+                  </footer>
                 </div>
-
               </Carousel>
             </div>
 
@@ -523,88 +571,99 @@ class Carousels extends Component {
       events = this.props.events
           return (
             <div className="container">
-              <h1>{moment().format("dddd, MMM DD")}</h1>
-              <h1>{moment().format("h:mm a")}</h1>
+              <div className="dt">
+                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+              </div>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[0].title}</h4>
-                    <p className="card-text">{events[0].description}</p>
+                <div className="card card-inverse col0" onClick={this.one} >
+                  <div className="card-title">{events[0].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[0].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
-                                 latitude  = {events[0].latitude}/>
-                  </div>
+                                latitude  = {events[0].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[1].title}</h4>
-                    <p className="card-text">{events[1].description}</p>
+                <div className="card card-inverse col1" onClick={this.two} >
+                  <div className="card-title">{events[1].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[1].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
-                                 latitude  = {events[1].latitude}/>
-                  </div>
+                                latitude  = {events[1].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[2].title}</h4>
-                    <p className="card-text">{events[2].description}</p>
+                <div className="card card-inverse col2" onClick={this.three} >
+                  <div className="card-title">{events[2].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[2].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
-                                 latitude  = {events[2].latitude}/>
-                  </div>
+                                latitude  = {events[2].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[3].title}</h4>
-                    <p className="card-text">{events[3].description}</p>
+                <div className="card card-inverse col3" onClick={this.four} >
+                  <div className="card-title">{events[3].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[3].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
-                                 latitude  = {events[3].latitude}/>
-                  </div>
+                                latitude  = {events[3].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[4].title}</h4>
-                    <p className="card-text">{events[4].description}</p>
+                <div className="card card-inverse col4" onClick={this.five} >
+                  <div className="card-title">{events[4].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[4].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[4].longitude}
-                                 latitude  = {events[4].latitude}/>
-                  </div>
+                                latitude  = {events[4].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[5].title}</h4>
-                    <p className="card-text">{events[5].description}</p>
+                <div className="card card-inverse col5" onClick={this.six} >
+                  <div className="card-title">{events[5].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[5].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[5].longitude}
-                                 latitude  = {events[5].latitude}/>
-                  </div>
+                                latitude  = {events[5].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[6].title}</h4>
-                    <p className="card-text">{events[6].description}</p>
+                <div className="card card-inverse col6" onClick={this.seven} >
+                  <div className="card-title">{events[6].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[6].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[6].longitude}
-                                 latitude  = {events[6].latitude}/>
-                  </div>
+                                latitude  = {events[6].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[7].title}</h4>
-                    <p className="card-text">{events[7].description}</p>
+                <div className="card card-inverse col7" onClick={this.eight} >
+                  <div className="card-title">{events[7].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[7].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[7].longitude}
-                                 latitude  = {events[7].latitude}/>
-                  </div>
+                                latitude  = {events[7].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[8].title}</h4>
-                    <p className="card-text">{events[8].description}</p>
+                <div className="card card-inverse col8" onClick={this.nine} >
+                  <div className="card-title">{events[8].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[8].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[8].longitude}
-                                 latitude  = {events[8].latitude}/>
-                  </div>
+                                latitude  = {events[8].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[9].title}</h4>
-                    <p className="card-text">{events[9].description}</p>
+                <div className="card card-inverse col9" onClick={this.ten} >
+                  <div className="card-title">{events[9].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[9].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[9].longitude}
-                                 latitude  = {events[9].latitude}/>
-                  </div>
+                                latitude  = {events[9].latitude}/>
+                  </footer>
                 </div>
               </Carousel>
             </div>
@@ -613,96 +672,108 @@ class Carousels extends Component {
       events = this.props.events
           return (
             <div className="container">
-              <h1>{moment().format("dddd, MMM DD")}</h1>
-              <h1>{moment().format("h:mm a")}</h1>
+              <div className="dt">
+                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+              </div>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[0].title}</h4>
-                    <p className="card-text">{events[0].description}</p>
+                  <div className="card card-inverse col0" onClick={this.one} >
+                  <div className="card-title">{events[0].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[0].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
-                                 latitude  = {events[0].latitude}/>
-                  </div>
+                                latitude  = {events[0].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[1].title}</h4>
-                    <p className="card-text">{events[1].description}</p>
+                <div className="card card-inverse col1" onClick={this.two} >
+                  <div className="card-title">{events[1].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[1].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
-                                 latitude  = {events[1].latitude}/>
-                  </div>
+                                latitude  = {events[1].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[2].title}</h4>
-                    <p className="card-text">{events[2].description}</p>
+                <div className="card card-inverse col2" onClick={this.three} >
+                  <div className="card-title">{events[2].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[2].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
-                                 latitude  = {events[2].latitude}/>
-                  </div>
+                                latitude  = {events[2].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[3].title}</h4>
-                    <p className="card-text">{events[3].description}</p>
+                <div className="card card-inverse col3" onClick={this.four} >
+                  <div className="card-title">{events[3].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[3].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
-                                 latitude  = {events[3].latitude}/>
-                  </div>
+                                latitude  = {events[3].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[4].title}</h4>
-                    <p className="card-text">{events[4].description}</p>
+                <div className="card card-inverse col4" onClick={this.five} >
+                  <div className="card-title">{events[4].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[4].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[4].longitude}
-                                 latitude  = {events[4].latitude}/>
-                  </div>
+                                latitude  = {events[4].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[5].title}</h4>
-                    <p className="card-text">{events[5].description}</p>
+                <div className="card card-inverse col5" onClick={this.six} >
+                  <div className="card-title">{events[5].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[5].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[5].longitude}
-                                 latitude  = {events[5].latitude}/>
-                  </div>
+                                latitude  = {events[5].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[6].title}</h4>
-                    <p className="card-text">{events[6].description}</p>
+                <div className="card card-inverse col6" onClick={this.seven} >
+                  <div className="card-title">{events[6].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[6].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[6].longitude}
-                                 latitude  = {events[6].latitude}/>
-                  </div>
+                                latitude  = {events[6].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[7].title}</h4>
-                    <p className="card-text">{events[7].description}</p>
+                <div className="card card-inverse col7" onClick={this.eight} >
+                  <div className="card-title">{events[7].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[7].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[7].longitude}
-                                 latitude  = {events[7].latitude}/>
-                  </div>
+                                latitude  = {events[7].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[8].title}</h4>
-                    <p className="card-text">{events[8].description}</p>
+                <div className="card card-inverse col8" onClick={this.nine} >
+                  <div className="card-title">{events[8].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[8].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[8].longitude}
-                                 latitude  = {events[8].latitude}/>
-                  </div>
+                                latitude  = {events[8].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[9].title}</h4>
-                    <p className="card-text">{events[9].description}</p>
+                <div className="card card-inverse col9" onClick={this.ten} >
+                  <div className="card-title">{events[9].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[9].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[9].longitude}
-                                 latitude  = {events[9].latitude}/>
-                  </div>
+                                latitude  = {events[9].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse">
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[10].title}</h4>
-                    <p className="card-text">{events[10].description}</p>
+                <div className="card card-inverse col10" onClick={this.eleven} >
+                  <div className="card-title">{events[10].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[10].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[10].longitude}
-                                 latitude  = {events[10].latitude}/>
-                  </div>
+                                latitude  = {events[10].latitude}/>
+                  </footer>
                 </div>
               </Carousel>
             </div>
@@ -725,103 +796,114 @@ class Carousels extends Component {
                                 latitude  = {events[0].latitude}/>
                   </footer>
                 </div>
-                <div className="card card-inverse" onClick={this.two} >
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[1].title}</h4>
-                    <p className="card-text">{events[1].description}</p>
+                <div className="card card-inverse col1" onClick={this.two} >
+                  <div className="card-title">{events[1].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[1].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
-                                 latitude  = {events[1].latitude}/>
-                  </div>
+                                latitude  = {events[1].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" >
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[2].title}</h4>
-                    <p className="card-text">{events[2].description}</p>
+                <div className="card card-inverse col2" onClick={this.three} >
+                  <div className="card-title">{events[2].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[2].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
-                                 latitude  = {events[2].latitude}/>
-                  </div>
+                                latitude  = {events[2].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" >
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[3].title}</h4>
-                    <p className="card-text">{events[3].description}</p>
+                <div className="card card-inverse col3" onClick={this.four} >
+                  <div className="card-title">{events[3].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[3].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
-                                 latitude  = {events[3].latitude}/>
-                  </div>
+                                latitude  = {events[3].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" >
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[4].title}</h4>
-                    <p className="card-text">{events[4].description}</p>
+                <div className="card card-inverse col4" onClick={this.five} >
+                  <div className="card-title">{events[4].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[4].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[4].longitude}
-                                 latitude  = {events[4].latitude}/>
-                  </div>
+                                latitude  = {events[4].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" >
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[5].title}</h4>
-                    <p className="card-text">{events[5].description}</p>
+                <div className="card card-inverse col5" onClick={this.six} >
+                  <div className="card-title">{events[5].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[5].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[5].longitude}
-                                 latitude  = {events[5].latitude}/>
-                  </div>
+                                latitude  = {events[5].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" >
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[6].title}</h4>
-                    <p className="card-text">{events[6].description}</p>
+                <div className="card card-inverse col6" onClick={this.seven} >
+                  <div className="card-title">{events[6].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[6].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[6].longitude}
-                                 latitude  = {events[6].latitude}/>
-                  </div>
+                                latitude  = {events[6].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" >
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[7].title}</h4>
-                    <p className="card-text">{events[7].description}</p>
+                <div className="card card-inverse col7" onClick={this.eight} >
+                  <div className="card-title">{events[7].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[7].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[7].longitude}
-                                 latitude  = {events[7].latitude}/>
-                  </div>
+                                latitude  = {events[7].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" >
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[8].title}</h4>
-                    <p className="card-text">{events[8].description}</p>
+                <div className="card card-inverse col8" onClick={this.nine} >
+                  <div className="card-title">{events[8].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[8].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[8].longitude}
-                                 latitude  = {events[8].latitude}/>
-                  </div>
+                                latitude  = {events[8].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" >
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[9].title}</h4>
-                    <p className="card-text">{events[9].description}</p>
+                <div className="card card-inverse col9" onClick={this.ten} >
+                  <div className="card-title">{events[9].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[9].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[9].longitude}
-                                 latitude  = {events[9].latitude}/>
-                  </div>
+                                latitude  = {events[9].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" >
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[10].title}</h4>
-                    <p className="card-text">{events[10].description}</p>
+                <div className="card card-inverse col10" onClick={this.eleven} >
+                  <div className="card-title">{events[10].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[10].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[10].longitude}
-                                 latitude  = {events[10].latitude}/>
-                  </div>
+                                latitude  = {events[10].latitude}/>
+                  </footer>
                 </div>
-                <div className="card card-inverse" >
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">{events[11].title}</h4>
-                    <p className="card-text">{events[11].description}</p>
+                <div className="card card-inverse col11" onClick={this.twelve} >
+                  <div className="card-title">{events[11].title}</div>
+                  <div>﹀</div>
+                  <p className="card-text">{events[11].description}</p>
+                  <footer className="card-geo">
                     <GeoLocation longitude = {events[11].longitude}
-                                 latitude  = {events[11].latitude}/>
-                  </div>
+                                latitude  = {events[11].latitude}/>
+                  </footer>
                 </div>
-
               </Carousel>
             </div>
           )
    } else {
       return (
         <div className="container">
-          <h1>{moment().format("dddd, MMM DD")}</h1>
-          <h1>{moment().format("h:mm a")}</h1>
+          <div className="dt">
+            {moment().format("DD MMM, YYYY 〄 h:mm a")}
+          </div>
         </div>
         )
     }

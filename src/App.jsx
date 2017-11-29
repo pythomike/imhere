@@ -101,13 +101,12 @@ class App extends Component {
     return (
       <Router>
         <div>
-        <div className="imgbg"></div>
-        <div className="allinc">
+          <div className="imgbg"></div>
+          <div className="allinc">
           <Modals loggedIn={this.state.loggedIn} logout={this.onLogout} login={this.onLogin}/>
-          <div className="hero">
             <Carousels events={this.state.cards} getDetails={this.getDetails}/>
           </div>
-          {this.state.currentDetails != '' &&
+          {this.state.currentDetails !== '' &&
             <EventDetails event={this.state.currentDetails} />
           }
         </div>
