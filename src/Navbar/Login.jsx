@@ -48,7 +48,7 @@ class Login extends Component {
                     value       = {password}
                     onChange    = {this.onChange} />
           </label><br />
-          <input className="btnfrm btn waves-effect waves-light btn-flat modal-action" type="submit" value="Submit" />
+          <input className="btnfrm btn waves-effect waves-light btn-flat modal-action modal-close" type="submit" value="Submit" />
         </form>
       </div>
     );

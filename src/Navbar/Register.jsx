@@ -135,7 +135,7 @@ class Register extends Component {
                 sitekey="6LfNXToUAAAAAIRKWO5FA5x8IQeuHz_QPDcaPbal"
             />
           </div>
-          <input className="btnfrm btn waves-effect waves-light btn-flat modal-action" type="submit" value="Submit" />
+          <input className="btnfrm btn waves-effect waves-light btn-flat modal-action modal-close" type="submit" value="Submit" />
         </form>
       </div>
     );
