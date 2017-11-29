@@ -18,7 +18,6 @@ class App extends Component {
  }
 
   getDetails = (details) => {
-    // console.log("got event details", details)
     this.setState({currentDetails: details})
   }
 
@@ -106,7 +105,9 @@ class App extends Component {
           <div className="hero">
             <Carousels events={this.state.cards} getDetails={this.getDetails}/>
           </div>
-          <EventDetails event={this.state.currentDetails} />
+          {this.state.currentDetails != '' &&
+            <EventDetails event={this.state.currentDetails} />
+          }
         </div>
       </Router>
     );
