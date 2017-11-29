@@ -35,24 +35,26 @@ class Register extends Component {
 
   onChange = (e) => {
     if (e.target) {
-    const state = this.state
-    state[e.target.name] = e.target.value;
-    this.setState(state);
+      const state = this.state
+      state[e.target.name] = e.target.value;
+      this.setState(state);
     }
   }
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    if (this.state.email.length >= 5) {
+    if (this.state.email.length >= 3) {
       fetch(`/signup`,{
         method: 'POST',
         mode: 'cors',
-        credentials: true,
+        credentials: 'same-origin',
         body: JSON.stringify(this.state),
         headers: {
           'Content-Type': 'application/json'
         }
       }).then(res => {
+        console.log("this is a response", res);
+        console.log("cookin'", document.cookie);
         return res;
       }).catch(err => err);
     }
@@ -127,7 +129,7 @@ class Register extends Component {
                    value       = {password_confirmation}
                    onChange    = {this.onChange} />
           </label><br />*/}
-          <Recaptcha 
+          <Recaptcha
               className="recap"
               sitekey="6LfNXToUAAAAAIRKWO5FA5x8IQeuHz_QPDcaPbal"
           />

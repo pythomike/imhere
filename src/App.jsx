@@ -17,10 +17,22 @@ class App extends Component {
  }
 
  onLogout = () => {
+    fetch(`/logout`,{
+      method: 'GET',
+      mode: 'cors',
+      credentials: 'same-origin',
+      headers: {
+            "Content-Type": "text/plain"
+        }
+    })
+    .then(() => {
+      console.log("setting state to false")
+      this.setState({loggedIn: false});
+    })
+    .catch(function(err){
+      console.log(err)
+    })
     console.log('onLogout called');
-    this.setState({
-      user: {}
-    });
   }
 
   componentDidMount() {
@@ -28,7 +40,7 @@ class App extends Component {
     fetch(`/currentUser`,{
       method: 'GET',
       mode: 'cors',
-      credentials: true,
+      credentials: 'same-origin',
       redirect: '/',
       headers: {
             "Content-Type": "text/plain"
@@ -38,7 +50,6 @@ class App extends Component {
      return response.json();
     })
     .then(data => {
-      console.log(data.loggedIn)
       this.setState({loggedIn: data.loggedIn});
     })
     .catch(function(err){
@@ -48,7 +59,7 @@ class App extends Component {
     fetch(`/allevents`,{
       method: 'GET',
       mode: 'cors',
-      credentials: true,
+      credentials: 'same-origin',
       redirect: '/',
       headers: {
             "Content-Type": "text/plain"
@@ -68,11 +79,10 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.loggedIn)
     return (
       <Router>
         <div className="allinc">
-          <Modals />
+          <Modals loggedIn={this.state.loggedIn} logout={this.onLogout}/>
           <div className="hero">
             <Carousels events={this.state.cards}/>
           </div>

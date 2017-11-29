@@ -34,6 +34,11 @@ app.use(session({
 app.use(bodyParser.urlencoded({ extended:false }))
 app.use(bodyParser.json())
 
+app.use((req, res, next) => {
+  console.log("my session:", req.session.userId);
+  next();
+})
+
 passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
   knex.select().from('users').where({email: email.toLowerCase()})
   .first()
@@ -182,10 +187,12 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 
 
 
-  // app.get('/logout', (req, res) => {
-  //   req.logout();
-  //   res.redirect('/');
-  // })
+  app.get('/logout', (req, res) => {
+    console.log("logging out...")
+    req.session.userId = null;
+    res.sendStatus(200)
+    console.log("user session: ", req.session.userId)
+  })
 
   /*app.get('/signup', (req, res) => {
     console.log("get signup...", req.user)
@@ -199,35 +206,44 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
     // });
   })*/
   app.post('/login', (req, res) => {
-    req.assert('email', 'Email is not valid').isEmail();
-    req.assert('password', 'Password cannot be blank').notEmpty();
-    req.sanitize('email').normalizeEmail({ gmail_remove_dots: false });
+    console.log("post to login")
+    knex.select().from('users').where({email: req.body.email})
+      .first()
+      .then ((found) => {
+        if (found) {
+          console.log("signing in")
+          // console.log("found.id: ", found.id)
+          req.session.userId = found.id;
+          // console.log(req.session)
+          return res.send({loggedIn: true})
+        } else {
+          console.log("email not found")
+          res.send(200)
+        }
+      })
+      .catch(err => console.log('error caught', err))
+    // if (errors) {
+    //   req.flash('errors', errors);
+    //   return res.redirect('/login');
+    // }
 
-    const errors = req.validationErrors();
-
-    if (errors) {
-      req.flash('errors', errors);
-      return res.redirect('/login');
-    }
-
-    passport.authenticate('local', (err, user, info) => {
-      if (err) { return next(err); }
-      if (!user) {
-        req.flash('errors', info);
-        return res.redirect('/login');
-      }
-      req.logIn(user, (err) => {
-        if (err) { return next(err); }
-        req.session.userId =
-        req.flash('success', { msg: 'Success! You are logged in.' });
-        res.redirect(req.session.returnTo || '/');
-      });
-    })(req, res, next);
+    // passport.authenticate('local', (err, user, info) => {
+    //   if (err) { return next(err); }
+    //   if (!user) {
+    //     req.flash('errors', info);
+    //     return res.redirect('/login');
+    //   }
+    //   req.logIn(user, (err) => {
+    //     if (err) { return next(err); }
+    //     // req.flash('success', { msg: 'Success! You are logged in.' });
+    //     res.redirect(req.session.returnTo || '/');
+    //   });
+    // })(req, res, next);
   })
 
   app.get('/currentUser', function(req, res) {
-    console.log("current user id: ", req.session.userId)
-    console.log("session: ", req.session)
+    // console.log("current user id: ", req.session.userId)
+    // console.log("session: ", req.session)
       if (req.session.userId) {
         res.send({loggedIn: true})
       } else {
@@ -239,27 +255,27 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
     const user = req.body
     console.log("session before signup: ", req.session)
     console.log(req.body)
-     knex.select().from('users').where({email: req.body.email})
-        .first()
-        .then ((found) => {
-          if (found) {
-            console.log("user already exists... back to signup")
-            console.log("setting session: ", found.id)
-            req.session.userId = found.id;
-            console.log(req.session)
-            return res.redirect('/');
-          }
-          console.log("user was created")
-          const insertPromise = dbInsert(req.body, 'users')
-          insertPromise.then((userId) => {
-            console.log("userId", userId[0])
-            req.session.userId = userId[0];
-            console.log(req.session.userId)
+    knex.select().from('users').where({email: req.body.email})
+      .first()
+      .then ((found) => {
+        if (found) {
+          console.log("user already exists... back to signup")
+          // console.log("found.id: ", found.id)
+          // req.session.userId = found.id;
+          // console.log(req.session)
+          return res.send(200);
+        }
+        console.log("user was created")
+        const insertPromise = dbInsert(req.body, 'users')
+        insertPromise.then((userId) => {
+          // console.log("userId", userId[0])
+          req.session.userId = userId[0];
+          // console.log(req.session.userId)
 
-            res.send(200)
-          })
+          res.send(200)
         })
-        .catch(err => console.log('error caught', err))
+      })
+      .catch(err => console.log('error caught', err))
   })
   // SELECT EVENTS ON A GIVEN DAY
   app.get('/daysevents', function(req, res) {

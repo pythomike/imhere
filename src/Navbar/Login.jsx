@@ -11,8 +11,6 @@ class Login extends Component {
       email: '',
       password: '',
     };
-
-    this.onChange = this.onChange.bind(this);
   }
 
   onChange = (e) => {
@@ -25,12 +23,11 @@ class Login extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state)
-    if (this.state.email.length >= 5) {
+    if (this.state.email.length >= 3) {
       fetch(`/login`,{
         method: 'POST',
         mode: 'cors',
-        credentials: true,
+        credentials: 'same-origin',
         body: JSON.stringify(this.state),
         headers: {
           'Content-Type': 'application/json'
@@ -40,6 +37,8 @@ class Login extends Component {
         return res;
       }).catch(err => err);
     }
+    console.log(this.state)
+
   }
 
 
