@@ -11,16 +11,19 @@ class Login extends Component {
       email: '',
       password: '',
     };
-
-    this.onChange = this.onChange.bind(this);
   }
 
   onChange = (e) => {
     if (e.target) {
-    const state = this.state
+    const state = this.state;
     state[e.target.name] = e.target.value;
     this.setState(state);
     }
+  }
+
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+    this.props.login(this.state);
   }
 
 

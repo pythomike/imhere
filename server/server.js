@@ -1,7 +1,7 @@
 const PORT              = process.env.PORT || 3001;
 const ENV               = process.env.ENV || "development";
 const express           = require('express');
-const session    = require('express-session')
+const session           = require('express-session')
 const bodyParser        = require('body-parser');
 const knexConfig        = require("../knexfile");
 const knex              = require("knex")(knexConfig[ENV]);
@@ -13,23 +13,33 @@ const FacebookStrategy  = require('passport-facebook').Strategy;
 const GoogleStrategy    = require('passport-google-oauth').OAuth2Strategy;
 const Strategy          = require('passport-local').Strategy;
 const moment            = require('moment');
-const cookieParser = require('cookie-parser');
-const app               = express();
+// const cookieParser = require('cookie-parser');
 
+const app = express();
+// app.use(cookieParser())
 app.set('trust proxy', 1)
 app.use(session({
   secret: 'test123',
   saveUninitialized: true,
-  resave: false
-}))
+  resave: false,
+  cookie: {
+    maxAge: 864000000 // 10 Days in miliseconds
+  }}))
+
+
 // app.use((req, res, next) => {
 //   res.locals.user = req.user;
 //   next();
 // });
-// app.use(bodyParser.urlencoded({ extended:false }))
-// app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended:false }))
+app.use(bodyParser.json())
 
-/*passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+app.use((req, res, next) => {
+  console.log("my session:", req.session.userId);
+  next();
+})
+
+passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
   knex.select().from('users').where({email: email.toLowerCase()})
   .first()
   .then(function(err, user) {
@@ -46,7 +56,7 @@ app.use(session({
     });
   })
 }));
-*/
+
 // passport.use(new FacebookStrategy({
 //   clientID: process.env.FACEBOOK_ID,
 //   clientSecret: process.env.FACEBOOK_SECRET,
@@ -175,46 +185,14 @@ app.use(session({
 // app.use(passport.initialize());
 // app.use(passport.session());
 
-//Universal Selector
-  function dbRead(table) {
-    knex.select().from(table)
-  }
 
-  // app.get('/currentUser', (req, res) => {
-  //     console.log('user is:', req.session.id)
-  //     return res.redirect('/');
-  // })
 
-  app.post('/login', (req, res) => {
-    req.assert('email', 'Email is not valid').isEmail();
-    req.assert('password', 'Password cannot be blank').notEmpty();
-    req.sanitize('email').normalizeEmail({ gmail_remove_dots: false });
-
-    const errors = req.validationErrors();
-
-    if (errors) {
-      req.flash('errors', errors);
-      return res.redirect('/login');
-    }
-
-    passport.authenticate('local', (err, user, info) => {
-      if (err) { return next(err); }
-      if (!user) {
-        req.flash('errors', info);
-        return res.redirect('/login');
-      }
-      req.logIn(user, (err) => {
-        if (err) { return next(err); }
-        req.flash('success', { msg: 'Success! You are logged in.' });
-        res.redirect(req.session.returnTo || '/');
-      });
-    })(req, res, next);
+  app.get('/logout', (req, res) => {
+    console.log("logging out...")
+    req.session.userId = null;
+    res.sendStatus(200)
+    console.log("user session: ", req.session.userId)
   })
-
-  // app.get('/logout', (req, res) => {
-  //   req.logout();
-  //   res.redirect('/');
-  // })
 
   /*app.get('/signup', (req, res) => {
     console.log("get signup...", req.user)
@@ -227,28 +205,77 @@ app.use(session({
     //   title: 'Create Account'
     // });
   })*/
+  app.post('/login', (req, res) => {
+    console.log("post to login")
+    knex.select().from('users').where({email: req.body.email})
+      .first()
+      .then ((found) => {
+        if (found) {
+          console.log("signing in")
+          // console.log("found.id: ", found.id)
+          req.session.userId = found.id;
+          // console.log(req.session)
+          return res.send({loggedIn: true})
+        } else {
+          console.log("email not found")
+          res.send(200)
+        }
+      })
+      .catch(err => console.log('error caught', err))
+    // if (errors) {
+    //   req.flash('errors', errors);
+    //   return res.redirect('/login');
+    // }
 
+    // passport.authenticate('local', (err, user, info) => {
+    //   if (err) { return next(err); }
+    //   if (!user) {
+    //     req.flash('errors', info);
+    //     return res.redirect('/login');
+    //   }
+    //   req.logIn(user, (err) => {
+    //     if (err) { return next(err); }
+    //     // req.flash('success', { msg: 'Success! You are logged in.' });
+    //     res.redirect(req.session.returnTo || '/');
+    //   });
+    // })(req, res, next);
+  })
+
+  app.get('/currentUser', function(req, res) {
+    // console.log("current user id: ", req.session.userId)
+    // console.log("session: ", req.session)
+      if (req.session.userId) {
+        res.send({loggedIn: true})
+      } else {
+
+        res.send({loggedIn: false})
+      }
+  })
   app.post('/signup', (req, res) => {
     const user = req.body
+    console.log("session before signup: ", req.session)
     console.log(req.body)
-     knex.select().from('users').where({email: req.body.email})
-        .first()
-        .then ((found) => {
-          if (found) {
-            console.log("user already exists... back to signup")
-            req.session.userId = found.id
-            return res.redirect('/signup');
-          }
-          console.log("user was created")
-          const insertPromise = dbInsert(req.body, 'users')
-          insertPromise.then((userId) => {
-            console.log(userId[0])
-            req.session.userId = userId[0];
+    knex.select().from('users').where({email: req.body.email})
+      .first()
+      .then ((found) => {
+        if (found) {
+          console.log("user already exists... back to signup")
+          // console.log("found.id: ", found.id)
+          // req.session.userId = found.id;
+          // console.log(req.session)
+          return res.send(200);
+        }
+        console.log("user was created")
+        const insertPromise = dbInsert(req.body, 'users')
+        insertPromise.then((userId) => {
+          // console.log("userId", userId[0])
+          req.session.userId = userId[0];
+          // console.log(req.session.userId)
 
-            res.send(200)
-          })
+          res.send(200)
         })
-        .catch(err => console.log('error caught', err))
+      })
+      .catch(err => console.log('error caught', err))
   })
   // SELECT EVENTS ON A GIVEN DAY
   app.get('/daysevents', function(req, res) {
@@ -260,10 +287,9 @@ app.use(session({
       res.send(event)
     })
   })
+
 // SELECT EVENTS ON A GIVEN DAY
   app.get('/', (req, res) => {
-    console.log("your session is: ", req.session.id, req.session, req.session.userId, req.cookies)
-    req.session.userId = true
     const lookAtDay = moment().startOf('day')
     knex('events')
     .select('*')
@@ -273,13 +299,9 @@ app.use(session({
       res.end()
     })
   })
-// SELECT ALL OF THE THINGS
-  app.get('/things', (req, res) => {
-    dbRead()
-  })
 // SELECT ALL EVENTS - WORKING
   app.get('/allevents', (req, res) => {
-    knex.select().from('events').then(function(event) {
+    knex.select().from('events').orderBy('start_time', 'asc').then(function(event) {
       res.send(event)
     })
   })
@@ -301,7 +323,6 @@ app.use(session({
     })
   })
 
-
 // FUNCTION - DB INSERT - Takes in a data object, and a table name. The object MUST be formatted based on the table where the object is going.
   function dbInsert(data, table) {
     return knex.insert(data).into(table).returning('id')
@@ -317,28 +338,6 @@ app.use(session({
     dbInsert(req.body, 'events')
     res.send(201)
   })
-
-  // app.post('/newuser', (req, res) => {
-  //   // console.log("current user id: ", req.session)
-  //   knex.select().from('users').where({email:req.body.email})
-  //     .first()
-  //     .then ((found) => {
-  //       if (found) {
-  //         console.log("user already exists...", found)
-  //         const userId = found.id
-  //         res.redirect(302, `/`);
-  //         // res.status(302).json(userId);
-  //       } else {
-  //         console.log("making a new user!", req.body)
-  //         const userId = dbInsert(req.body, 'users')
-  //         // res.redirect(201, '/');
-  //         console.log(userId)
-  //         // res.status(201).json(userId);
-  //       }
-  //     })
-  //     .catch(err => console.log('error caught', err))
-  // })
-
 
 // ADD ATTENDEE
   let attendee = {

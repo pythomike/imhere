@@ -9,35 +9,9 @@ import moment from 'moment'
 // -make every field required
 
 class eventDetails extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: '' // of one id-- title, time, date, location, description, map location
-    };
-
-  }
-
-  componentDidMount() {
-    fetch(`/events/${this.props.match.params.id}`,{
-      method: 'GET',
-      mode: 'cors',
-      redirect: '/',
-      headers: {
-            "Content-Type": "text/plain"
-        }
-    })
-    .then(function(response) {
-     return response.json();
-    })
-    .then(data => {
-      this.setState({data: data[0]});
-    }).catch(function(err){
-      console.log(err)
-    })
-  }
 
   render() {
-    const currentEvent = this.state.data
+    const currentEvent = this.props.event
     return (
       <div>
 
@@ -74,7 +48,7 @@ class eventDetails extends Component {
               <button>Nah</button>
             </div>
             <div className="googlemaps-button">
-              <a target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${this.state.data.latitude},${this.state.data.longitude}`}>
+              <a target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${currentEvent.latitude},${currentEvent.longitude}`}>
                 <img src="https://i.imgur.com/0JAMrnL.png" width="35em" className="googleMaps-icon" alt="map-icon"></img>
               </a>
             </div>

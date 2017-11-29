@@ -8,7 +8,19 @@ import moment from 'moment';
 
 
 class Modals extends Component {
-  render() {    
+ //  constructor(props) {
+ //    super(props);
+ //    this.state = {
+ //      loggedIn: this.props.loggedIn
+ //    };
+
+ // }
+
+
+
+  render() {
+    console.log("modal props", this.props)
+    const currentUser = this.props.loggedIn
     return (
       <nav className="navclass">
         <div className = "navigation-bar">
@@ -16,25 +28,36 @@ class Modals extends Component {
             <img className="logoimg" src={Logo} />
           </div>
           <ul id="nav-mobile" className= "right">
-            <li>
+            { currentUser ? (
+              <Modal
+                header='Modal Header'
+                trigger={<Button className="buttons">CREATE EVENT</Button>}>
+                <CreateEvent />
+              </Modal>
+            ) : (
+              <Modal
+                header=' ◉︵◉ You need to sign in first.'
+                trigger={<Button className="buttons">CREATE EVENT</Button>}>
+              </Modal>
+            )}
+
+            { !currentUser ? (
               <Modal
                 header= "Register here to create some fun events:"
                 trigger={<Button className="buttons">REGISTER</Button>}>
                 <Register />
               </Modal>
-            </li>
 
-            <Modal
-              header='Modal Header'
-              trigger={<Button className="buttons">CREATE EVENT</Button>}>
-              <CreateEvent />
-            </Modal>
-
-            <Modal
-              header='Modal Header'
-              trigger={<Button className="buttons">LOGIN</Button>}>
-              <Login />
-            </Modal>
+            ): ("")}
+            { currentUser ? (
+              <Button className="buttons" onClick={this.props.logout}>LOGOUT</Button>
+            ) : (
+              <Modal
+                header='Modal Header'
+                trigger={<Button className="buttons">LOGIN</Button>}>
+                <Login login={this.props.login}/>
+              </Modal>
+            )}
           </ul>
         </div>
       </nav>
