@@ -14,43 +14,6 @@ class Carousels extends Component {
     };
   }
 
-  one = (e) => {
-    this.props.getDetails(this.props.events[0])
-  }
-  two = (e) => {
-    this.props.getDetails(this.props.events[1])
-  }
-  three = (e) => {
-    this.props.getDetails(this.props.events[2])
-  }
-  four = (e) => {
-    this.props.getDetails(this.props.events[3])
-  }
-  five = (e) => {
-    this.props.getDetails(this.props.events[4])
-  }
-  six = (e) => {
-    this.props.getDetails(this.props.events[5])
-  }
-  seven = (e) => {
-    this.props.getDetails(this.props.events[6])
-  }
-  eight = (e) => {
-    this.props.getDetails(this.props.events[7])
-  }
-  nine = (e) => {
-    this.props.getDetails(this.props.events[8])
-  }
-  ten = (e) => {
-    this.props.getDetails(this.props.events[9])
-  }
-  eleven = (e) => {
-    this.props.getDetails(this.props.events[10])
-  }
-  twelve = (e) => {
-    this.props.getDetails(this.props.events[11])
-  }
-
 // Repetitive code because react currently doesnt have a way of dealing with dynamicaly loaded cards
   render () {
     let events = []
@@ -63,7 +26,8 @@ class Carousels extends Component {
             <h1>{moment().format("h:mm a")}</h1>
           </div>
           <Carousel>
-            <div className="card card-inverse" onClick={this.one}>
+            <div className="card card-inverse">
+              {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
               <div className="card-img-overlay">
                 <h4 className="card-title">{events[0].title}</h4>
                 <p className="card-text">{events[0].description}</p>
@@ -82,7 +46,8 @@ class Carousels extends Component {
           <h1>{moment().format("dddd, MMM DD")}</h1>
           <h1>{moment().format("h:mm a")}</h1>
           <Carousel>
-            <div className="card card-inverse" onClick={this.one}>
+            <div className="card card-inverse">
+              {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
               <div className="card-img-overlay">
                 <h4 className="card-title">{events[0].title}</h4>
                 <p className="card-text">{events[0].description}</p>
@@ -90,7 +55,8 @@ class Carousels extends Component {
                              latitude  = {events[0].latitude}/>
               </div>
             </div>
-            <div className="card card-inverse" onClick={this.two}>
+            <div className="card card-inverse">
+              {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
               <div className="card-img-overlay">
                 <h4 className="card-title">{events[1].title}</h4>
                 <p className="card-text">{events[1].description}</p>
@@ -109,7 +75,8 @@ class Carousels extends Component {
               <h1>{moment().format("dddd, MMM DD")}</h1>
               <h1>{moment().format("h:mm a")}</h1>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[0].title}</h4>
                     <p className="card-text">{events[0].description}</p>
@@ -117,7 +84,8 @@ class Carousels extends Component {
                                  latitude  = {events[0].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[1].title}</h4>
                     <p className="card-text">{events[1].description}</p>
@@ -126,6 +94,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[2].title}</h4>
                     <p className="card-text">{events[2].description}</p>
@@ -144,7 +113,8 @@ class Carousels extends Component {
               <h1>{moment().format("dddd, MMM DD")}</h1>
               <h1>{moment().format("h:mm a")}</h1>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[0].title}</h4>
                     <p className="card-text">{events[0].description}</p>
@@ -152,7 +122,8 @@ class Carousels extends Component {
                                  latitude  = {events[0].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[1].title}</h4>
                     <p className="card-text">{events[1].description}</p>
@@ -161,6 +132,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[2].title}</h4>
                     <p className="card-text">{events[2].description}</p>
@@ -169,6 +141,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[3].title}</h4>
                     <p className="card-text">{events[3].description}</p>
@@ -188,7 +161,8 @@ class Carousels extends Component {
               <h1>{moment().format("dddd, MMM DD")}</h1>
               <h1>{moment().format("h:mm a")}</h1>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[0].title}</h4>
                     <p className="card-text">{events[0].description}</p>
@@ -196,7 +170,8 @@ class Carousels extends Component {
                                  latitude  = {events[0].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[1].title}</h4>
                     <p className="card-text">{events[1].description}</p>
@@ -205,6 +180,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[2].title}</h4>
                     <p className="card-text">{events[2].description}</p>
@@ -213,6 +189,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[3].title}</h4>
                     <p className="card-text">{events[3].description}</p>
@@ -221,6 +198,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[4].title}</h4>
                     <p className="card-text">{events[4].description}</p>
@@ -239,7 +217,8 @@ class Carousels extends Component {
               <h1>{moment().format("dddd, MMM DD")}</h1>
               <h1>{moment().format("h:mm a")}</h1>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[0].title}</h4>
                     <p className="card-text">{events[0].description}</p>
@@ -247,7 +226,8 @@ class Carousels extends Component {
                                  latitude  = {events[0].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[1].title}</h4>
                     <p className="card-text">{events[1].description}</p>
@@ -256,6 +236,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[2].title}</h4>
                     <p className="card-text">{events[2].description}</p>
@@ -264,6 +245,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[3].title}</h4>
                     <p className="card-text">{events[3].description}</p>
@@ -272,6 +254,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[4].title}</h4>
                     <p className="card-text">{events[4].description}</p>
@@ -280,6 +263,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[5].title}</h4>
                     <p className="card-text">{events[5].description}</p>
@@ -298,7 +282,8 @@ class Carousels extends Component {
               <h1>{moment().format("dddd, MMM DD")}</h1>
               <h1>{moment().format("h:mm a")}</h1>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[0].title}</h4>
                     <p className="card-text">{events[0].description}</p>
@@ -306,7 +291,8 @@ class Carousels extends Component {
                                  latitude  = {events[0].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[1].title}</h4>
                     <p className="card-text">{events[1].description}</p>
@@ -315,6 +301,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[2].title}</h4>
                     <p className="card-text">{events[2].description}</p>
@@ -323,6 +310,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[3].title}</h4>
                     <p className="card-text">{events[3].description}</p>
@@ -331,6 +319,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[4].title}</h4>
                     <p className="card-text">{events[4].description}</p>
@@ -339,6 +328,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[5].title}</h4>
                     <p className="card-text">{events[5].description}</p>
@@ -347,6 +337,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[6].title}</h4>
                     <p className="card-text">{events[6].description}</p>
@@ -366,7 +357,8 @@ class Carousels extends Component {
               <h1>{moment().format("dddd, MMM DD")}</h1>
               <h1>{moment().format("h:mm a")}</h1>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[0].title}</h4>
                     <p className="card-text">{events[0].description}</p>
@@ -374,7 +366,8 @@ class Carousels extends Component {
                                  latitude  = {events[0].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[1].title}</h4>
                     <p className="card-text">{events[1].description}</p>
@@ -383,6 +376,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[2].title}</h4>
                     <p className="card-text">{events[2].description}</p>
@@ -391,6 +385,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[3].title}</h4>
                     <p className="card-text">{events[3].description}</p>
@@ -399,6 +394,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[4].title}</h4>
                     <p className="card-text">{events[4].description}</p>
@@ -407,6 +403,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[5].title}</h4>
                     <p className="card-text">{events[5].description}</p>
@@ -415,6 +412,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[6].title}</h4>
                     <p className="card-text">{events[6].description}</p>
@@ -423,6 +421,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[7].title}</h4>
                     <p className="card-text">{events[7].description}</p>
@@ -442,7 +441,8 @@ class Carousels extends Component {
               <h1>{moment().format("dddd, MMM DD")}</h1>
               <h1>{moment().format("h:mm a")}</h1>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[0].title}</h4>
                     <p className="card-text">{events[0].description}</p>
@@ -450,7 +450,8 @@ class Carousels extends Component {
                                  latitude  = {events[0].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[1].title}</h4>
                     <p className="card-text">{events[1].description}</p>
@@ -459,6 +460,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[2].title}</h4>
                     <p className="card-text">{events[2].description}</p>
@@ -467,6 +469,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[3].title}</h4>
                     <p className="card-text">{events[3].description}</p>
@@ -475,6 +478,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[4].title}</h4>
                     <p className="card-text">{events[4].description}</p>
@@ -483,6 +487,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[5].title}</h4>
                     <p className="card-text">{events[5].description}</p>
@@ -491,6 +496,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[6].title}</h4>
                     <p className="card-text">{events[6].description}</p>
@@ -499,6 +505,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[7].title}</h4>
                     <p className="card-text">{events[7].description}</p>
@@ -507,6 +514,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[8].title}</h4>
                     <p className="card-text">{events[8].description}</p>
@@ -526,7 +534,8 @@ class Carousels extends Component {
               <h1>{moment().format("dddd, MMM DD")}</h1>
               <h1>{moment().format("h:mm a")}</h1>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[0].title}</h4>
                     <p className="card-text">{events[0].description}</p>
@@ -534,7 +543,8 @@ class Carousels extends Component {
                                  latitude  = {events[0].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[1].title}</h4>
                     <p className="card-text">{events[1].description}</p>
@@ -543,6 +553,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[2].title}</h4>
                     <p className="card-text">{events[2].description}</p>
@@ -551,6 +562,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[3].title}</h4>
                     <p className="card-text">{events[3].description}</p>
@@ -559,6 +571,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[4].title}</h4>
                     <p className="card-text">{events[4].description}</p>
@@ -567,6 +580,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[5].title}</h4>
                     <p className="card-text">{events[5].description}</p>
@@ -575,6 +589,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[6].title}</h4>
                     <p className="card-text">{events[6].description}</p>
@@ -583,6 +598,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[7].title}</h4>
                     <p className="card-text">{events[7].description}</p>
@@ -591,6 +607,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[8].title}</h4>
                     <p className="card-text">{events[8].description}</p>
@@ -599,6 +616,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[9].title}</h4>
                     <p className="card-text">{events[9].description}</p>
@@ -616,7 +634,8 @@ class Carousels extends Component {
               <h1>{moment().format("dddd, MMM DD")}</h1>
               <h1>{moment().format("h:mm a")}</h1>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[0].title}</h4>
                     <p className="card-text">{events[0].description}</p>
@@ -624,7 +643,8 @@ class Carousels extends Component {
                                  latitude  = {events[0].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" onClick={this.two}>
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[1].title}</h4>
                     <p className="card-text">{events[1].description}</p>
@@ -633,6 +653,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[2].title}</h4>
                     <p className="card-text">{events[2].description}</p>
@@ -641,6 +662,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[3].title}</h4>
                     <p className="card-text">{events[3].description}</p>
@@ -649,6 +671,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[4].title}</h4>
                     <p className="card-text">{events[4].description}</p>
@@ -657,6 +680,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[5].title}</h4>
                     <p className="card-text">{events[5].description}</p>
@@ -665,6 +689,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[6].title}</h4>
                     <p className="card-text">{events[6].description}</p>
@@ -673,6 +698,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[7].title}</h4>
                     <p className="card-text">{events[7].description}</p>
@@ -681,6 +707,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[8].title}</h4>
                     <p className="card-text">{events[8].description}</p>
@@ -689,6 +716,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[9].title}</h4>
                     <p className="card-text">{events[9].description}</p>
@@ -697,6 +725,7 @@ class Carousels extends Component {
                   </div>
                 </div>
                 <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[10].title}</h4>
                     <p className="card-text">{events[10].description}</p>
@@ -713,10 +742,12 @@ class Carousels extends Component {
 
             <div className="container">
               <div className="dt">
-                {moment().format("dddd, MMM DD")} - {moment().format("h:mm a")}
+                {moment().format("DD MMM, YYYY 〄 h:mm a")} 
+                {/* {moment().format("h:mm a")} */}
               </div>
               <Carousel>
-                <div className="card card-inverse" onClick={this.one} >
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[0].title}</h4>
                     <p className="card-text">{events[0].description}</p>
@@ -724,7 +755,8 @@ class Carousels extends Component {
                                  latitude  = {events[0].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" onClick={this.two} >
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[1].title}</h4>
                     <p className="card-text">{events[1].description}</p>
@@ -732,7 +764,8 @@ class Carousels extends Component {
                                  latitude  = {events[1].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" >
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[2].title}</h4>
                     <p className="card-text">{events[2].description}</p>
@@ -740,7 +773,8 @@ class Carousels extends Component {
                                  latitude  = {events[2].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" >
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[3].title}</h4>
                     <p className="card-text">{events[3].description}</p>
@@ -748,7 +782,8 @@ class Carousels extends Component {
                                  latitude  = {events[3].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" >
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[4].title}</h4>
                     <p className="card-text">{events[4].description}</p>
@@ -756,7 +791,8 @@ class Carousels extends Component {
                                  latitude  = {events[4].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" >
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[5].title}</h4>
                     <p className="card-text">{events[5].description}</p>
@@ -764,7 +800,8 @@ class Carousels extends Component {
                                  latitude  = {events[5].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" >
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[6].title}</h4>
                     <p className="card-text">{events[6].description}</p>
@@ -772,7 +809,8 @@ class Carousels extends Component {
                                  latitude  = {events[6].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" >
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[7].title}</h4>
                     <p className="card-text">{events[7].description}</p>
@@ -780,7 +818,8 @@ class Carousels extends Component {
                                  latitude  = {events[7].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" >
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[8].title}</h4>
                     <p className="card-text">{events[8].description}</p>
@@ -788,7 +827,8 @@ class Carousels extends Component {
                                  latitude  = {events[8].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" >
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[9].title}</h4>
                     <p className="card-text">{events[9].description}</p>
@@ -796,7 +836,8 @@ class Carousels extends Component {
                                  latitude  = {events[9].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" >
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[10].title}</h4>
                     <p className="card-text">{events[10].description}</p>
@@ -804,7 +845,8 @@ class Carousels extends Component {
                                  latitude  = {events[10].latitude}/>
                   </div>
                 </div>
-                <div className="card card-inverse" >
+                <div className="card card-inverse">
+                  {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
                   <div className="card-img-overlay">
                     <h4 className="card-title">{events[11].title}</h4>
                     <p className="card-text">{events[11].description}</p>

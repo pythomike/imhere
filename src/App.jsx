@@ -100,6 +100,8 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <div>
+        <div className="imgbg"></div>
         <div className="allinc">
           <Modals loggedIn={this.state.loggedIn} logout={this.onLogout} login={this.onLogin}/>
           <div className="hero">
