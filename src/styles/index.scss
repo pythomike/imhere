@@ -9,6 +9,7 @@
   height: 100vh;
   background-size: cover;
   background-position: center;
+  position: relative;
 }
 
 #nav-mobile {
@@ -34,14 +35,18 @@ body {
 
 .hero {
   // position: absolute;
+  // opacity: .7;
   // width: 1200px;
   // margin-left: auto;
   // margin-top: auto;
 }
 
 .container {
-  background-color: white;
-  border-radius: 7px;
+  background-color: rgba(255, 255, 255, 0.315);
+  border-radius: 5px;
+  // filter: alpha(opacity=70);
+  // -moz-opacity:.70;
+  // opacity:.70;
 }
 
 .dt {
