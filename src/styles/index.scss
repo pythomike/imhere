@@ -156,6 +156,10 @@ input[type=email]:focus:not([readonly]) {
   box-shadow: 0 1px 0 0 #FF884D;
 }
 
+.carousel .carousel-item {
+  border-radius: 3px;
+}
+
 //Captchas
 .recap {
   border: 1px solid black;
