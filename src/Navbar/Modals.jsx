@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import CreateEvent from './CreateEvent.jsx';
 import Register from './Register.jsx';
 import Login from './Login.jsx';
-import Logo from './black.png'
+import Logo from './blacklogo.png'
 import { Input, Modal, Button } from "react-materialize";
 import moment from 'moment';
 
 
-
 class Modals extends Component {
-
-
   render() {    
     return (
       <nav className="navclass">
@@ -39,17 +36,7 @@ class Modals extends Component {
               <Login />
             </Modal>
           </ul>
-            <div class="col s12 m4 l8">
-              {moment().format("dddd, MMM DD")} - {moment().format("h:mm a")}
-            </div>
-
-            <div class="row">
-            <div class="col s12"><p>s12</p></div>
-            <div class="col s12 m4 l2"><p>s12 m4</p></div>
-            <div class="col s12 m4 l8"><p>s12 m4</p></div>
-            <div class="col s12 m4 l2"><p>s12 m4</p></div>
-          </div>
-          </div>
+        </div>
       </nav>
     )
   };

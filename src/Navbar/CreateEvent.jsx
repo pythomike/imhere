@@ -2,7 +2,6 @@
 import React, {Component} from 'react';
 import './CreateEvent.css';
 import Geosuggest from 'react-geosuggest';
-import PicUpload from './PicUpload.jsx';
 const Dtime = require('react-datetime');
 const suggest = require('react-geosuggest');
 
@@ -188,7 +187,6 @@ class CreateEvent extends Component {
               /> Private
             </label>
           </div>
-          {/*<PicUpload />*/}
           <input type="submit" value="submit" />
         </form>
       </div>

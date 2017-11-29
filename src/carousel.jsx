@@ -739,7 +739,11 @@ class Carousels extends Component {
     } else if (this.props.events.length > 11){
       events = this.props.events
           return (
+
             <div className="container">
+              <div className="dt">
+                {moment().format("dddd, MMM DD")} - {moment().format("h:mm a")}
+              </div>
               <Carousel>
                 <div className="card card-inverse">
                   {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}

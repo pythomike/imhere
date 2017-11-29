@@ -17,6 +17,7 @@
 .navclass {
   background-color: transparent;
   box-shadow: 0 0 0 0;
+  padding-bottom: 150px;
 }
 
 .logo .logoimg {
@@ -34,8 +35,13 @@ body {
 .hero {
   // position: absolute;
   // width: 1200px;
-  margin-left: auto;
-  margin-top: auto;
+  // margin-left: auto;
+  // margin-top: auto;
+}
+
+.container {
+  background-color: white;
+  border-radius: 7px;
 }
 
 .dt {
@@ -43,14 +49,8 @@ body {
   text-transform: uppercase;
   font-size: 40px;
   text-align: center;
-  // margin-top: 50px;
-  // background-color: white;
-  // position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-  width: 100%;
-  max-width: 100%;  
+  background: transparent;
+  padding-top: 10px;
 }
 
 .buttons {
@@ -136,8 +136,10 @@ label {
 }
 
 .btnfrm {
-  margin:auto;
-  display:block;
+  margin: auto;
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 input[type=text]:focus:not([readonly]),
@@ -151,6 +153,11 @@ input[type=email]:focus:not([readonly]) {
 .recap {
   border: 1px solid black;
   border-radius: 10px;
+}
+
+//CAROUSEL
+.carousel {
+  height: 350px;
 }
 
 // .rc-anchor-light {
