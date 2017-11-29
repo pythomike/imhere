@@ -24,9 +24,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(`/daysevents`,{
+    fetch(`/allevents`,{
       method: 'GET',
       mode: 'cors',
+      credentials: true,
       redirect: '/',
       headers: {
             "Content-Type": "text/plain"

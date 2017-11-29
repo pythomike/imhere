@@ -230,8 +230,8 @@ app.use(session({
 
   app.post('/signup', (req, res) => {
     const user = req.body
-    // console.log(req.body)
-     knex.select().from('users').where({email:req.body.email})
+    console.log(req.body)
+     knex.select().from('users').where({email: req.body.email})
         .first()
         .then ((found) => {
           if (found) {

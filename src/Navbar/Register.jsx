@@ -43,6 +43,7 @@ class Register extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
+    console.log(this.state)
     if (this.state.email.length >= 5) {
       fetch(`/signup`,{
         method: 'POST',
