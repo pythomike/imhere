@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Input, Modal, Button } from "react-materialize";
+// import { Input, Modal, Button } from "react-materialize";
 
 //email & password match to registered users
 //once logged in, change button to logout
@@ -27,26 +27,26 @@ class Login extends Component {
   render() {
     const {email, password} = this.state;
     return (
-      <div>     
-        <form onSubmit = {this.handleFormSubmit}>        
+      <div>
+        <form onSubmit = {this.handleFormSubmit}>
           <label>
-            Email Address: 
-            <input type         = "email" 
-                    name        = "email" 
-                    value       = {email} 
-                    onChange    = {this.onChange} 
+            Email Address:
+            <input type         = "email"
+                    name        = "email"
+                    value       = {email}
+                    onChange    = {this.onChange}
                     placeholder = "sloppybobby@yahoo.com" />
-          </label><br />      
+          </label><br />
 
           <label>
             Password:
-            <input type         = "password" 
-                    name        = "password" 
-                    value       = {password} 
+            <input type         = "password"
+                    name        = "password"
+                    value       = {password}
                     onChange    = {this.onChange} />
           </label><br />
           <input type="submit" value="submit" />
-        </form>       
+        </form>
       </div>
     );
   }

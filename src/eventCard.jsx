@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-// import Button from 'react-bootstrap/lib/Button';
-import Image from 'react-bootstrap/lib/Image';
+// import Image from 'react-bootstrap/lib/Image';
 import './eventCard.css';
+import GeoLocation from './geolocation.jsx'
 
 import './App.css';
 
@@ -13,9 +13,11 @@ class eventCard extends Component {
       <div className="card card-inverse">
         {/* <Image src={'snowboarding.jpg'} bsClass="img" responsive alt="logo" /> */}
         <div className="card-img-overlay">
-          <h4 className="card-title">{this.props.title}</h4>
-          <p className="card-text">{this.props.description}</p>
-          <p className="card-text"><small className="text-muted">Approx 4km away</small></p>
+          <h4 className="card-title">{this.props.data.title}</h4>
+          <p className="card-text">{this.props.data.description}</p>
+          <GeoLocation longitude = {this.props.data.longitude}
+                       latitude  = {this.props.data.latitude}
+                       />
         </div>
       </div>
     );

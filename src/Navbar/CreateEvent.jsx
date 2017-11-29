@@ -1,8 +1,10 @@
+/*global google*/
 import React, {Component} from 'react';
 import './CreateEvent.css';
 import Geosuggest from 'react-geosuggest';
 import PicUpload from './PicUpload.jsx';
 const Dtime = require('react-datetime');
+const suggest = require('react-geosuggest');
 
 
 
@@ -16,13 +18,13 @@ class CreateEvent extends Component {
     super(props);
     this.state = {
       title: '',
-      maxPeople: '',
-      name: 'firstName',
-      locationLat: '',
-      locationLong: '',
+      max_attendees: '',
+      creator_name: 'firstName',
+      latitude: '',
+      longitude: '',
       description: '',
-      date: '',
-      publicPrivate: 'public',
+      start_time: '',
+      private_event: false,
     };
     this.onChange = this.onChange.bind(this);
     this.handleMaxPeople = this.handleMaxPeople.bind(this);
@@ -32,59 +34,62 @@ class CreateEvent extends Component {
     const maxNr = /^[0-9\b]*$/;
     if (changeMaxPpl === '' || maxNr.test(changeMaxPpl.target.value)) {
       this.setState({
-        maxPeople: changeMaxPpl.target.value
+        max_attendees: changeMaxPpl.target.value
       })
     }
   }
-// TODO error handling if not selected things
+
   handleLocationChange = (e) => {
-    if (e) {
+    if (e && e.location) {
       this.setState({
           location: e.description,
-          locationLat: e.location.lat,
-          locationLong: e.location.lng
+          latitude: e.location.lat,
+          longitude: e.location.lng
         })
     }
   }
 
   handleDateChange = (e) => {
     this.setState({
-        date: e._d
+        start_time: e._d
       })
   }
 
+  handlePrivateChange = (e) => {
+    this.setState({private_event: !this.state.private_event});
+  }
+
   onChange = (e) => {
-    // console.log(e)
     if (e.target) {
+
     const state = this.state
     state[e.target.name] = e.target.value;
     this.setState(state);
     } else {
       this.setState({
         location: e,
-        locationLat: "",
-        locationLong: ""
+        latitude: "",
+        longitude: ""
       })
     }
 
   }
-// TODO SET UP AJAX
+
   handleFormSubmit = (e) => {
     e.preventDefault();
 
-    console.log(this.state)
-
-    fetch(`/daysevents`,{
+    fetch(`/events`,{
       method: 'POST',
       mode: 'cors',
       redirect: '/',
+      body: JSON.stringify(this.state),
       headers: {
-        "Content-Type": "text/plain"
-      },
-      body: JSON.stringify({
+        'Content-Type': 'application/json'
+      }
+    }).then(res => {
+      return res;
+    }).catch(err => err);
 
-      })
-    })
   }
 
   render() {
@@ -92,7 +97,7 @@ class CreateEvent extends Component {
     const valid = function(current){
         return current.isAfter(yesterday);
     };
-    const { title, maxPeople, location, description, date } = this.state;
+    const { title, max_attendees, description } = this.state;
     return (
       <div>        
         <h4>creating event bs</h4>
@@ -110,26 +115,27 @@ class CreateEvent extends Component {
             Max number of people:
             <input  type        = "text"
                     placeholder = "500"
-                    name        = "maxPeople"
-                    value       = {maxPeople}
-                    onChange    = {this.handleMaxPeople} />
+                    name        = "max_attendees"
+                    value       = {max_attendees}
+                    onChange    = {this.handleMaxPeople}
+            />
           </label> <br />
 
           <div className="radioName">
             Creator:
             <label>
               <input type     = "radio"
-                     name     = "name"
+                     name     = "creator_name"
                      value    = "firstName"
-                     checked  = {this.state.name === 'firstName'}
+                     checked  = {this.state.creator_name === 'firstName'}
                      onChange = {this.onChange}
               /> firstName
             </label>
             <label>
               <input type     = "radio"
-                     name     = "name"
+                     name     = "creator_name"
                      value    = "Anonymous"
-                     checked  = {this.state.name === 'Anonymous'}
+                     checked  = {this.state.creator_name === 'Anonymous'}
                      onChange = {this.onChange}
               /> Anonymous
             </label>
@@ -137,7 +143,9 @@ class CreateEvent extends Component {
 
           <label>
             Location:
-             <Geosuggest
+             <Geosuggest location        = {new google.maps.LatLng(53.977592, -124.643327)}
+                         radius          = "20"
+                         country         = "ca"
                          name            = "location"
                          value           = {this.state.location}
                          onChange        = {this.onChange}
@@ -157,8 +165,8 @@ class CreateEvent extends Component {
           <label>
             Pick a day and time:
             <Dtime isValidDate = { valid }
-                   name        = "date"
-                   value       = {this.state.date}
+                   name        = "start_time"
+                   value       = {this.state.start_time}
                    onChange    = {this.handleDateChange}
                    />
           </label>
@@ -167,18 +175,16 @@ class CreateEvent extends Component {
             Public or Private event?
             <label>
               <input type     = "radio"
-                     name     = "publicPrivate"
-                     value    = "public"
-                     checked  = {this.state.publicPrivate === 'public'}
-                     onChange = {this.onChange}
+                     name     = "private_event"
+                     checked  = {this.state.private_event === false}
+                     onChange = {this.handlePrivateChange}
               /> Public
             </label>
             <label>
               <input type     = "radio"
-                     name     = "publicPrivate"
-                     value    = "private"
-                     checked  = {this.state.publicPrivate === 'private'}
-                     onChange = {this.onChange}
+                     name     = "private_event"
+                     checked  = {this.state.private_event === true}
+                     onChange = {this.handlePrivateChange}
               /> Private
             </label>
           </div>
