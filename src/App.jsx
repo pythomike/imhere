@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
 // import Login from './login.jsx';
-// import EventDetails from './eventDetails.jsx';
+import EventDetails from './eventDetails.jsx';
 import Carousels from './Carousel.jsx';
 import Modals from "./Navbar/Modals.jsx";
 import './App.css';
@@ -12,11 +12,17 @@ class App extends Component {
     super(props);
     this.state = {
       cards: [],
-      loggedIn: false
+      loggedIn: false,
+      currentDetails: ''
     };
  }
 
- onLogout = () => {
+  getDetails = (details) => {
+    // console.log("got event details", details)
+    this.setState({currentDetails: details})
+  }
+
+  onLogout = () => {
     fetch(`/logout`,{
       method: 'GET',
       mode: 'cors',
@@ -90,9 +96,6 @@ class App extends Component {
     }).catch(function(err){
       console.log(err)
     })
-
-
-
   }
 
   render() {
@@ -101,8 +104,9 @@ class App extends Component {
         <div className="allinc">
           <Modals loggedIn={this.state.loggedIn} logout={this.onLogout} login={this.onLogin}/>
           <div className="hero">
-            <Carousels events={this.state.cards}/>
+            <Carousels events={this.state.cards} getDetails={this.getDetails}/>
           </div>
+          <EventDetails event={this.state.currentDetails} />
         </div>
       </Router>
     );

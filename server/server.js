@@ -301,7 +301,7 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
   })
 // SELECT ALL EVENTS - WORKING
   app.get('/allevents', (req, res) => {
-    knex.select().from('events').then(function(event) {
+    knex.select().from('events').orderBy('start_time', 'asc').then(function(event) {
       res.send(event)
     })
   })
