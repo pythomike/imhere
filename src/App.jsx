@@ -11,7 +11,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cards: []
+      cards: [],
+      loggedIn: false
     };
  }
 
@@ -24,6 +25,27 @@ class App extends Component {
   }
 
   componentDidMount() {
+
+    fetch(`/currentUser`,{
+      method: 'GET',
+      mode: 'cors',
+      credentials: true,
+      redirect: '/',
+      headers: {
+            "Content-Type": "text/plain"
+        }
+    })
+    .then(function(response) {
+     return response.json();
+    })
+    .then(data => {
+      console.log(data.loggedIn)
+      this.setState({loggedIn: data.loggedIn});
+    })
+    .catch(function(err){
+      console.log(err)
+    })
+
     fetch(`/allevents`,{
       method: 'GET',
       mode: 'cors',
@@ -42,10 +64,13 @@ class App extends Component {
       console.log(err)
     })
 
+
+
   }
 
 
   render() {
+    console.log(this.state.loggedIn)
     return (
       <Router>
         <div className="bgimg">

@@ -23,6 +23,25 @@ class Login extends Component {
     }
   }
 
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state)
+    if (this.state.email.length >= 5) {
+      fetch(`/login`,{
+        method: 'POST',
+        mode: 'cors',
+        credentials: true,
+        body: JSON.stringify(this.state),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(res => {
+        console.log(res)
+        return res;
+      }).catch(err => err);
+    }
+  }
+
 
   render() {
     const {email, password} = this.state;
