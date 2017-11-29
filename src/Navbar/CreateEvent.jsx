@@ -26,10 +26,10 @@ class CreateEvent extends Component {
       private_event: false,
     };
     this.onChange = this.onChange.bind(this);
-    this.handleMaxPeople = this.handleMaxPeople.bind(this);
+    this.handlemax_attendees = this.handlemax_attendees.bind(this);
   }
 
-  handleMaxPeople(changeMaxPpl) {
+  handlemax_attendees(changeMaxPpl) {
     const maxNr = /^[0-9\b]*$/;
     if (changeMaxPpl === '' || maxNr.test(changeMaxPpl.target.value)) {
       this.setState({
@@ -76,8 +76,9 @@ class CreateEvent extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-
-    fetch(`/events`,{
+    console.log(this.state)
+    let eventDetails = this.state
+    fetch('/events',{
       method: 'POST',
       mode: 'cors',
       redirect: '/',
@@ -88,7 +89,6 @@ class CreateEvent extends Component {
     }).then(res => {
       return res;
     }).catch(err => err);
-
   }
 
   render() {
@@ -96,9 +96,9 @@ class CreateEvent extends Component {
     const valid = function(current){
         return current.isAfter(yesterday);
     };
-    const { title, max_attendees, description } = this.state;
+    const { title, max_attendees, location, description, start_time } = this.state;
     return (
-      <div>        
+      <div>
         <h4>creating event bs</h4>
         <form onSubmit = {this.handleFormSubmit}>
           <label>
@@ -116,8 +116,7 @@ class CreateEvent extends Component {
                     placeholder = "500"
                     name        = "max_attendees"
                     value       = {max_attendees}
-                    onChange    = {this.handleMaxPeople}
-            />
+                    onChange    = {this.handlemax_attendees} />
           </label> <br />
 
           <div className="radioName">

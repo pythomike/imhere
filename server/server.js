@@ -323,7 +323,6 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
     })
   })
 
-
 // FUNCTION - DB INSERT - Takes in a data object, and a table name. The object MUST be formatted based on the table where the object is going.
   function dbInsert(data, table) {
     return knex.insert(data).into(table).returning('id')
@@ -339,28 +338,6 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
     dbInsert(req.body, 'events')
     res.send(201)
   })
-
-  // app.post('/newuser', (req, res) => {
-  //   // console.log("current user id: ", req.session)
-  //   knex.select().from('users').where({email:req.body.email})
-  //     .first()
-  //     .then ((found) => {
-  //       if (found) {
-  //         console.log("user already exists...", found)
-  //         const userId = found.id
-  //         res.redirect(302, `/`);
-  //         // res.status(302).json(userId);
-  //       } else {
-  //         console.log("making a new user!", req.body)
-  //         const userId = dbInsert(req.body, 'users')
-  //         // res.redirect(201, '/');
-  //         console.log(userId)
-  //         // res.status(201).json(userId);
-  //       }
-  //     })
-  //     .catch(err => console.log('error caught', err))
-  // })
-
 
 // ADD ATTENDEE
   let attendee = {
