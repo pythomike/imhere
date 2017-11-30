@@ -790,7 +790,7 @@ class Carousels extends Component {
               <Carousel key='12'>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
-                  <div className="funkySymbol" className="funkySymbol">﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[0].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}

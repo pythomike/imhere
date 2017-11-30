@@ -30,6 +30,8 @@
   font-family: 'Abel', sans-serif;
   padding-left: 10px;
   padding-right: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .card-geo {

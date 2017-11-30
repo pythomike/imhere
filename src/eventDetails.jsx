@@ -14,8 +14,8 @@ class eventDetails extends Component {
           <h3 className="events-title">
             {currentEvent.title}
           </h3>
-          <p className="calp"><img className="calimg" src={calendar} /> Date: {moment(currentEvent.start_time).format("ddd MMM DD, YYYY").toString()}</p>
-          <p className="clockp"> <img className="clockimg" src={clockp} />  Time: {moment(currentEvent.start_time).format("h:mmA").toString()} </p>
+          <p className="calp"><img className="calimg" alt="calendar" src={calendar} /> Date: {moment(currentEvent.start_time).format("ddd MMM DD, YYYY").toString()}</p>
+          <p className="clockp"> <img className="clockimg" alt="clock" src={clockp} />  Time: {moment(currentEvent.start_time).format("h:mmA").toString()} </p>
           <p className="event-desc">{currentEvent.description}</p>
 
             <div className="googlemaps">
