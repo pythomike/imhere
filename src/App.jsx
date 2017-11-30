@@ -78,7 +78,7 @@ class App extends Component {
   }
 
   nextDay = () => {
-    fetch(`/allevents`,{
+    fetch(`/today`,{
       method: 'GET',
       mode: 'cors',
       credentials: 'same-origin',
@@ -118,7 +118,7 @@ class App extends Component {
       console.log(err)
     })
 
-    fetch(`/allevents`,{
+    fetch(`/today`,{
       method: 'GET',
       mode: 'cors',
       credentials: 'same-origin',

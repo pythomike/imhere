@@ -60,8 +60,8 @@ class Register extends Component {
     }
   }
 
-  validator(firstName, lastName, email, phone, pass) => {
-    
+  validator = (firstName, lastName, email, phone, pass) => {
+
   }
 
   render() {
@@ -75,7 +75,7 @@ class Register extends Component {
                    name        = "first_name"
                    value       = {first_name}
                    onChange    = {this.onChange}
-                   placeholder = "Bobby" 
+                   placeholder = "Bobby"
                    required    = "required" />
           </label> <br />
 
@@ -135,7 +135,7 @@ class Register extends Component {
                    onChange    = {this.onChange} />
           </label><br />*/}
           <div className="recap">
-            <Recaptcha 
+            <Recaptcha
                 className="recap"
                 sitekey="6LfNXToUAAAAAIRKWO5FA5x8IQeuHz_QPDcaPbal"
             />

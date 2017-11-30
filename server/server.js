@@ -289,12 +289,14 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
   })
 
 // SELECT EVENTS ON A GIVEN DAY
-  app.get('/', (req, res) => {
+  app.get('/today', (req, res) => {
     const lookAtDay = moment().startOf('day')
+    console.log(lookAtDay)
     knex('events')
     .select('*')
     .whereBetween('start_time', [lookAtDay, lookAtDay.add(1, 'days')])
     .then(function(event) {
+      console.log("todays events", event)
       res.send(event)
       res.end()
     })
@@ -302,6 +304,7 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 // SELECT ALL EVENTS - WORKING
   app.get('/allevents', (req, res) => {
     knex.select().from('events').orderBy('start_time', 'asc').then(function(event) {
+      console.log("getting all events")
       res.send(event)
     })
   })
