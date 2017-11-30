@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Arapey');
 @import url('https://fonts.googleapis.com/css?family=Abel');
 @import url('https://fonts.googleapis.com/css?family=News+Cycle');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 //FRONT PAGE
 * {
@@ -19,7 +20,7 @@
   z-index: -5;
   background-size: cover;
   background-position: center;
-  filter:blur(2px);
+  // filter:blur(2px);
 }
 
 .allinc {
@@ -48,12 +49,13 @@ body {
 }
 
 .container {
-  background-color: rgba(255, 255, 255, 0.47);
+  background-color: rgb(255, 255, 255);
   border-radius: 5px;
   // filter: alpha(opacity=70);
   // -moz-opacity:.70;
   // opacity:.70;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.20);
+  height: 510px;
 }
 
 .dt {
@@ -209,124 +211,3 @@ input[type=email]:focus:not([readonly]) {
 
 }
 
-//CAROUSEL
-.carousel {
-  height: 350px;
-}
-
-.card-inverse {
-  // width: 200px;
-  // height: 200px;
-  // display: inline-block;
-  text-align: -webkit-center;
-}
-
-.carousel .carousel-item {
-  border-radius: 3px;
-  width: 300px;
-  height: 200px;
-}
-
-.card .card-title {
-  font-size: 28px;
-  font-weight: 550;
-  font-family: 'Arapey', serif;
-  color: rgb(255, 255, 255);
-  background-color: rgba(255, 255, 255, 0.171);
-  margin: 8px 8px 0px 8px;
-  border-radius: 4px;
-
-}
-
-.col0 {
-  background-color: #2ecc71;
-}
-
-.col1 {
-  background-color: #FF6B57;
-}
-
-.col2 {
-  background-color: #32526E;
-}
-
-.col3 {
-  background-color: #FFC1BA;
-}
-
-.col4 {
-  background-color: #FEC956;
-}
-
-.col5 {
-  background-color: #B388DD;
-}
-
-.col6 {
-  background-color: #E08283;
-}
-
-.col7 {
-  background-color: #4D7831;
-}
-
-.col8 {
-  background-color: #f39c12;
-}
-
-.col9 {
-  background-color: #4f9a94;
-}
-
-.col10 {
-  background-color: #5C3178;
-}
-
-.col11 {
-  background-color: #85A5D0;
-}
-
-.col12 {
-  background-color: #1abc9c;
-}
-
-.card-text {
-  color:rgba(255, 255, 255, 0.801);
-  font-size: 20px;
-  font-family: 'Slabo 27px', serif;
-}
-
-.card-geo {
-  float: right;
-  margin-right: 10px;
-  font-size: 13px;
-  font-family: 'News Cycle', sans-serif;
-  // font-weight: 500;
-  color: rgb(235, 235, 235);
-  border: 0px;
-}
-
-
-// .rc-anchor-light {
-//   background: #f9f9f9;
-//   color: #000;
-// }
-
-// img {
-//   border-radius: 4px;
-//   height: auto;
-// }
-
-// .carousel .carousel-item img {
-//   width: 200%;
-// }
-
-// .caro {
-//   // margin-top: 140px;
-//   height: 700px;
-//   // width: 140%;
-// }
-
-// .shadowz {
-//   border-radius: 8px;
-// }

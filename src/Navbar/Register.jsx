@@ -60,9 +60,9 @@ class Register extends Component {
     }
   }
 
-  validator(firstName, lastName, email, phone, pass) => {
+  // validator(firstName, lastName, email, phone, pass) => {
     
-  }
+  // }
 
   render() {
     const {first_name, last_name, email, phone_number, password, password_confirmation} = this.state;
