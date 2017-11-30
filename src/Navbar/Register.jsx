@@ -16,15 +16,12 @@ class Register extends Component {
       last_name: '',
       email: '',
       phone_number: '',
-      password: ''
-      // password_confirmation: ''
+      password: '',
+      password_confirmation: ''
     };
-
-    this.onChange = this.onChange.bind(this);
-    this.handlePhoneNum = this.handlePhoneNum.bind(this);
   }
 
-  handlePhoneNum(phoneNumber) {
+  handlePhoneNum = (phoneNumber) => {
     const maxNr = /^[0-9\b]*$/;
     if (phoneNumber === '' || maxNr.test(phoneNumber.target.value)) {
       this.setState({
@@ -43,22 +40,16 @@ class Register extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    this.props.signUp(this.state);
-      fetch(`/signup`,{
-        method: 'POST',
-        mode: 'cors',
-        credentials: 'same-origin',
-        body: JSON.stringify(this.state),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }).then(res => {
-        return res;
-      }).catch(err => err);
-  }
-
-  validator = (firstName, lastName, email, phone, pass) => {
-
+    if (this.state.password === this.state.password_confirmation) {
+      const data = {
+        first_name: this.state,
+        last_name: this.state,
+        email: this.state,
+        phone_number: this.state,
+        password: this.state
+      }
+      this.props.signUp(data);
+    }
   }
 
   render() {
@@ -111,26 +102,13 @@ class Register extends Component {
                    onChange    = {this.onChange} />
           </label><br />
 
-          {/*<label>
-            Password Confirmation
-            <input type        = "password"
-                   name        = "password_confirmation"
-                   value       = {password_confirmation}
-
-            Password:
-            <input type        = "password"
-                   name        = "password"
-                   value       = {password}
-                   onChange    = {this.onChange} />
-          </label><br />
-
           <label>
             Password Confirmation:
             <input type        = "password"
                    name        = "password_confirmation"
                    value       = {password_confirmation}
                    onChange    = {this.onChange} />
-          </label><br />*/}
+          </label><br />
           <div className="recap">
             <Recaptcha
                 className="recap"

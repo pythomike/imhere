@@ -188,10 +188,8 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 
 
   app.get('/logout', (req, res) => {
-    console.log("logging out...")
     req.session.userId = null;
     res.sendStatus(200)
-    console.log("user session: ", req.session.userId)
   })
 
   /*app.get('/signup', (req, res) => {

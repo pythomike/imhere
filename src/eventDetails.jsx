@@ -30,7 +30,6 @@ class eventDetails extends Component {
         </header>
 
         <div className="event-detail-main">
-          <img src="" className="big-event-image" alt="Event-img" />
           <div className="event-detail-location">
             <h4>{currentEvent.location}</h4>
           </div>
@@ -41,12 +40,6 @@ class eventDetails extends Component {
             <p>{currentEvent.description}</p>
           </span>
           <span className="event-extra-info">
-            <div className="going-button">
-              <button>Going!</button>
-            </div>
-            <div className="notgoing-button">
-              <button>Nah</button>
-            </div>
             <div className="googlemaps-button">
               <a target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${currentEvent.latitude},${currentEvent.longitude}`}>
                 <img src="https://i.imgur.com/0JAMrnL.png" width="35em" className="googleMaps-icon" alt="map-icon"></img>
