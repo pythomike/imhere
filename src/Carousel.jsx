@@ -64,7 +64,7 @@ class Carousels extends Component {
           <Carousel>
             <div className="card card-inverse col0" onClick={this.one} >
               <div className="card-title">{events[0].title}</div>
-              <div>﹀</div>
+              <div className="funkySymbol">﹀</div>
               <p className="card-text">{events[0].description}</p>
               <footer className="card-geo">
                 <GeoLocation longitude = {events[0].longitude}
@@ -85,7 +85,7 @@ class Carousels extends Component {
           <Carousel>
             <div className="card card-inverse col0" onClick={this.one} >
               <div className="card-title">{events[0].title}</div>
-              <div>﹀</div>
+              <div className="funkySymbol">﹀</div>
               <p className="card-text">{events[0].description}</p>
               <footer className="card-geo">
                 <GeoLocation longitude = {events[0].longitude}
@@ -94,7 +94,7 @@ class Carousels extends Component {
             </div>
             <div className="card card-inverse col1" onClick={this.two} >
               <div className="card-title">{events[1].title}</div>
-              <div>﹀</div>
+              <div className="funkySymbol">﹀</div>
               <p className="card-text">{events[1].description}</p>
               <footer className="card-geo">
                 <GeoLocation longitude = {events[1].longitude}
@@ -115,7 +115,7 @@ class Carousels extends Component {
               <Carousel>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[0].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
@@ -124,7 +124,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col1" onClick={this.two} >
                   <div className="card-title">{events[1].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[1].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
@@ -133,7 +133,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col2" onClick={this.three} >
                   <div className="card-title">{events[2].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[2].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
@@ -154,7 +154,7 @@ class Carousels extends Component {
               <Carousel>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[0].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
@@ -163,7 +163,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col1" onClick={this.two} >
                   <div className="card-title">{events[1].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[1].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
@@ -172,7 +172,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col2" onClick={this.three} >
                   <div className="card-title">{events[2].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[2].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
@@ -181,7 +181,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col3" onClick={this.four} >
                   <div className="card-title">{events[3].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[3].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
@@ -202,7 +202,7 @@ class Carousels extends Component {
               <Carousel>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[0].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
@@ -211,7 +211,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col1" onClick={this.two} >
                   <div className="card-title">{events[1].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[1].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
@@ -220,7 +220,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col2" onClick={this.three} >
                   <div className="card-title">{events[2].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[2].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
@@ -229,7 +229,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col3" onClick={this.four} >
                   <div className="card-title">{events[3].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[3].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
@@ -238,7 +238,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col4" onClick={this.five} >
                   <div className="card-title">{events[4].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[4].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[4].longitude}
@@ -259,7 +259,7 @@ class Carousels extends Component {
               <Carousel>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[0].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
@@ -268,7 +268,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col1" onClick={this.two} >
                   <div className="card-title">{events[1].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[1].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
@@ -277,7 +277,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col2" onClick={this.three} >
                   <div className="card-title">{events[2].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[2].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
@@ -286,7 +286,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col3" onClick={this.four} >
                   <div className="card-title">{events[3].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[3].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
@@ -295,7 +295,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col4" onClick={this.five} >
                   <div className="card-title">{events[4].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[4].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[4].longitude}
@@ -304,7 +304,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col5" onClick={this.six} >
                   <div className="card-title">{events[5].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[5].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[5].longitude}
@@ -325,7 +325,7 @@ class Carousels extends Component {
               <Carousel>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[0].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
@@ -334,7 +334,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col1" onClick={this.two} >
                   <div className="card-title">{events[1].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[1].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
@@ -343,7 +343,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col2" onClick={this.three} >
                   <div className="card-title">{events[2].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[2].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
@@ -352,7 +352,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col3" onClick={this.four} >
                   <div className="card-title">{events[3].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[3].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
@@ -361,7 +361,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col4" onClick={this.five} >
                   <div className="card-title">{events[4].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[4].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[4].longitude}
@@ -370,7 +370,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col5" onClick={this.six} >
                   <div className="card-title">{events[5].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[5].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[5].longitude}
@@ -379,7 +379,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col6" onClick={this.seven} >
                   <div className="card-title">{events[6].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[6].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[6].longitude}
@@ -400,7 +400,7 @@ class Carousels extends Component {
               <Carousel>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[0].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
@@ -409,7 +409,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col1" onClick={this.two} >
                   <div className="card-title">{events[1].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[1].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
@@ -418,7 +418,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col2" onClick={this.three} >
                   <div className="card-title">{events[2].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[2].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
@@ -427,7 +427,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col3" onClick={this.four} >
                   <div className="card-title">{events[3].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[3].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
@@ -436,7 +436,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col4" onClick={this.five} >
                   <div className="card-title">{events[4].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[4].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[4].longitude}
@@ -445,7 +445,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col5" onClick={this.six} >
                   <div className="card-title">{events[5].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[5].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[5].longitude}
@@ -454,7 +454,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col6" onClick={this.seven} >
                   <div className="card-title">{events[6].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[6].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[6].longitude}
@@ -463,7 +463,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col7" onClick={this.eight} >
                   <div className="card-title">{events[7].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[7].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[7].longitude}
@@ -484,7 +484,7 @@ class Carousels extends Component {
               <Carousel>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[0].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
@@ -493,7 +493,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col1" onClick={this.two} >
                   <div className="card-title">{events[1].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[1].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
@@ -502,7 +502,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col2" onClick={this.three} >
                   <div className="card-title">{events[2].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[2].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
@@ -511,7 +511,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col3" onClick={this.four} >
                   <div className="card-title">{events[3].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[3].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
@@ -520,7 +520,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col4" onClick={this.five} >
                   <div className="card-title">{events[4].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[4].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[4].longitude}
@@ -529,7 +529,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col5" onClick={this.six} >
                   <div className="card-title">{events[5].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[5].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[5].longitude}
@@ -538,7 +538,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col6" onClick={this.seven} >
                   <div className="card-title">{events[6].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[6].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[6].longitude}
@@ -547,7 +547,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col7" onClick={this.eight} >
                   <div className="card-title">{events[7].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[7].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[7].longitude}
@@ -556,7 +556,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col8" onClick={this.nine} >
                   <div className="card-title">{events[8].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[8].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[8].longitude}
@@ -577,7 +577,7 @@ class Carousels extends Component {
               <Carousel>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[0].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
@@ -586,7 +586,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col1" onClick={this.two} >
                   <div className="card-title">{events[1].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[1].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
@@ -595,7 +595,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col2" onClick={this.three} >
                   <div className="card-title">{events[2].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[2].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
@@ -604,7 +604,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col3" onClick={this.four} >
                   <div className="card-title">{events[3].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[3].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
@@ -613,7 +613,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col4" onClick={this.five} >
                   <div className="card-title">{events[4].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[4].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[4].longitude}
@@ -622,7 +622,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col5" onClick={this.six} >
                   <div className="card-title">{events[5].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[5].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[5].longitude}
@@ -631,7 +631,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col6" onClick={this.seven} >
                   <div className="card-title">{events[6].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[6].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[6].longitude}
@@ -640,7 +640,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col7" onClick={this.eight} >
                   <div className="card-title">{events[7].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[7].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[7].longitude}
@@ -649,7 +649,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col8" onClick={this.nine} >
                   <div className="card-title">{events[8].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[8].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[8].longitude}
@@ -658,7 +658,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col9" onClick={this.ten} >
                   <div className="card-title">{events[9].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[9].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[9].longitude}
@@ -678,7 +678,7 @@ class Carousels extends Component {
               <Carousel>
                   <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[0].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
@@ -687,7 +687,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col1" onClick={this.two} >
                   <div className="card-title">{events[1].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[1].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
@@ -696,7 +696,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col2" onClick={this.three} >
                   <div className="card-title">{events[2].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[2].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
@@ -705,7 +705,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col3" onClick={this.four} >
                   <div className="card-title">{events[3].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[3].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
@@ -714,7 +714,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col4" onClick={this.five} >
                   <div className="card-title">{events[4].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[4].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[4].longitude}
@@ -723,7 +723,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col5" onClick={this.six} >
                   <div className="card-title">{events[5].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[5].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[5].longitude}
@@ -732,7 +732,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col6" onClick={this.seven} >
                   <div className="card-title">{events[6].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[6].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[6].longitude}
@@ -741,7 +741,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col7" onClick={this.eight} >
                   <div className="card-title">{events[7].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[7].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[7].longitude}
@@ -750,7 +750,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col8" onClick={this.nine} >
                   <div className="card-title">{events[8].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[8].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[8].longitude}
@@ -759,7 +759,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col9" onClick={this.ten} >
                   <div className="card-title">{events[9].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[9].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[9].longitude}
@@ -768,7 +768,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col10" onClick={this.eleven} >
                   <div className="card-title">{events[10].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[10].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[10].longitude}
@@ -789,7 +789,7 @@ class Carousels extends Component {
               <Carousel>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
-                  <div className="funkySymbol">﹀</div>
+                  <div className="funkySymbol" className="funkySymbol">﹀</div>
                   <p className="card-text">{events[0].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[0].longitude}
@@ -798,7 +798,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col1" onClick={this.two} >
                   <div className="card-title">{events[1].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[1].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[1].longitude}
@@ -807,7 +807,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col2" onClick={this.three} >
                   <div className="card-title">{events[2].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[2].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[2].longitude}
@@ -816,7 +816,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col3" onClick={this.four} >
                   <div className="card-title">{events[3].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[3].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[3].longitude}
@@ -825,7 +825,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col4" onClick={this.five} >
                   <div className="card-title">{events[4].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[4].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[4].longitude}
@@ -834,7 +834,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col5" onClick={this.six} >
                   <div className="card-title">{events[5].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[5].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[5].longitude}
@@ -843,7 +843,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col6" onClick={this.seven} >
                   <div className="card-title">{events[6].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[6].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[6].longitude}
@@ -852,7 +852,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col7" onClick={this.eight} >
                   <div className="card-title">{events[7].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[7].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[7].longitude}
@@ -861,7 +861,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col8" onClick={this.nine} >
                   <div className="card-title">{events[8].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[8].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[8].longitude}
@@ -870,7 +870,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col9" onClick={this.ten} >
                   <div className="card-title">{events[9].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[9].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[9].longitude}
@@ -879,7 +879,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col10" onClick={this.eleven} >
                   <div className="card-title">{events[10].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[10].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[10].longitude}
@@ -888,7 +888,7 @@ class Carousels extends Component {
                 </div>
                 <div className="card card-inverse col11" onClick={this.twelve} >
                   <div className="card-title">{events[11].title}</div>
-                  <div>﹀</div>
+                  <div className="funkySymbol">﹀</div>
                   <p className="card-text">{events[11].description}</p>
                   <footer className="card-geo">
                     <GeoLocation longitude = {events[11].longitude}
