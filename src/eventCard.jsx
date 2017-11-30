@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import GeoLocation from './geolocation.jsx'
 
-import './App.css';
-
 class eventCard extends Component {
-
 
   render() {
     return (

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom'
-import './App.css';
 // import Login from './login.jsx';
 import EventDetails from './eventDetails.jsx';
 import Carousels from './Carousel.jsx';
 import Modals from "./Navbar/Modals.jsx";
-import './App.css';
+// import Footers from "./Footer.jsx";
+// import './App.scss';
 
 class App extends Component {
   constructor(props) {
@@ -164,6 +164,7 @@ class App extends Component {
           {this.state.currentDetails !== '' &&
             <EventDetails event={this.state.currentDetails} />
           }
+          <div className="footsie">Hey</div>
         </div>
       </Router>
     );

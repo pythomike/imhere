@@ -1,0 +1,103 @@
+//CAROUSEL
+.carousel {
+  height: 350px;
+}
+
+.card-inverse {
+  text-align: -webkit-center;
+}
+
+.carousel .carousel-item {
+  border-radius: 3px;
+  width: 300px;
+  height: 200px;
+}
+
+.card .card-title {
+  font-size: 28px;
+  font-weight: 550;
+  font-family: 'Arapey', serif;
+  color: rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.171);
+  margin: 8px 8px 0px 8px;
+  border-radius: 4px;
+
+}
+
+.card-text {
+  color:rgba(0, 0, 0, 0.884);
+  font-size: 18px;
+  font-family: 'Abel', sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.card-geo {
+  float: right;
+  margin-right: 10px;
+  font-size: 13px;
+  font-family: 'News Cycle', sans-serif;
+  // font-weight: 500;
+  color: rgb(0, 0, 0);
+  // border: 0px;
+  position:absolute;
+  top: 176px;
+  right: 2px;
+}
+
+.funkySymbol {
+  margin-top: 3px;
+  margin-bottom: 0px;
+}
+
+.col0 {
+  background-color: #2ecc71;
+}
+
+.col1 {
+  background-color: #FF6B57;
+}
+
+.col2 {
+  background-color: #32526E;
+}
+
+.col3 {
+  background-color: #FFC1BA;
+}
+
+.col4 {
+  background-color: #FEC956;
+}
+
+.col5 {
+  background-color: #B388DD;
+}
+
+.col6 {
+  background-color: #E08283;
+}
+
+.col7 {
+  background-color: #4D7831;
+}
+
+.col8 {
+  background-color: #f39c12;
+}
+
+.col9 {
+  background-color: #4f9a94;
+}
+
+.col10 {
+  background-color: #5C3178;
+}
+
+.col11 {
+  background-color: #85A5D0;
+}
+
+.col12 {
+  background-color: #1abc9c;
+}

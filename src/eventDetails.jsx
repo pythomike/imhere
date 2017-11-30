@@ -1,33 +1,22 @@
 import React, {Component} from 'react';
-import './eventDetails.css';
-import moment from 'moment'
-
-
-// -Calendar should not be able to be picked on days that have passed
-// -pictures should be rendered according to key words if picture not uploaded
-//   -pic should be required if we don't do the above
-// -make every field required
+import moment from 'moment';
+import clockp from './pictures/clock.png';
+import calendar from './pictures/cal.png';
 
 class eventDetails extends Component {
 
   render() {
     const currentEvent = this.props.event
     return (
-      <div>
-
-        <header className="event-detail-head">
-          <span className="title">
-            <h2>{currentEvent.title}</h2>
-          </span>
-          <span className="date-time-container">
-            <div className="event-time">
-              <p>Time: {moment(currentEvent.start_time).format("h:mmA").toString()}</p>
-            </div>
-            <div className="event-date">
-              <p>Date: {moment(currentEvent.start_time).format("ddd MMM DD, YYYY").toString()}</p>
-            </div>
-          </span>
-        </header>
+      <div className="container">
+        <div className="events-padding">
+          <h3 className="events-title">
+            {currentEvent.title}
+          </h3>
+          <p className="calp"><img className="calimg" src={calendar} /> Date: {moment(currentEvent.start_time).format("ddd MMM DD, YYYY").toString()}</p>
+          <p className="clockp"><img className="clockimg" src={clockp} />  Time: {moment(currentEvent.start_time).format("h:mmA").toString()} </p>
+          <p className="event-desc">{currentEvent.description}</p>
+          <h4>{currentEvent.location}</h4>
 
         <div className="event-detail-main">
           <div className="event-detail-location">
@@ -45,9 +34,7 @@ class eventDetails extends Component {
                 <img src="https://i.imgur.com/0JAMrnL.png" width="35em" className="googleMaps-icon" alt="map-icon"></img>
               </a>
             </div>
-          </span>
-        </footer>
-
+          </div>
       </div>
 
     );
