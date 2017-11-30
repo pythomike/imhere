@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import './CreateEvent.css';
 import Geosuggest from 'react-geosuggest';
 const Dtime = require('react-datetime');
-const suggest = require('react-geosuggest');
 
 
 
@@ -67,8 +66,8 @@ class CreateEvent extends Component {
     } else {
       this.setState({
         location: e,
-        latitude: "",
-        longitude: ""
+        latitude: null,
+        longitude: null
       })
     }
 
@@ -76,10 +75,9 @@ class CreateEvent extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state)
-    let eventDetails = this.state
     fetch('/events',{
       method: 'POST',
+      credentials: 'same-origin',
       mode: 'cors',
       redirect: '/',
       body: JSON.stringify(this.state),
@@ -103,7 +101,8 @@ class CreateEvent extends Component {
         <form onSubmit = {this.handleFormSubmit}>
           <label>
             Event title:
-            <input type        = "text"
+            <input maxLength   = "30"
+                   type        = "text"
                    name        = "title"
                    value       = {title}
                    onChange    = {this.onChange}
@@ -145,7 +144,7 @@ class CreateEvent extends Component {
                          radius          = "20"
                          country         = "ca"
                          name            = "location"
-                         value           = {this.state.location}
+                         value           = {location}
                          onChange        = {this.onChange}
                          onSuggestSelect = {this.handleLocationChange}
                          />
@@ -164,7 +163,7 @@ class CreateEvent extends Component {
             Pick a day and time:
             <Dtime isValidDate = { valid }
                    name        = "start_time"
-                   value       = {this.state.start_time}
+                   value       = {start_time}
                    onChange    = {this.handleDateChange}
                    />
           </label>

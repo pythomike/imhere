@@ -16,15 +16,12 @@ class Register extends Component {
       last_name: '',
       email: '',
       phone_number: '',
-      password: ''
-      // password_confirmation: ''
+      password: '',
+      password_confirmation: ''
     };
-
-    this.onChange = this.onChange.bind(this);
-    this.handlePhoneNum = this.handlePhoneNum.bind(this);
   }
 
-  handlePhoneNum(phoneNumber) {
+  handlePhoneNum = (phoneNumber) => {
     const maxNr = /^[0-9\b]*$/;
     if (phoneNumber === '' || maxNr.test(phoneNumber.target.value)) {
       this.setState({
@@ -43,26 +40,17 @@ class Register extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    if (this.state.email.length >= 3) {
-      fetch(`/signup`,{
-        method: 'POST',
-        mode: 'cors',
-        credentials: 'same-origin',
-        body: JSON.stringify(this.state),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }).then(res => {
-        console.log("this is a response", res);
-        console.log("cookin'", document.cookie);
-        return res;
-      }).catch(err => err);
+    if (this.state.password === this.state.password_confirmation) {
+      const data = {
+        first_name: this.state,
+        last_name: this.state,
+        email: this.state,
+        phone_number: this.state,
+        password: this.state
+      }
+      this.props.signUp(data);
     }
   }
-
-  // validator(firstName, lastName, email, phone, pass) => {
-    
-  // }
 
   render() {
     const {first_name, last_name, email, phone_number, password, password_confirmation} = this.state;
@@ -75,7 +63,7 @@ class Register extends Component {
                    name        = "first_name"
                    value       = {first_name}
                    onChange    = {this.onChange}
-                   placeholder = "Bobby" 
+                   placeholder = "Bobby"
                    required    = "required" />
           </label> <br />
 
@@ -114,28 +102,15 @@ class Register extends Component {
                    onChange    = {this.onChange} />
           </label><br />
 
-          {/*<label>
-            Password Confirmation
-            <input type        = "password"
-                   name        = "password_confirmation"
-                   value       = {password_confirmation}
-
-            Password:
-            <input type        = "password"
-                   name        = "password"
-                   value       = {password}
-                   onChange    = {this.onChange} />
-          </label><br />
-
           <label>
             Password Confirmation:
             <input type        = "password"
                    name        = "password_confirmation"
                    value       = {password_confirmation}
                    onChange    = {this.onChange} />
-          </label><br />*/}
+          </label><br />
           <div className="recap">
-            <Recaptcha 
+            <Recaptcha
                 className="recap"
                 sitekey="6LfNXToUAAAAAIRKWO5FA5x8IQeuHz_QPDcaPbal"
             />
