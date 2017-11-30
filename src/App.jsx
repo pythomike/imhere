@@ -103,7 +103,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log("mount call")
     fetch(`/currentUser`,{
       method: 'GET',
       mode: 'cors',

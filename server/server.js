@@ -325,6 +325,7 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 
   app.post('/events', (req, res) => {
     req.body.user_id = req.session.userId
+    console.log(req.body)
     dbInsert(req.body, 'events')
     res.send(201)
   })

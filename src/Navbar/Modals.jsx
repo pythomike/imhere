@@ -3,8 +3,8 @@ import CreateEvent from './CreateEvent.jsx';
 import Register from './Register.jsx';
 import Login from './Login.jsx';
 import Logo from './blacklogo.png'
-import { Input, Modal, Button } from "react-materialize";
-import moment from 'moment';
+import { Modal, Button } from "react-materialize";
+// import moment from 'moment';
 
 
 class Modals extends Component {
@@ -24,7 +24,7 @@ class Modals extends Component {
       <nav className="navclass">
         <div className = "navigation-bar">
           <div className="logo">
-            <img className="logoimg" src={Logo} />
+            <img className="logoimg" alt={"logo"} src={Logo} />
           </div>
           <ul id="nav-mobile" className= "right">
             { currentUser ? (
