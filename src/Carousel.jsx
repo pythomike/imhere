@@ -57,7 +57,9 @@ class Carousels extends Component {
       return (
         <div className="container">
           <div className="dt">
-            {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
+            <span className="clickable" onClick={this.props.prev}>&larr;</span>
+                {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
+                <span className="clickable" onClick={this.props.next}>&rarr;</span>
           </div>
           <Carousel key='1'>
             <div className="card card-inverse col0" onClick={this.one} >
@@ -78,7 +80,9 @@ class Carousels extends Component {
       return (
         <div className="container">
           <div className="dt">
-            {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
+            <span className="clickable" onClick={this.props.prev}>&larr;</span>
+                {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
+                <span className="clickable" onClick={this.props.next}>&rarr;</span>
           </div>
           <Carousel key='2'>
 
@@ -111,7 +115,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
+                <span className="clickable" onClick={this.props.prev}>&larr;</span>
                 {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
+                <span className="clickable" onClick={this.props.next}>&rarr;</span>
               </div>
               <Carousel key='3'>
                 <div className="card card-inverse col0" onClick={this.one} >
@@ -150,7 +156,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
+                <span className="clickable" onClick={this.props.prev}>&larr;</span>
                 {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
+                <span className="clickable" onClick={this.props.next}>&rarr;</span>
               </div>
               <Carousel key='4'>
                 <div className="card card-inverse col0" onClick={this.one} >
@@ -198,7 +206,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
+                <span className="clickable" onClick={this.props.prev}>&larr;</span>
                 {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
+                <span className="clickable" onClick={this.props.next}>&rarr;</span>
               </div>
               <Carousel key='5'>
                 <div className="card card-inverse col0" onClick={this.one} >
@@ -255,7 +265,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
+                <span className="clickable" onClick={this.props.prev}>&larr;</span>
                 {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
+                <span className="clickable" onClick={this.props.next}>&rarr;</span>
               </div>
               <Carousel key='6'>
                 <div className="card card-inverse col0" onClick={this.one} >
@@ -321,7 +333,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
+                <span className="clickable" onClick={this.props.prev}>&larr;</span>
                 {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
+                <span className="clickable" onClick={this.props.next}>&rarr;</span>
               </div>
               <Carousel key='7'>
                 <div className="card card-inverse col0" onClick={this.one} >
@@ -396,7 +410,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
+                <span className="clickable" onClick={this.props.prev}>&larr;</span>
                 {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
+                <span className="clickable" onClick={this.props.next}>&rarr;</span>
               </div>
               <Carousel key='8'>
                 <div className="card card-inverse col0" onClick={this.one} >
@@ -480,7 +496,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
+                <span className="clickable" onClick={this.props.prev}>&larr;</span>
                 {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
+                <span className="clickable" onClick={this.props.next}>&rarr;</span>
               </div>
               <Carousel key='9'>
                 <div className="card card-inverse col0" onClick={this.one} >
@@ -573,7 +591,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
+                <span className="clickable" onClick={this.props.prev}>&larr;</span>
                 {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
+                <span className="clickable" onClick={this.props.next}>&rarr;</span>
               </div>
               <Carousel key='10'>
                 <div className="card card-inverse col0" onClick={this.one} >
@@ -674,7 +694,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
+                <span className="clickable" onClick={this.props.prev}>&larr;</span>
                 {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
+                <span className="clickable" onClick={this.props.next}>&rarr;</span>
               </div>
               <Carousel key='11'>
                   <div className="card card-inverse col0" onClick={this.one} >
@@ -785,7 +807,9 @@ class Carousels extends Component {
 
             <div className="container">
               <div className="dt">
+                <span className="clickable" onClick={this.props.prev}>&larr;</span>
                 {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
+                <span className="clickable" onClick={this.props.next}>&rarr;</span>
               </div>
               <Carousel key='12'>
                 <div className="card card-inverse col0" onClick={this.one} >
@@ -903,7 +927,9 @@ class Carousels extends Component {
       return (
         <div className="container">
           <div className="dt">
-            {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
+            <span className="clickable" onClick={this.props.prev}>&larr;</span>
+                {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
+                <span className="clickable" onClick={this.props.next}>&rarr;</span>
           </div>
         </div>
         )

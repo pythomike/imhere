@@ -92,6 +92,7 @@ class App extends Component {
   }
 
   nextDay = () => {
+    console.log("next")
     fetch(`/today/${this.state.daysFromToday + 1}`,{
       method: 'GET',
       mode: 'cors',
@@ -156,10 +157,8 @@ class App extends Component {
         <div>
           <div className="imgbg"></div>
           <div className="allinc">
-            <button onClick={this.prevDay}>PREV</button>
-            <button onClick={this.nextDay}>NEXT</button>
             <Modals loggedIn={this.state.loggedIn} logout={this.onLogout} login={this.onLogin} signUp={this.onSignup}/>
-            <Carousels events={this.state.cards} today={this.state.daysFromToday} getDetails={this.getDetails}/>
+            <Carousels next={this.nextDay} prev={this.prevDay} events={this.state.cards} today={this.state.daysFromToday} getDetails={this.getDetails}/>
           </div>
           {this.state.currentDetails !== '' &&
             <EventDetails event={this.state.currentDetails} />
