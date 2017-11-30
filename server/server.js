@@ -13,10 +13,8 @@ const FacebookStrategy  = require('passport-facebook').Strategy;
 const GoogleStrategy    = require('passport-google-oauth').OAuth2Strategy;
 const Strategy          = require('passport-local').Strategy;
 const moment            = require('moment');
-// const cookieParser = require('cookie-parser');
 
 const app = express();
-// app.use(cookieParser())
 app.set('trust proxy', 1)
 app.use(session({
   secret: 'test123',
@@ -26,183 +24,14 @@ app.use(session({
     maxAge: 864000000 // 10 Days in miliseconds
   }}))
 
-
-// app.use((req, res, next) => {
-//   res.locals.user = req.user;
-//   next();
-// });
 app.use(bodyParser.urlencoded({ extended:false }))
 app.use(bodyParser.json())
-
-// app.use((req, res, next) => {
-//   console.log("my session:", req.session.userId);
-//   next();
-// })
-
-passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-  knex.select().from('users').where({email: email.toLowerCase()})
-  .first()
-  .then(function(err, user) {
-    if (err) { return done(err); }
-    if (!user) {
-      return done(null, false, { msg: `Email ${email} not found.` });
-    }
-    user.comparePassword(password, (err, isMatch) => {
-      if (err) { return done(err); }
-      if (isMatch) {
-        return done(null, user);
-      }
-      return done(null, false, { msg: 'Invalid email or password.' });
-    });
-  })
-}));
-
-// passport.use(new FacebookStrategy({
-//   clientID: process.env.FACEBOOK_ID,
-//   clientSecret: process.env.FACEBOOK_SECRET,
-//   callbackURL: '/auth/facebook/callback',
-//   profileFields: ['name', 'email', 'link', 'locale', 'timezone', 'gender'],
-//   passReqToCallback: true
-// }, (req, accessToken, refreshToken, profile, done) => {
-//   if (req.user) {
-//     User.findOne({ facebook: profile.id }, (err, existingUser) => {
-//       if (err) { return done(err); }
-//       if (existingUser) {
-//         req.flash('errors', { msg: 'There is already a Facebook account that belongs to you. Sign in with that account or delete it, then link it with your current account.' });
-//         done(err);
-//       } else {
-//         User.findById(req.user.id, (err, user) => {
-//           if (err) { return done(err); }
-//           user.facebook = profile.id;
-//           user.tokens.push({ kind: 'facebook', accessToken });
-//           user.profile.name = user.profile.name || `${profile.name.givenName} ${profile.name.familyName}`;
-//           user.profile.gender = user.profile.gender || profile._json.gender;
-//           user.profile.picture = user.profile.picture || `https://graph.facebook.com/${profile.id}/picture?type=large`;
-//           user.save((err) => {
-//             req.flash('info', { msg: 'Facebook account has been linked.' });
-//             done(err, user);
-//           });
-//         });
-//       }
-//     });
-//   } else {
-//     User.findOne({ facebook: profile.id }, (err, existingUser) => {
-//       if (err) { return done(err); }
-//       if (existingUser) {
-//         return done(null, existingUser);
-//       }
-//       User.findOne({ email: profile._json.email }, (err, existingEmailUser) => {
-//         if (err) { return done(err); }
-//         if (existingEmailUser) {
-//           req.flash('errors', { msg: 'There is already an account using this email address. Sign in to that account and link it with Facebook manually from Account Settings.' });
-//           done(err);
-//         } else {
-//           const user = new User();
-//           user.email = profile._json.email;
-//           user.facebook = profile.id;
-//           user.tokens.push({ kind: 'facebook', accessToken });
-//           user.profile.name = `${profile.name.givenName} ${profile.name.familyName}`;
-//           user.profile.gender = profile._json.gender;
-//           user.profile.picture = `https://graph.facebook.com/${profile.id}/picture?type=large`;
-//           user.profile.location = (profile._json.location) ? profile._json.location.name : '';
-//           user.save((err) => {
-//             done(err, user);
-//           });
-//         }
-//       });
-//     });
-//   }
-// }));
-
-// passport.use(new GoogleStrategy({
-//   clientID: process.env.GOOGLE_ID,
-//   clientSecret: process.env.GOOGLE_SECRET,
-//   callbackURL: '/auth/google/callback',
-//   passReqToCallback: true
-// }, (req, accessToken, refreshToken, profile, done) => {
-//   if (req.user) {
-//     User.findOne({ google: profile.id }, (err, existingUser) => {
-//       if (err) { return done(err); }
-//       if (existingUser) {
-//         req.flash('errors', { msg: 'There is already a Google account that belongs to you. Sign in with that account or delete it, then link it with your current account.' });
-//         done(err);
-//       } else {
-//         User.findById(req.user.id, (err, user) => {
-//           if (err) { return done(err); }
-//           user.google = profile.id;
-//           user.tokens.push({ kind: 'google', accessToken });
-//           user.profile.name = user.profile.name || profile.displayName;
-//           user.profile.gender = user.profile.gender || profile._json.gender;
-//           user.profile.picture = user.profile.picture || profile._json.image.url;
-//           user.save((err) => {
-//             req.flash('info', { msg: 'Google account has been linked.' });
-//             done(err, user);
-//           });
-//         });
-//       }
-//     });
-//   } else {
-//     User.findOne({ google: profile.id }, (err, existingUser) => {
-//       if (err) { return done(err); }
-//       if (existingUser) {
-//         return done(null, existingUser);
-//       }
-//       User.findOne({ email: profile.emails[0].value }, (err, existingEmailUser) => {
-//         if (err) { return done(err); }
-//         if (existingEmailUser) {
-//           req.flash('errors', { msg: 'There is already an account using this email address. Sign in to that account and link it with Google manually from Account Settings.' });
-//           done(err);
-//         } else {
-//           const user = new User();
-//           user.email = profile.emails[0].value;
-//           user.google = profile.id;
-//           user.tokens.push({ kind: 'google', accessToken });
-//           user.profile.name = profile.displayName;
-//           user.profile.gender = profile._json.gender;
-//           user.profile.picture = profile._json.image.url;
-//           user.save((err) => {
-//             done(err, user);
-//           });
-//         }
-//       });
-//     });
-//   }
-// }));
-
-// passport.serializeUser(function(user, cb) {
-//   cb(null, user.id);
-// });
-
-// passport.deserializeUser(function(id, cb) {
-//   knex.select().from('users').where({id: id})
-//   .first()
-//   .then(function(err, user) {
-//     if (err) { return cb(err); }
-//     cb(null, user);
-//   })
-// });
-
-// app.use(passport.initialize());
-// app.use(passport.session());
-
-
 
   app.get('/logout', (req, res) => {
     req.session.userId = null;
     res.sendStatus(200)
   })
 
-  /*app.get('/signup', (req, res) => {
-    console.log("get signup...", req.user)
-    if (req.user) {
-      console.log("get signup with user: ", req.user)
-      return res.redirect('/');
-    }
-    return res.redirect('/');
-    // res.render('account/signup', {
-    //   title: 'Create Account'
-    // });
-  })*/
   app.post('/login', (req, res) => {
     knex.select().from('users').where({email: req.body.email})
       .first()
@@ -216,23 +45,6 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
         }
       })
       .catch(err => console.log('error caught', err))
-    // if (errors) {
-    //   req.flash('errors', errors);
-    //   return res.redirect('/login');
-    // }
-
-    // passport.authenticate('local', (err, user, info) => {
-    //   if (err) { return next(err); }
-    //   if (!user) {
-    //     req.flash('errors', info);
-    //     return res.redirect('/login');
-    //   }
-    //   req.logIn(user, (err) => {
-    //     if (err) { return next(err); }
-    //     // req.flash('success', { msg: 'Success! You are logged in.' });
-    //     res.redirect(req.session.returnTo || '/');
-    //   });
-    // })(req, res, next);
   })
 
   app.get('/currentUser', function(req, res) {
@@ -322,7 +134,6 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 
   app.post('/events', (req, res) => {
     req.body.user_id = req.session.userId
-    console.log(req.body)
     dbInsert(req.body, 'events')
     res.send(201)
   })

@@ -101,7 +101,8 @@ class CreateEvent extends Component {
         <form onSubmit = {this.handleFormSubmit}>
           <label>
             Event title:
-            <input type        = "text"
+            <input maxLength   = "30"
+                   type        = "text"
                    name        = "title"
                    value       = {title}
                    onChange    = {this.onChange}
