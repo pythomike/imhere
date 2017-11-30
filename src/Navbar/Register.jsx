@@ -60,6 +60,10 @@ class Register extends Component {
     }
   }
 
+  validator(firstName, lastName, email, phone, pass) => {
+    
+  }
+
   render() {
     const {first_name, last_name, email, phone_number, password, password_confirmation} = this.state;
     return (
@@ -71,7 +75,8 @@ class Register extends Component {
                    name        = "first_name"
                    value       = {first_name}
                    onChange    = {this.onChange}
-                   placeholder = "Bobby" />
+                   placeholder = "Bobby" 
+                   required    = "required" />
           </label> <br />
 
           <label>
@@ -129,11 +134,13 @@ class Register extends Component {
                    value       = {password_confirmation}
                    onChange    = {this.onChange} />
           </label><br />*/}
-          <Recaptcha
-              className="recap"
-              sitekey="6LfNXToUAAAAAIRKWO5FA5x8IQeuHz_QPDcaPbal"
-          />
-          <input className="btnfrm btn waves-effect waves-light btn-flat modal-action" type="submit" value="Submit" />
+          <div className="recap">
+            <Recaptcha 
+                className="recap"
+                sitekey="6LfNXToUAAAAAIRKWO5FA5x8IQeuHz_QPDcaPbal"
+            />
+          </div>
+          <input className="btnfrm btn waves-effect waves-light btn-flat modal-action modal-close" type="submit" value="Submit" />
         </form>
       </div>
     );
