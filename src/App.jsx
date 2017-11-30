@@ -57,6 +57,46 @@ class App extends Component {
       }).catch(err => err);
   }
 
+  prevDay = () => {
+    fetch(`/allevents`,{
+      method: 'GET',
+      mode: 'cors',
+      credentials: 'same-origin',
+      redirect: '/',
+      headers: {
+            "Content-Type": "text/plain"
+        }
+    })
+    .then(function(response) {
+     return response.json();
+    })
+    .then(data => {
+      this.setState({cards: data});
+    }).catch(function(err){
+      console.log(err)
+    })
+  }
+
+  nextDay = () => {
+    fetch(`/allevents`,{
+      method: 'GET',
+      mode: 'cors',
+      credentials: 'same-origin',
+      redirect: '/',
+      headers: {
+            "Content-Type": "text/plain"
+        }
+    })
+    .then(function(response) {
+     return response.json();
+    })
+    .then(data => {
+      this.setState({cards: data});
+    }).catch(function(err){
+      console.log(err)
+    })
+  }
+
   componentDidMount() {
 
     fetch(`/currentUser`,{
@@ -103,7 +143,9 @@ class App extends Component {
         <div>
           <div className="imgbg"></div>
           <div className="allinc">
-          <Modals loggedIn={this.state.loggedIn} logout={this.onLogout} login={this.onLogin}/>
+            <button onClick={this.prevDay}>PREV</button>
+            <button onClick={this.nextDay}>NEXT</button>
+            <Modals loggedIn={this.state.loggedIn} logout={this.onLogout} login={this.onLogin}/>
             <Carousels events={this.state.cards} getDetails={this.getDetails}/>
           </div>
           {this.state.currentDetails !== '' &&
