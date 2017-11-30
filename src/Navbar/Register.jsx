@@ -60,6 +60,10 @@ class Register extends Component {
     }
   }
 
+  validator(firstName, lastName, email, phone, pass) => {
+    
+  }
+
   render() {
     const {first_name, last_name, email, phone_number, password, password_confirmation} = this.state;
     return (
@@ -71,7 +75,8 @@ class Register extends Component {
                    name        = "first_name"
                    value       = {first_name}
                    onChange    = {this.onChange}
-                   placeholder = "Bobby" />
+                   placeholder = "Bobby" 
+                   required    = "required" />
           </label> <br />
 
           <label>
