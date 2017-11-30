@@ -19,7 +19,6 @@ class Modals extends Component {
 
 
   render() {
-    console.log("modal props", this.props)
     const currentUser = this.props.loggedIn
     return (
       <nav className="navclass">

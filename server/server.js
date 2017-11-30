@@ -34,10 +34,10 @@ app.use(session({
 app.use(bodyParser.urlencoded({ extended:false }))
 app.use(bodyParser.json())
 
-app.use((req, res, next) => {
-  console.log("my session:", req.session.userId);
-  next();
-})
+// app.use((req, res, next) => {
+//   console.log("my session:", req.session.userId);
+//   next();
+// })
 
 passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
   knex.select().from('users').where({email: email.toLowerCase()})
@@ -206,15 +206,12 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
     // });
   })*/
   app.post('/login', (req, res) => {
-    console.log("post to login")
     knex.select().from('users').where({email: req.body.email})
       .first()
       .then ((found) => {
         if (found) {
           console.log("signing in")
-          // console.log("found.id: ", found.id)
           req.session.userId = found.id;
-          // console.log(req.session)
           return res.send({loggedIn: true})
         } else {
           console.log("email not found")
@@ -242,8 +239,6 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
   })
 
   app.get('/currentUser', function(req, res) {
-    // console.log("current user id: ", req.session.userId)
-    // console.log("session: ", req.session)
       if (req.session.userId) {
         res.send({loggedIn: true})
       } else {
@@ -253,25 +248,17 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
   })
   app.post('/signup', (req, res) => {
     const user = req.body
-    console.log("session before signup: ", req.session)
-    console.log(req.body)
     knex.select().from('users').where({email: req.body.email})
       .first()
       .then ((found) => {
         if (found) {
           console.log("user already exists... back to signup")
-          // console.log("found.id: ", found.id)
-          // req.session.userId = found.id;
-          // console.log(req.session)
           return res.send(200);
         }
         console.log("user was created")
         const insertPromise = dbInsert(req.body, 'users')
         insertPromise.then((userId) => {
-          // console.log("userId", userId[0])
           req.session.userId = userId[0];
-          // console.log(req.session.userId)
-
           res.send(200)
         })
       })
@@ -279,24 +266,23 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
   })
   // SELECT EVENTS ON A GIVEN DAY
   app.get('/daysevents', function(req, res) {
-    var start = "2017-12-01 21:28:04+00"
     knex('events')
     .select('*')
-    .whereBetween('start_time', ['2017-12-01', '2017,12,02'])
+    .whereBetween('start_time', ['2017-11-29', '2017,11,30'])
     .then(function(event) {
       res.send(event)
     })
   })
 
 // SELECT EVENTS ON A GIVEN DAY
-  app.get('/today', (req, res) => {
-    const lookAtDay = moment().startOf('day')
-    console.log(lookAtDay)
+  app.get('/today/:id', (req, res) => {
+    const startDay = moment();
+    const endDay = moment();
+    let daysFromToday = req.params.id;
     knex('events')
     .select('*')
-    .whereBetween('start_time', [lookAtDay, lookAtDay.add(1, 'days')])
+    .whereBetween('start_time', [startDay.startOf('day').add(daysFromToday, 'day').format(), endDay.endOf('day').add(daysFromToday, 'day').format()])
     .then(function(event) {
-      console.log("todays events", event)
       res.send(event)
       res.end()
     })
@@ -338,6 +324,7 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
 // Add EVENT
 
   app.post('/events', (req, res) => {
+    req.body.user_id = req.session.userId
     dbInsert(req.body, 'events')
     res.send(201)
   })

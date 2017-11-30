@@ -76,10 +76,10 @@ class CreateEvent extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state)
     let eventDetails = this.state
     fetch('/events',{
       method: 'POST',
+      credentials: 'same-origin',
       mode: 'cors',
       redirect: '/',
       body: JSON.stringify(this.state),

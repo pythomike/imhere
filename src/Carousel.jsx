@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import EventCard from './eventCard.jsx';
+// import EventCard from './eventCard.jsx';
 import {Carousel} from 'react-materialize';
 import moment from 'moment'
 import GeoLocation from './geolocation.jsx'
-
-// import EventDetails from './eventDetails.jsx';
 
 class Carousels extends Component {
   constructor(props) {
@@ -59,16 +57,16 @@ class Carousels extends Component {
       return (
         <div className="container">
           <div className="dt">
-            {moment().format("DD MMM, YYYY 〄 h:mm a")}
+            {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
           </div>
-          <Carousel>
+          <Carousel key='1'>
             <div className="card card-inverse col0" onClick={this.one} >
               <div className="card-title">{events[0].title}</div>
               <div>﹀</div>
               <p className="card-text">{events[0].description}</p>
               <footer className="card-geo">
                 <GeoLocation longitude = {events[0].longitude}
-                            latitude  = {events[0].latitude}/>
+                             latitude  = {events[0].latitude}/>
               </footer>
             </div>
           </Carousel>
@@ -80,9 +78,10 @@ class Carousels extends Component {
       return (
         <div className="container">
           <div className="dt">
-            {moment().format("DD MMM, YYYY 〄 h:mm a")}
+            {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
           </div>
-          <Carousel>
+          <Carousel key='2'>
+
             <div className="card card-inverse col0" onClick={this.one} >
               <div className="card-title">{events[0].title}</div>
               <div>﹀</div>
@@ -92,6 +91,7 @@ class Carousels extends Component {
                             latitude  = {events[0].latitude}/>
               </footer>
             </div>
+
             <div className="card card-inverse col1" onClick={this.two} >
               <div className="card-title">{events[1].title}</div>
               <div>﹀</div>
@@ -101,6 +101,7 @@ class Carousels extends Component {
                             latitude  = {events[1].latitude}/>
               </footer>
             </div>
+
           </Carousel>
         </div>
 
@@ -110,9 +111,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
-                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+                {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
               </div>
-              <Carousel>
+              <Carousel key='3'>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
                   <div>﹀</div>
@@ -149,9 +150,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
-                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+                {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
               </div>
-              <Carousel>
+              <Carousel key='4'>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
                   <div>﹀</div>
@@ -197,9 +198,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
-                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+                {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
               </div>
-              <Carousel>
+              <Carousel key='5'>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
                   <div>﹀</div>
@@ -254,9 +255,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
-                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+                {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
               </div>
-              <Carousel>
+              <Carousel key='6'>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
                   <div>﹀</div>
@@ -320,9 +321,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
-                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+                {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
               </div>
-              <Carousel>
+              <Carousel key='7'>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
                   <div>﹀</div>
@@ -395,9 +396,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
-                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+                {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
               </div>
-              <Carousel>
+              <Carousel key='8'>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
                   <div>﹀</div>
@@ -479,9 +480,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
-                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+                {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
               </div>
-              <Carousel>
+              <Carousel key='9'>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
                   <div>﹀</div>
@@ -572,9 +573,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
-                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+                {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
               </div>
-              <Carousel>
+              <Carousel key='10'>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
                   <div>﹀</div>
@@ -673,9 +674,9 @@ class Carousels extends Component {
           return (
             <div className="container">
               <div className="dt">
-                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+                {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
               </div>
-              <Carousel>
+              <Carousel key='11'>
                   <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
                   <div>﹀</div>
@@ -784,9 +785,9 @@ class Carousels extends Component {
 
             <div className="container">
               <div className="dt">
-                {moment().format("DD MMM, YYYY 〄 h:mm a")}
+                {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
               </div>
-              <Carousel>
+              <Carousel key='12'>
                 <div className="card card-inverse col0" onClick={this.one} >
                   <div className="card-title">{events[0].title}</div>
                   <div>﹀</div>
@@ -902,7 +903,7 @@ class Carousels extends Component {
       return (
         <div className="container">
           <div className="dt">
-            {moment().format("DD MMM, YYYY 〄 h:mm a")}
+            {moment().add(this.props.today, 'day').format("DD MMM, YYYY")}
           </div>
         </div>
         )
