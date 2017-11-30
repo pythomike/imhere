@@ -32,17 +32,14 @@ class App extends Component {
         }
     })
     .then(() => {
-      console.log("setting state to false")
       this.setState({loggedIn: false});
     })
     .catch(function(err){
       console.log(err)
     })
-    console.log('onLogout called');
   }
 
   onLogin = (info) => {
-    console.log("app login called with info: ", info)
     fetch(`/login`,{
         method: 'POST',
         mode: 'cors',
@@ -52,7 +49,21 @@ class App extends Component {
           'Content-Type': 'application/json'
         }
       }).then(res => {
-        console.log(res)
+        this.setState({loggedIn: true})
+        return res;
+      }).catch(err => err);
+  }
+
+  onSignup = (info) => {
+    fetch(`/signup`,{
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'same-origin',
+        body: JSON.stringify(info),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(res => {
         this.setState({loggedIn: true})
         return res;
       }).catch(err => err);
@@ -147,7 +158,7 @@ class App extends Component {
           <div className="allinc">
             <button onClick={this.prevDay}>PREV</button>
             <button onClick={this.nextDay}>NEXT</button>
-            <Modals loggedIn={this.state.loggedIn} logout={this.onLogout} login={this.onLogin}/>
+            <Modals loggedIn={this.state.loggedIn} logout={this.onLogout} login={this.onLogin} signUp={this.onSignup}/>
             <Carousels events={this.state.cards} today={this.state.daysFromToday} getDetails={this.getDetails}/>
           </div>
           {this.state.currentDetails !== '' &&

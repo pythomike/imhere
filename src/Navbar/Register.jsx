@@ -43,7 +43,7 @@ class Register extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    if (this.state.email.length >= 3) {
+    this.props.signUp(this.state);
       fetch(`/signup`,{
         method: 'POST',
         mode: 'cors',
@@ -53,11 +53,8 @@ class Register extends Component {
           'Content-Type': 'application/json'
         }
       }).then(res => {
-        console.log("this is a response", res);
-        console.log("cookin'", document.cookie);
         return res;
       }).catch(err => err);
-    }
   }
 
   validator = (firstName, lastName, email, phone, pass) => {

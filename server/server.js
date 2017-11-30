@@ -210,7 +210,6 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, don
       .first()
       .then ((found) => {
         if (found) {
-          console.log("signing in")
           req.session.userId = found.id;
           return res.send({loggedIn: true})
         } else {

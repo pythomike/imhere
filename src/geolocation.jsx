@@ -25,14 +25,16 @@ class gelocation extends React.Component {
       ? <div></div>
       : !this.props.isGeolocationEnabled
         ? <div></div>
-        : this.props.coords
-          ?
-          <div>
-            {Math.round(getDistance(this.props.latitude,this.props.longitude,this.props.coords.latitude,this.props.coords.longitude))}km away
-          </div>
-          : <div>Getting your location data&hellip; </div>
+        : !this.props.coords
+          ? <div>Getting your location data&hellip; </div>
+          : this.props.latitude
+            ? <div>
+              {Math.round(getDistance(this.props.latitude,this.props.longitude,this.props.coords.latitude,this.props.coords.longitude))}km away
+              </div> : <div></div>
   }
 }
+
+
 
 export default geolocated({
   positionOptions: {

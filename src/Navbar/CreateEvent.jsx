@@ -67,8 +67,8 @@ class CreateEvent extends Component {
     } else {
       this.setState({
         location: e,
-        latitude: "",
-        longitude: ""
+        latitude: null,
+        longitude: null
       })
     }
 
