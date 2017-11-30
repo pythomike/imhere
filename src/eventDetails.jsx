@@ -14,21 +14,10 @@ class eventDetails extends Component {
             {currentEvent.title}
           </h3>
           <p className="calp"><img className="calimg" src={calendar} /> Date: {moment(currentEvent.start_time).format("ddd MMM DD, YYYY").toString()}</p>
-          <p className="clockp"><img className="clockimg" src={clockp} />  Time: {moment(currentEvent.start_time).format("h:mmA").toString()} </p>
+          <p className="clockp"> <img className="clockimg" src={clockp} />  Time: {moment(currentEvent.start_time).format("h:mmA").toString()} </p>
           <p className="event-desc">{currentEvent.description}</p>
           <h4>{currentEvent.location}</h4>
 
-        <div className="event-detail-main">
-          <div className="event-detail-location">
-            <h4>{currentEvent.location}</h4>
-          </div>
-        </div>
-
-        <footer className="event-detail-foot">
-          <span className="event-description">
-            <p>{currentEvent.description}</p>
-          </span>
-          <span className="event-extra-info">
             <div className="googlemaps-button">
               <a target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${currentEvent.latitude},${currentEvent.longitude}`}>
                 <img src="https://i.imgur.com/0JAMrnL.png" width="35em" className="googleMaps-icon" alt="map-icon"></img>
