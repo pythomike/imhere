@@ -42,11 +42,11 @@ class Register extends Component {
     e.preventDefault();
     if (this.state.password === this.state.password_confirmation) {
       const data = {
-        first_name: this.state,
-        last_name: this.state,
-        email: this.state,
-        phone_number: this.state,
-        password: this.state
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        email: this.state.email,
+        phone_number: this.state.phone_number,
+        password: this.state.password
       }
       this.props.signUp(data);
     }
