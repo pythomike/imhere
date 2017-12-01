@@ -49,6 +49,7 @@ class App extends Component {
           'Content-Type': 'application/json'
         }
       }).then(res => {
+        console.log(res);
         this.setState({loggedIn: true})
         return res;
       }).catch(err => err);

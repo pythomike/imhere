@@ -43,6 +43,7 @@ app.use(bodyParser.json())
           return res.send({loggedIn: true})
         } else {
           console.log("email not found")
+          return res.send({loggedIn: false})
           res.send(200)
         }
       })
@@ -67,6 +68,7 @@ app.use(bodyParser.json())
           return res.send(200);
         }
         console.log("user was created")
+        console.log(req.body)
         const insertPromise = dbInsert(req.body, 'users')
         insertPromise.then((userId) => {
           req.session.userId = userId[0];
