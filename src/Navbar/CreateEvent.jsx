@@ -149,7 +149,7 @@ class CreateEvent extends Component {
           </label>
 
 
-          <input className="btnfrm btn waves-effect waves-light btn-flat modal-action" type="submit" value="Submit" />
+          <input className="btnfrm btn waves-effect waves-light btn-flat modal-close" type="submit" value="Submit" />
         </form>
       </div>
     );
