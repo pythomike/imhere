@@ -33,10 +33,12 @@ app.use(bodyParser.json())
   })
 
   app.post('/login', (req, res) => {
+    console.log('Login', req.body);
     knex.select().from('users').where({email: req.body.email})
       .first()
       .then ((found) => {
         if (found) {
+          console.log(found);
           req.session.userId = found.id;
           return res.send({loggedIn: true})
         } else {
@@ -138,6 +140,10 @@ app.use(bodyParser.json())
     res.send(201)
   })
 
+  app.get('/amiloggedin', (req, res) => {
+    console.log(req.session);
+    res.json(req.session.userId || -1);
+  })
 // ADD ATTENDEE
   let attendee = {
       user_id: 51,

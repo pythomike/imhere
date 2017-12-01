@@ -19,7 +19,6 @@ class Modals extends Component {
           <ul id="nav-mobile" className= "right">
             { currentUser ? (
               <Modal
-                header='Modal Header'
                 trigger={<Button className="buttons">CREATE EVENT</Button>}>
                 <CreateEvent />
               </Modal>
@@ -30,7 +29,7 @@ class Modals extends Component {
                 header= "Register here to create some fun events:"
                 trigger={<Button className="buttons">LOGIN</Button>}>
                 <Login login={this.props.login}/>
-                <h2>OR Sign up now!</h2>
+                <div className="sUp">OR Sign up now!</div>
                 <Register signUp={this.props.signUp}/>
               </Modal>
 

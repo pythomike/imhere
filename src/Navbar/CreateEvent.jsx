@@ -97,7 +97,7 @@ class CreateEvent extends Component {
     const { title, max_attendees, location, description, start_time } = this.state;
     return (
       <div>
-        <h4>creating event bs</h4>
+        <h4>Bored AF? Create an event!</h4>
         <form onSubmit = {this.handleFormSubmit}>
           <label>
             Event title:
@@ -117,26 +117,6 @@ class CreateEvent extends Component {
                     value       = {max_attendees}
                     onChange    = {this.handlemax_attendees} />
           </label> <br />
-
-          <div className="radioName">
-            Creator:
-            <label>
-              <input type     = "radio"
-                     name     = "creator_name"
-                     value    = "firstName"
-                     checked  = {this.state.creator_name === 'firstName'}
-                     onChange = {this.onChange}
-              /> firstName
-            </label>
-            <label>
-              <input type     = "radio"
-                     name     = "creator_name"
-                     value    = "Anonymous"
-                     checked  = {this.state.creator_name === 'Anonymous'}
-                     onChange = {this.onChange}
-              /> Anonymous
-            </label>
-          </div>
 
           <label>
             Location:
@@ -168,23 +148,7 @@ class CreateEvent extends Component {
                    />
           </label>
 
-          <div className="radioEvent">
-            Public or Private event?
-            <label>
-              <input type     = "radio"
-                     name     = "private_event"
-                     checked  = {this.state.private_event === false}
-                     onChange = {this.handlePrivateChange}
-              /> Public
-            </label>
-            <label>
-              <input type     = "radio"
-                     name     = "private_event"
-                     checked  = {this.state.private_event === true}
-                     onChange = {this.handlePrivateChange}
-              /> Private
-            </label>
-          </div>
+
           <input className="btnfrm btn waves-effect waves-light btn-flat modal-action" type="submit" value="Submit" />
         </form>
       </div>
