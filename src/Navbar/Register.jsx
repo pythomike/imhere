@@ -63,7 +63,7 @@ class Register extends Component {
                    name        = "first_name"
                    value       = {first_name}
                    onChange    = {this.onChange}
-                   placeholder = "Bobby"
+                   placeholder = "John"
                    required    = "required" />
           </label> <br />
 
@@ -73,7 +73,7 @@ class Register extends Component {
                    name        = "last_name"
                    value       = {last_name}
                    onChange    = {this.onChange}
-                   placeholder = "Sloppy" />
+                   placeholder = "McClane" />
           </label> <br />
 
           <label>
@@ -82,7 +82,7 @@ class Register extends Component {
                    name        = "email"
                    value       = {email}
                    onChange    = {this.onChange}
-                   placeholder = "sloppybobby@yahoo.com" />
+                   placeholder = "johnMcClane@diehard.com" />
           </label><br />
 
           <label>

@@ -38,7 +38,7 @@ class Login extends Component {
                     name        = "email"
                     value       = {email}
                     onChange    = {this.onChange}
-                    placeholder = "sloppybobby@yahoo.com" />
+                    placeholder = "johnMcClane@diehard.com" />
           </label><br />
 
           <label>
